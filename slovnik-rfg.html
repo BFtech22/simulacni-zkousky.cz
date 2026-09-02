@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+<title>Slovník pojmů RfG — ÚPOS, DVM, LFSM, FRT a další | Simulační zkoušky</title>
+<meta name="description" content="Vysvětlení zkratek kolem ověřování souladu výroben: RfG, PPDS příloha 4, ÚPOS, DPO, ÚTP, DVM, FRT, UVRT, LFSM-O a LFSM-U, FSM, RoCoF, Q(U), ZUE a další.">
+<link rel="canonical" href="https://www.simulacni-zkousky.cz/slovnik-rfg.html">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Simulační zkoušky – BFK systems s.r.o.">
+<meta property="og:title" content="Slovník pojmů RfG — ÚPOS, DVM, LFSM, FRT a další">
+<meta property="og:description" content="Vysvětlení zkratek kolem ověřování souladu výroben: RfG, PPDS příloha 4, ÚPOS, DPO, ÚTP, DVM, FRT, UVRT, LFSM-O a LFSM-U, FSM, RoCoF, Q(U), ZUE a další.">
+<meta property="og:url" content="https://www.simulacni-zkousky.cz/slovnik-rfg.html">
+<meta property="og:image" content="https://www.simulacni-zkousky.cz/assets/title-photo.jpg">
+<meta property="og:locale" content="cs_CZ">
+<meta name="theme-color" content="#3C3C3C">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Úvod",
+      "item": "https://www.simulacni-zkousky.cz/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Proces",
+      "item": "https://www.simulacni-zkousky.cz/proces-pripojeni.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Slovník pojmů"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<!-- HLAVICKA (generovano z nastroje/build.py) -->
+<header class="site-header">
+  <div class="container row">
+    <div class="brand-wrap">
+      <a class="brand" href="index.html" aria-label="simulacni-zkousky.cz – úvodní stránka">
+        <picture>
+          <source type="image/webp" srcset="assets/logo-sz-300.webp 300w, assets/logo-sz-600.webp 600w" sizes="150px">
+          <img src="assets/logo-sz-600.png" alt="simulacni-zkousky.cz" width="1037" height="324" srcset="assets/logo-sz-300.png 300w, assets/logo-sz-600.png 600w" sizes="150px">
+        </picture>
+      </a>
+      <a class="brand-by" href="https://www.bfksystems.cz/" target="_blank" rel="noopener" title="Web provozuje BFK systems s.r.o.">
+        <picture>
+          <source type="image/webp" srcset="assets/bfk-znacka-60.webp 60w, assets/bfk-znacka-120.webp 120w" sizes="30px">
+          <img src="assets/bfk-znacka-120.png" alt="" width="120" height="120" srcset="assets/bfk-znacka-60.png 60w, assets/bfk-znacka-120.png 120w" sizes="30px">
+        </picture>
+        <span class="lbl">provozuje<b>BFK systems</b></span>
+      </a>
+    </div>
+    <nav class="primary" aria-label="Hlavní navigace">
+      <div class="has-sub">
+        <button class="sub-toggle" type="button" aria-expanded="false">
+          Kategorie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="sub">
+          <a href="kategorie-a1.html">A1 — do 11 kW</a>
+          <a href="kategorie-a2.html">A2 — 11 až 100 kW</a>
+          <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
+          <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
+          <a href="kategorie-c-d.html">C a D — nad 30 MW</a>
+          <a href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+          <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <button class="sub-toggle" type="button" aria-expanded="false">
+          Distributoři <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="sub">
+          <a href="cez-distribuce.html">ČEZ Distribuce</a>
+          <a href="egd.html">EG.D</a>
+          <a href="predistribuce.html">PREdistribuce</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <button class="sub-toggle" type="button" aria-expanded="false">
+          Služby <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="sub">
+          <a href="simulace-souladu.html">Simulace souladu</a>
+          <a href="zkousky-na-miste.html">Zkoušky na místě</a>
+          <a href="zkousky-ochran.html">Zkoušky ochran</a>
+          <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
+          <a href="podklady.html">Podklady k zahájení</a>
+        </div>
+      </div>
+      <div class="has-sub is-active">
+        <button class="sub-toggle" type="button" aria-expanded="false">
+          Proces <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="sub">
+          <a href="proces-pripojeni.html">Proces připojení krok za krokem</a>
+          <a href="upos.html">ÚPOS — dočasný provoz</a>
+          <a href="utp.html">ÚTP — trvalý provoz</a>
+          <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
+          <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
+          <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
+        </div>
+      </div>
+      <a href="reference.html">Reference</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="header-cta" href="kontakt.html"><span class="dlouhy">Nezávazná poptávka</span><span class="kratky">Poptávka</span></a>
+    </nav>
+    <button class="hamburger" id="menu-open" type="button" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mmenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mmenu" role="dialog" aria-modal="true" aria-label="Hlavní navigace">
+  <button class="close" id="menu-close" type="button" aria-label="Zavřít menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <p class="m-group">Kategorie</p>
+  <a class="m-sub" href="kategorie-a1.html">A1 — do 11 kW</a>
+  <a class="m-sub" href="kategorie-a2.html">A2 — 11 až 100 kW</a>
+  <a class="m-sub" href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
+  <a class="m-sub" href="kategorie-b2.html">B2 — 1 až 30 MW</a>
+  <a class="m-sub" href="kategorie-c-d.html">C a D — nad 30 MW</a>
+  <a class="m-sub" href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+  <a class="m-sub" href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
+  <p class="m-group">Distributoři</p>
+  <a class="m-sub" href="cez-distribuce.html">ČEZ Distribuce</a>
+  <a class="m-sub" href="egd.html">EG.D</a>
+  <a class="m-sub" href="predistribuce.html">PREdistribuce</a>
+  <p class="m-group">Služby</p>
+  <a class="m-sub" href="simulace-souladu.html">Simulace souladu</a>
+  <a class="m-sub" href="zkousky-na-miste.html">Zkoušky na místě</a>
+  <a class="m-sub" href="zkousky-ochran.html">Zkoušky ochran</a>
+  <a class="m-sub" href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
+  <a class="m-sub" href="podklady.html">Podklady k zahájení</a>
+  <p class="m-group">Proces</p>
+  <a class="m-sub" href="proces-pripojeni.html">Proces připojení krok za krokem</a>
+  <a class="m-sub" href="upos.html">ÚPOS — dočasný provoz</a>
+  <a class="m-sub" href="utp.html">ÚTP — trvalý provoz</a>
+  <a class="m-sub" href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
+  <a class="m-sub" href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
+  <a class="m-sub" href="slovnik-rfg.html">Slovník pojmů RfG</a>
+  <a href="reference.html">Reference</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="faq.html">Časté dotazy</a>
+  <a class="cta-mobile" href="kontakt.html">Nezávazná poptávka</a>
+</div>
+<section class="block">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Drobečková navigace">
+      <a href="index.html">Úvod</a> <span>›</span>
+      <a href="proces-pripojeni.html">Proces</a> <span>›</span>
+      <span aria-current="page">Slovník pojmů</span>
+    </nav>
+    <div class="section-head">
+      <p class="eyebrow">Referenční přehled</p>
+      <h1>Slovník pojmů RfG</h1>
+      <p>Zkratky, které v této agendě potkáte v každém dokumentu. Každé heslo má kotvu, takže na něj jde odkázat přímo — třeba <a href="#upos">#upos</a>.</p>
+      <p class="reviewed"><b>Metodiky provozovatelů distribučních soustav se průběžně mění.</b> U konkrétního projektu vždy ověřujeme aktuální verzi dokumentů příslušného provozovatele.</p>
+    </div>
+    
+  </div>
+</section>
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Co je co</p>
+      <h2>Předpisy a dokumenty</h2>
+    </div>
+    <dl class="glossary">
+      <div>
+        <dt><span id="rfg">RfG</span></dt>
+        <dd>Nařízení Komise (EU) 2016/631, „Requirements for Generators“. Evropská pravidla pro připojování výroben k elektrizační soustavě. V Česku jsou provedena přes PPDS, přílohu 4.</dd>
+      </div>
+      <div>
+        <dt><span id="ppds">PPDS, příloha 4</span></dt>
+        <dd>Pravidla provozování distribučních soustav, příloha 4 — pravidla pro paralelní provoz výroben a akumulačních zařízení se sítí provozovatele distribuční soustavy (únor 2022). Základní český předpis celé agendy.</dd>
+      </div>
+      <div>
+        <dt><span id="sop">SoP</span><small>smlouva o připojení</small></dt>
+        <dd>Určuje kategorii výrobního modulu, rezervovaný výkon a podmínky připojení. Bez platné smlouvy o připojení nelze připojit nic — a je to i dokument, ve kterém se kategorie hledá.</dd>
+      </div>
+      <div>
+        <dt><span id="dvm">DVM</span><small>Dokument výrobního modulu</small></dt>
+        <dd>Formulář s Tabulkou 1 požadavků; u každého bodu je předepsaná cesta ověření — zkouška, simulace, nebo certifikát. Varianty: B1, B2, DVM-D a DVM-ZUE-D. <a href="dokument-vyrobniho-modulu.html">Detail →</a></dd>
+      </div>
+      <div>
+        <dt><span id="instalacni-dokument">Instalační dokument</span></dt>
+        <dd>Obdoba DVM pro kategorie A1 a A2, platná od 1. 1. 2025. Soulad se prokazuje certifikáty — bez zkoušek na výrobně a bez simulací.</dd>
+      </div>
+      <div>
+        <dt><span id="certifikat">Certifikát zařízení</span></dt>
+        <dd>Doklad o souladu vydaný certifikátorem akreditovaným u ČIA. Nahradí zkoušku nebo simulaci jen tam, kde to Tabulka 1 připouští, a jen u výrobny z jedné výrobní jednotky.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Fáze a pojmy</p>
+      <h2>Proces</h2>
+    </div>
+    <dl class="glossary">
+      <div>
+        <dt><span id="upos">ÚPOS</span></dt>
+        <dd>Souhlas s dočasným provozem pro ověření souladu (jinde „umožnění provozu pro ověření souladu“). Fáze, ve které se smí vyrábět jen kvůli zkouškám a simulacím. <a href="upos.html">Detail →</a></dd>
+      </div>
+      <div>
+        <dt><span id="dpo">DPO</span><small>Dočasné provozní oznámení</small></dt>
+        <dd>Vydá provozovatel distribuční soustavy po schválení žádosti o ÚPOS. Platí nejdéle 12 měsíců podle harmonogramu zkoušek.</dd>
+      </div>
+      <div>
+        <dt><span id="utp">ÚTP / KPO</span></dt>
+        <dd>Uvedení do trvalého provozu a konečné provozní oznámení — cíl celého procesu. KPO platí do odpojení výrobny. <a href="utp.html">Detail →</a></dd>
+      </div>
+      <div>
+        <dt><span id="ve-vm-vj">VE / VM / VJ</span></dt>
+        <dd>Výrobna elektřiny (celý areál) → výrobní modul (jednotka prokazování souladu, jedno rozpadové místo) → výrobní jednotka (konkrétní střídač nebo generátor).</dd>
+      </div>
+      <div>
+        <dt><span id="kategorie">Kategorie výrobního modulu</span></dt>
+        <dd>A1, A2, B1, B2, C, D — podle výkonu a napěťové hladiny. Dělení A1/A2 a B1/B2 je české upřesnění, v RfG není. Kategorie je dána ve smlouvě o připojení.</dd>
+      </div>
+      <div>
+        <dt><span id="rozpadove-misto">Rozpadové místo</span></dt>
+        <dd>Místo, kde síťová ochrana odpojí výrobní modul od distribuční soustavy při poruše. Nastavení předepisuje distributor. <a href="rozpadove-misto.html">Tabulka hodnot →</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Zkratky z metodik</p>
+      <h2>Technické požadavky</h2>
+    </div>
+    <dl class="glossary">
+      <div>
+        <dt><span id="frt">FRT / UVRT / OVRT</span></dt>
+        <dd>Fault Ride Through — schopnost výrobny „přežít“ krátký pokles (UVRT) nebo zvýšení (OVRT) napětí bez odpojení.</dd>
+      </div>
+      <div>
+        <dt><span id="lfsm">LFSM-O / LFSM-U</span></dt>
+        <dd>Omezená frekvenční citlivost: automatické snížení činného výkonu při nadfrekvenci (od 50,2 Hz) a zvýšení při podfrekvenci (od 49,8 Hz), statika 5 %.</dd>
+      </div>
+      <div>
+        <dt><span id="fsm">FSM</span><small>Frequency Sensitive Mode</small></dt>
+        <dd>Plná frekvenční odezva činného výkonu v pásmu ±200 mHz. U kategorií C a D povinná schopnost, ověřuje se simulací.</dd>
+      </div>
+      <div>
+        <dt><span id="rocof">RoCoF</span></dt>
+        <dd>Rate of Change of Frequency — odolnost proti rychlosti změny frekvence (±2 Hz/s).</dd>
+      </div>
+      <div>
+        <dt><span id="qu">Q(U) a U/Q regulace</span></dt>
+        <dd>Q(U) je autonomní řízení jalového výkonu podle napětí (charakteristika s mrtvým pásmem). U/Q je dálková regulace napětí jalovým výkonem podle pokynů dispečinku. Který režim platí, se u ČEZ Distribuce odvíjí od rezervovaného výkonu.</dd>
+      </div>
+      <div>
+        <dt><span id="statika">Statika</span></dt>
+        <dd>Poměr relativní změny frekvence k relativní změně činného výkonu. U LFSM se pracuje se statikou 5 %.</dd>
+      </div>
+      <div>
+        <dt><span id="pref">Pref</span><small>referenční výkon</small></dt>
+        <dd>Výkon, ke kterému se vztahuje odezva při frekvenčních testech. Pozor: pro LFSM-O, pro odezvu při podfrekvenci a pro LFSM-U u akumulace to nejsou tytéž hodnoty — chybný referenční výkon je běžný důvod, proč se simulace vrací.</dd>
+      </div>
+      <div>
+        <dt><span id="pq">PQ diagram</span></dt>
+        <dd>Zobrazení dovolené kombinace činného a jalového výkonu. U akumulace platí pro oba směry činného výkonu.</dd>
+      </div>
+      <div>
+        <dt><span id="kvalimetr">Kvalimetr třídy A</span></dt>
+        <dd>Analyzátor kvality elektřiny podle ČSN EN 61000-4-30, třída A — povinné vybavení zkoušek: záznam 10 ms i 200 ms RMS, vzorkování nejméně 3 kHz.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Zkratky z provozu</p>
+      <h2>Provoz a komunikace</h2>
+    </div>
+    <dl class="glossary">
+      <div>
+        <dt><span id="zue">ZUE / BSAE / BESS</span></dt>
+        <dd>Zařízení pro ukládání elektřiny (termín předpisů) = bateriový systém akumulace = battery energy storage system. Tři názvy pro totéž. <a href="bateriova-uloziste-zue.html">Detail →</a></dd>
+      </div>
+      <div>
+        <dt><span id="dece">DE ČE</span></dt>
+        <dd>Podklady EG.D pro dispečerské řízení a chránění decentrálních zdrojů. Popisují rozsah signálů, stupně řízení výkonu a telemetrii. <a href="egd.html">Detail →</a></dd>
+      </div>
+      <div>
+        <dt><span id="drs">DŘS</span><small>dispečerský řídicí systém</small></dt>
+        <dd>Systém dispečinku distributora, do kterého výrobna posílá telemetrii a od kterého přijímá povely. Přenos probíhá protokolem IEC 60870-5-104.</dd>
+      </div>
+      <div>
+        <dt><span id="opm">OPM</span><small>odběrné a předávací místo</small></dt>
+        <dd>Místo, kde se předává elektřina mezi distribuční soustavou a zákazníkem — v němž je osazeno fakturační měření.</dd>
+      </div>
+      <div>
+        <dt><span id="tps">TPS</span><small>transformovna / předávací stanice</small></dt>
+        <dd>Uzel, přes který se výrobna připojuje na vyšší napěťovou hladinu; na vvn se přes něj vede i komunikace do dispečinku.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<section class="block">
+  <div class="container">
+    <div class="crosslinks">
+      <span class="t">Souvisejicí stránky</span>
+      <a href="proces-pripojeni.html">Proces připojení</a>
+      <a href="index.html#kategorie">Kategorie výroben</a>
+      <a href="faq.html">Časté dotazy</a>
+    </div>
+  </div>
+</section>
+<section class="contact-section" id="poptavka">
+  <div class="bg"><picture>
+    <source type="image/webp" srcset="assets/title-photo-1024.webp 1024w, assets/title-photo.webp 2048w" sizes="(max-width: 980px) 100vw, 33vw">
+    <img src="assets/title-photo.jpg" alt="" aria-hidden="true" loading="lazy" width="2048" height="1536" srcset="assets/title-photo-1024.jpg 1024w, assets/title-photo.jpg 2048w" sizes="(max-width: 980px) 100vw, 33vw">
+  </picture></div>
+  <div class="container contact-grid">
+    <div class="contact-aside">
+      <p class="eyebrow">Poptávka</p>
+      <h2>Pošlete nám smlouvu<br>o připojení.</h2>
+      <p>Ze smlouvy o připojení a jednopólového schématu poznáme kategorii výrobního modulu i rozsah ověření. Ozveme se s tím, co vás čeká, do dvou pracovních dnů.</p>
+      <div class="quick">
+        <a href="tel:+420776111100">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.25a2 2 0 0 1 2.11-.45c.85.33 1.74.56 2.64.68A2 2 0 0 1 22 16.92z"/></svg></span>
+          +420 776 111 100
+        </a>
+        <a href="mailto:info@bfksystems.cz">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+          info@bfksystems.cz
+        </a>
+      </div>
+      <div class="firm">
+        <b>BFK systems s.r.o.</b><br>
+        Obchodní 455/12, 405 02 Děčín<br>
+        IČO 23571853 · DIČ CZ23571853
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <h3 style="margin:0 0 14px;font-size:20px;color:#222">Co potřebujeme vědět</h3>
+      <p style="margin:0 0 18px;font-size:15px">Čím víc toho napíšete rovnou, tím přesněji odpovíme. Ideálně: provozovatel distribuční soustavy, kategorie ze smlouvy o připojení, instalovaný výkon, počet a typ střídačů a jestli je součástí bateriové úložiště.</p>
+      <a class="btn btn-primary" href="kontakt.html">Přejít na poptávkový formulář</a>
+    </div>
+  </div>
+</section>
+<!-- PATICKA -->
+<footer class="site">
+  <div class="container grid">
+    <div class="logo-cell">
+      <picture>
+          <source type="image/webp" srcset="assets/logo-sz-300.webp 300w, assets/logo-sz-600.webp 600w" sizes="210px">
+          <img src="assets/logo-sz-600.png" alt="simulacni-zkousky.cz" width="1037" height="324" srcset="assets/logo-sz-300.png 300w, assets/logo-sz-600.png 600w" sizes="210px">
+        </picture>
+      <span class="foot-by">Web provozuje</span>
+      <a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">
+        <picture>
+          <source type="image/webp" srcset="assets/bfk-logo-210.webp 210w, assets/bfk-logo-420.webp 420w" sizes="150px">
+          <img class="foot-bfk" src="assets/bfk-logo-420.png" alt="BFK systems s.r.o." width="420" height="171" srcset="assets/bfk-logo-210.png 210w, assets/bfk-logo-420.png 420w" sizes="150px">
+        </picture>
+      </a>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <div><span class="lbl">Tel</span><a href="tel:+420776111100" style="display:inline">+420 776 111 100</a></div>
+      <div><span class="lbl">Mail</span><a href="mailto:info@bfksystems.cz" style="display:inline">info@bfksystems.cz</a></div>
+      <div style="margin-top:10px">Obchodní 455/12<br>405 02 Děčín</div>
+      <div style="margin-top:10px">IČO 23571853<br>DIČ CZ23571853</div>
+    </div>
+    <div>
+      <h4>Kategorie</h4>
+      <a href="kategorie-a1.html">A1 — do 11 kW</a>
+      <a href="kategorie-a2.html">A2 — 11 až 100 kW</a>
+      <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
+      <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
+      <a href="kategorie-c-d.html">C a D — nad 30 MW</a>
+      <a href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+      <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
+    </div>
+    <div>
+      <h4>Distributoři</h4>
+      <a href="cez-distribuce.html">ČEZ Distribuce</a>
+      <a href="egd.html">EG.D</a>
+      <a href="predistribuce.html">PREdistribuce</a>
+    </div>
+    <div>
+      <h4>Služby</h4>
+      <a href="simulace-souladu.html">Simulace souladu</a>
+      <a href="zkousky-na-miste.html">Zkoušky na místě</a>
+      <a href="zkousky-ochran.html">Zkoušky ochran</a>
+      <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
+      <a href="podklady.html">Podklady k zahájení</a>
+    </div>
+    <div>
+      <h4>Proces</h4>
+      <a href="proces-pripojeni.html">Proces připojení krok za krokem</a>
+      <a href="upos.html">ÚPOS — dočasný provoz</a>
+      <a href="utp.html">ÚTP — trvalý provoz</a>
+      <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
+      <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
+      <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
+    </div>
+    <div>
+      <h4>Dále</h4>
+      <a href="reference.html">Reference</a>
+      <a href="faq.html">Časté dotazy</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">bfksystems.cz</a>
+      <a href="https://www.bftechnology.cz/" target="_blank" rel="noopener">bftechnology.cz</a>
+    </div>
+  </div>
+  <div class="copy">
+    <div class="container row">
+      <span>© <span id="year">2026</span> BFK systems s.r.o. – všechna práva vyhrazena</span>
+      <span><a href="zasady-zpracovani-osobnich-udaju.html">Zásady zpracování osobních údajů</a></span>
+      <span>www.simulacni-zkousky.cz</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/nav.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+<title>Simulační zkoušky a ověření souladu RfG | BFK systems</title>
+<meta name="description" content="Ověření souladu výroben s RfG: simulace souladu v DIgSILENT PowerFactory, zkoušky na místě, Dokument výrobního modulu, žádosti o ÚPOS a ÚTP. Fotovoltaika i baterie od 100 kW.">
+<link rel="canonical" href="https://www.simulacni-zkousky.cz/">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Simulační zkoušky – BFK systems s.r.o.">
+<meta property="og:title" content="Simulační zkoušky a ověření souladu RfG | BFK systems">
+<meta property="og:description" content="Ověření souladu výroben s RfG: simulace souladu v DIgSILENT PowerFactory, zkoušky na místě, Dokument výrobního modulu, žádosti o ÚPOS a ÚTP. Fotovoltaika i baterie od 100 kW.">
+<meta property="og:url" content="https://www.simulacni-zkousky.cz/">
+<meta property="og:image" content="https://www.simulacni-zkousky.cz/assets/title-photo.jpg">
+<meta property="og:locale" content="cs_CZ">
+<meta name="theme-color" content="#3C3C3C">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Co jsou „simulační zkoušky“?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Souhrnné označení pro ověření souladu výrobny s RfG:  simulace souladu  (matematický model výrobny) a  zkoušky na místě  (měření na hotové elektrárně). Rozsah obojího určuje kategorie výrobního modulu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Od jakého výkonu se mě to týká?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ověření souladu se týká každé výrobny a každého bateriového úložiště připojeného paralelně s distribuční soustavou. Do 100 kW (kategorie A1 a A2) se ale prokazuje výhradně certifikáty zařízení — bez zkoušek na výrobně a bez simulací. Od 100 kW (kategorie B1) přicházejí zkoušky na místě i simulace."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak zjistím kategorii své výrobny?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je uvedena ve  smlouvě o připojení . Orientačně ji poznáte z výkonu podle tabulky výš — u fotovoltaiky s baterií se posuzuje celkový výkon výrobny. Rozhodující je vždy smlouva."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Musí k nám u B1 někdo fyzicky přijet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano. U kategorie B1 je šest bodů vázaných výhradně na zkoušku na místě: řízení činného výkonu, automatické opětovné připojení, komunikace a výměna informací, regulace U/Q/cos φ, nastavení ochran a omezování výkonu. Zbytek se dá doložit od stolu simulací nebo certifikátem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kdy stačí certifikát a nemusí se nic měřit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jen u bodů, kde to Tabulka 1 připouští, a  jen u výrobny složené z jediné výrobní jednotky . Máte-li čtyři střídače, certifikátem to nedoložíte a řeší se to simulací celé výrobny. Body „jen zkouška“ nenahradí certifikát nikdy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Platí ještě protokoly laboratoří?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ne. Protokoly laboratoří provozovatelů distribučních soustav platily jako alternativa certifikátu  jen do 31. 12. 2025 . Dnes je platným dokladem certifikát od subjektu akreditovaného u ČIA podle RfG a nařízení (ES) 765/2008."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Děláte to i pro elektrárny, které jste nestavěli?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano, tvoří to velkou část naší práce — zpracováváme studie pro jiné dodavatele fotovoltaiky i pro investory. Potřebujeme  podklady , ne vlastní stavbu."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<!-- HLAVICKA (generovano z nastroje/build.py) -->
+<header class="site-header">
+  <div class="container row">
+    <div class="brand-wrap">
+      <a class="brand" href="index.html" aria-label="simulacni-zkousky.cz – úvodní stránka">
+        <picture>
+          <source type="image/webp" srcset="assets/logo-sz-300.webp 300w, assets/logo-sz-600.webp 600w" sizes="150px">
+          <img src="assets/logo-sz-600.png" alt="simulacni-zkousky.cz" width="1037" height="324" srcset="assets/logo-sz-300.png 300w, assets/logo-sz-600.png 600w" sizes="150px">
+        </picture>
+      </a>
+      <a class="brand-by" href="https://www.bfksystems.cz/" target="_blank" rel="noopener" title="Web provozuje BFK systems s.r.o.">
+        <picture>
+          <source type="image/webp" srcset="assets/bfk-znacka-60.webp 60w, assets/bfk-znacka-120.webp 120w" sizes="30px">
+          <img src="assets/bfk-znacka-120.png" alt="" width="120" height="120" srcset="assets/bfk-znacka-60.png 60w, assets/bfk-znacka-120.png 120w" sizes="30px">
+        </picture>
+        <span class="lbl">provozuje<b>BFK systems</b></span>
+      </a>
+    </div>
+    <nav class="primary" aria-label="Hlavní navigace">
+      <div class="has-sub">
+        <button class="sub-toggle" type="button" aria-expanded="false">
+          Kategorie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="sub">
+          <a href="kategorie-a1.html">A1 — do 11 kW</a>
+          <a href="kategorie-a2.html">A2 — 11 až 100 kW</a>
+          <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
+          <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
+          <a href="kategorie-c-d.html">C a D — nad 30 MW</a>
+          <a href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+          <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <button class="sub-toggle" type="button" aria-expanded="false">
+          Distributoři <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="sub">
+          <a href="cez-distribuce.html">ČEZ Distribuce</a>
+          <a href="egd.html">EG.D</a>
+          <a href="predistribuce.html">PREdistribuce</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <button class="sub-toggle" type="button" aria-expanded="false">
+          Služby <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="sub">
+          <a href="simulace-souladu.html">Simulace souladu</a>
+          <a href="zkousky-na-miste.html">Zkoušky na místě</a>
+          <a href="zkousky-ochran.html">Zkoušky ochran</a>
+          <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
+          <a href="podklady.html">Podklady k zahájení</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <button class="sub-toggle" type="button" aria-expanded="false">
+          Proces <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="sub">
+          <a href="proces-pripojeni.html">Proces připojení krok za krokem</a>
+          <a href="upos.html">ÚPOS — dočasný provoz</a>
+          <a href="utp.html">ÚTP — trvalý provoz</a>
+          <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
+          <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
+          <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
+        </div>
+      </div>
+      <a href="reference.html">Reference</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="header-cta" href="kontakt.html"><span class="dlouhy">Nezávazná poptávka</span><span class="kratky">Poptávka</span></a>
+    </nav>
+    <button class="hamburger" id="menu-open" type="button" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mmenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mmenu" role="dialog" aria-modal="true" aria-label="Hlavní navigace">
+  <button class="close" id="menu-close" type="button" aria-label="Zavřít menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <p class="m-group">Kategorie</p>
+  <a class="m-sub" href="kategorie-a1.html">A1 — do 11 kW</a>
+  <a class="m-sub" href="kategorie-a2.html">A2 — 11 až 100 kW</a>
+  <a class="m-sub" href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
+  <a class="m-sub" href="kategorie-b2.html">B2 — 1 až 30 MW</a>
+  <a class="m-sub" href="kategorie-c-d.html">C a D — nad 30 MW</a>
+  <a class="m-sub" href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+  <a class="m-sub" href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
+  <p class="m-group">Distributoři</p>
+  <a class="m-sub" href="cez-distribuce.html">ČEZ Distribuce</a>
+  <a class="m-sub" href="egd.html">EG.D</a>
+  <a class="m-sub" href="predistribuce.html">PREdistribuce</a>
+  <p class="m-group">Služby</p>
+  <a class="m-sub" href="simulace-souladu.html">Simulace souladu</a>
+  <a class="m-sub" href="zkousky-na-miste.html">Zkoušky na místě</a>
+  <a class="m-sub" href="zkousky-ochran.html">Zkoušky ochran</a>
+  <a class="m-sub" href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
+  <a class="m-sub" href="podklady.html">Podklady k zahájení</a>
+  <p class="m-group">Proces</p>
+  <a class="m-sub" href="proces-pripojeni.html">Proces připojení krok za krokem</a>
+  <a class="m-sub" href="upos.html">ÚPOS — dočasný provoz</a>
+  <a class="m-sub" href="utp.html">ÚTP — trvalý provoz</a>
+  <a class="m-sub" href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
+  <a class="m-sub" href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
+  <a class="m-sub" href="slovnik-rfg.html">Slovník pojmů RfG</a>
+  <a href="reference.html">Reference</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="faq.html">Časté dotazy</a>
+  <a class="cta-mobile" href="kontakt.html">Nezávazná poptávka</a>
+</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="photo"><picture>
+    <source type="image/webp" srcset="assets/title-photo-1024.webp 1024w, assets/title-photo.webp 2048w" sizes="100vw">
+    <img src="assets/title-photo.jpg" alt="Fotovoltaická elektrárna na průmyslové střeše" width="2048" height="1536" fetchpriority="high" srcset="assets/title-photo-1024.jpg 1024w, assets/title-photo.jpg 2048w" sizes="100vw">
+  </picture></div>
+  <div class="gradient-overlay"></div>
+  <div class="content">
+    <p class="hero-eyebrow">BFK systems &middot; ověření souladu s RfG</p>
+    <h1>Simulační zkoušky a ověření souladu výroben</h1>
+    <p class="hero-claim-big">Simulace souladu, zkoušky na místě, Dokument výrobního modulu — od jedné firmy.</p>
+    <p class="hero-lead">Bez doloženého souladu s&nbsp;RfG nevydá provozovatel distribuční soustavy souhlas s&nbsp;trvalým provozem. Od kategorie B1, tedy od 100&nbsp;kW, se část požadavků prokazuje výpočtem dopředu a část funkčními zkouškami přímo na výrobně. Děláme obojí — včetně žádostí o&nbsp;ÚPOS a&nbsp;ÚTP.</p>
+    <p class="hero-claim">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      Fotovoltaika i bateriová úložiště, 100 kW až 36 MWp
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="kontakt.html">Nezávazná poptávka</a>
+      <a class="btn btn-light" href="proces-pripojeni.html">Jak proces probíhá</a>
+    </div>
+  </div>
+</section>
+<div class="stats-band">
+  <div class="container grid">
+      <div><div class="num">100 kW – 36 MWp</div><div class="label">Rozsah zpracovaných studií</div></div>
+      <div><div class="num">Desítky</div><div class="label">Protokolů ověření souladu</div></div>
+      <div><div class="num">3 hlavní PDS</div><div class="label">ČEZ Distribuce · EG.D · PREdistribuce</div></div>
+  </div>
+</div>
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Terminologie</p>
+      <h2>Dvě různé věci pod jedním názvem</h2>
+      <p class="lead">„Simulační zkoušky“ je jazyk, kterým se na to ptají zákazníci. Odborně jde o dvě věci, které spolu tvoří <b>ověření souladu výrobního modulu s nařízením (EU) 2016/631 (RfG)</b>: zkoušky na místě a simulace souladu. Podle kategorie výrobny se dělá jedno, druhé, nebo obojí — a část požadavků jde nahradit certifikátem zařízení.</p>
+    </div>
+    <div class="services cols-2">
+      <a class="svc" href="zkousky-na-miste.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Zkoušky na místě</h3>
+        <div class="body"><p>Funkční zkoušky na hotové výrobně: řízení činného výkonu, automatické opětovné připojení, regulace U, Q a cos&nbsp;φ, nastavení ochran, omezování výkonu a komunikace s dispečinkem. Kapitola 5 metodik ověřování souladu.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="simulace-souladu.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 3 4-7"/></svg>Simulace souladu</h3>
+        <div class="body"><p>Matematický model výrobny, na kterém se prokáží požadavky, které se na hotové elektrárně měřit nedají — překlenutí poruch, RoCoF, frekvenční odezva. Kapitola 6 metodik.</p><span class="go">Otevřít →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="block alt" id="cesty">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Klíčový koncept</p>
+      <h2>Tři cesty, jak požadavek doložit</h2>
+      <p class="lead">Každý požadavek Dokumentu výrobního modulu se prokazuje jednou ze tří cest. Která to bude, neurčuje dodavatel ani investor — určuje to Tabulka&nbsp;1 metodiky příslušného provozovatele distribuční soustavy.</p>
+    </div>
+    <div class="services">
+      <article class="svc">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Zkouška na místě</h3>
+        <div class="body"><p>Měření na hotové výrobně, technik s kvalimetrem třídy A a protokol s průběhy veličin. U kategorie B1 je takto vázáno <b>šest bodů</b>, které nelze obejít ani simulací, ani certifikátem.</p></div>
+      </article>
+      <article class="svc">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 3 4-7"/></svg>Simulace</h3>
+        <div class="body"><p>Ověřený dynamický model výrobny a report s verdiktem splněno/nesplněno pro každý bod. U kategorie B2 a výše je celá kapitola simulací povinná — včetně předání modelu distributorovi.</p></div>
+      </article>
+      <article class="svc">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Certifikát zařízení</h3>
+        <div class="body"><p>Doklad od certifikátora akreditovaného u ČIA. Nahradí zkoušku nebo simulaci jen tam, kde to Tabulka&nbsp;1 Dokumentu výrobního modulu připouští — a jen u výrobny z jediné výrobní jednotky.</p></div>
+      </article>
+    </div>    <div class="callout">
+      <span class="t">Tady se láme rozsah prací i cena</span>
+      <p>Kde Tabulka 1 připouští víc cest, stačí jedna — ale doložená na všechny relevantní komponenty. Rozhodují tři omezení: body označené „jen zkouška“ nejde nahradit ničím, certifikát platí pouze pro výrobnu z jedné výrobní jednotky (čtyři střídače už certifikátem nedoložíte) a body označené (s) se ověřují na výrobnu jako celek.</p><p>Proto se u dvou stejně velkých elektráren může rozsah ověření lišit i násobně. <a href="dokument-vyrobniho-modulu.html">Jak Tabulka 1 vypadá →</a></p>
+    </div>
+  </div>
+</section>
+<section class="block" id="kategorie">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Do které kategorie spadáte</p>
+      <h2>Kategorie výrobních modulů</h2>
+      <p>Rozsah povinností se řídí instalovaným výkonem a napěťovou hladinou. Klikněte na kategorii — u každé je popsané, co se prokazuje, co se měří na místě a jaké dokumenty distributor chce.</p>
+    </div>
+    <div class="spec-table">
+      <table style="min-width:880px">
+        <thead>
+          <tr><th>Kategorie</th><th>Rozsah výkonu</th><th>Zkoušky na místě</th><th>Simulace souladu</th><th>Certifikát</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="kategorie-a1.html">A1</a></td><td>0,8 kW – 11 kW včetně</td><td>ne</td><td>ne</td><td>výhradně certifikáty</td></tr>
+          <tr><td><a href="kategorie-a2.html">A2</a></td><td>nad 11 kW – pod 100 kW</td><td>ne</td><td>ne</td><td>výhradně certifikáty</td></tr>
+          <tr><td><a href="kategorie-b1.html">B1</a></td><td>100 kW – pod 1 MW</td><td><b>6 bodů „jen zkouška“</b></td><td>10 / 12 bodů — lze i certifikátem</td><td>jen výrobna z 1 VJ</td></tr>
+          <tr><td><a href="kategorie-b2.html">B2</a></td><td>1 MW – pod 30 MW</td><td>ano, širší rozsah než B1</td><td>povinná celá kapitola 6 + předání modelu</td><td>jen výrobna z 1 VJ</td></tr>
+          <tr><td><a href="kategorie-c-d.html">C</a></td><td>30 MW – pod 75 MW</td><td>ano</td><td>ano, plný rozsah</td><td>částečně</td></tr>
+          <tr><td><a href="kategorie-c-d.html">D</a></td><td>od 75 MW <b>nebo</b> připojení na 110 kV a výše</td><td>ano</td><td>ano — až 19 testů 6.1–6.19</td><td>částečně</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="spec-note">Dělení A1/A2 a B1/B2 je české upřesnění, v RfG není. U nesynchronních výroben (fotovoltaika, bateriová úložiště) se posuzuje celkový výkon výrobny, ne jednotlivé moduly.</p>
+    <p class="spec-note"><b>Kategorie je uvedena ve smlouvě o připojení</b> a ta je vždy rozhodující. Do kategorie D vedou dvě cesty — výkon od 75 MW, nebo napěťová hladina 110 kV a výše bez ohledu na výkon.</p>
+  </div>
+</section>
+<section class="block alt" id="proces">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Kde ve stavbě se to řeší</p>
+      <h2>Proces připojení v pěti krocích</h2>
+      <p>Ověření souladu není poslední razítko, ale samostatná fáze mezi dostavbou a trvalým provozem. Detailní časová osa i všechny lhůty jsou na stránce <a href="proces-pripojeni.html">proces připojení</a>.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <h3>Smlouva o připojení a projekt</h3>
+        <p>SoP určí kategorii výrobního modulu a rezervovaný výkon. K projektové dokumentaci se PDS vyjadřuje do 30 dnů.</p>
+        <span class="tag">SoP + PD</span>
+      </article>
+      <article class="step">
+        <h3>Žádost o ÚPOS</h3>
+        <p>Dossier podle PPDS, přílohy 4, kap. 12.1, body a)–j). PDS rozhodne do 30 dnů od úplné žádosti a vydá Dočasné provozní oznámení.</p>
+        <span class="tag">Vyřídíme za vás</span>
+      </article>
+      <article class="step">
+        <h3>Zkoušky a simulace</h3>
+        <p>Dočasný provoz platí nejdéle 12 měsíců. U každého bodu Tabulky 1 se volí cesta ověření: zkouška, simulace, nebo certifikát.</p>
+        <span class="tag">Naše práce</span>
+      </article>
+      <article class="step">
+        <h3>Protokoly a DVM</h3>
+        <p>Každé ověření = protokol s průběhy veličin a verdiktem splněno/nesplněno. Vyplněný Dokument výrobního modulu to shrnuje.</p>
+        <span class="tag">Naše práce</span>
+      </article>
+      <article class="step">
+        <h3>ÚTP a konečné provozní oznámení</h3>
+        <p>Žádost o trvalý provoz. Zkoušky řádně provedené v rámci ÚPOS už PDS neopakuje. KPO platí do odpojení výrobny.</p>
+        <span class="tag">Vyřídíme za vás</span>
+      </article>
+    </div>    <div class="seg-note">
+      <p><b>Načasování rozhoduje.</b> Dočasný provoz je omezený na 12 měsíců a zkoušky fotovoltaiky potřebují dostatečný osvit — termín s distributorem se sjednává týdny předem. Čím dřív o fázi ověření víte, tím méně zdrží.</p>
+      <a class="btn btn-primary" href="kontakt.html">Probrat termín</a>
+    </div>
+  </div>
+</section>
+<section class="block" id="sluzby">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Služby</p>
+      <h2>Co pro vás uděláme</h2>
+      <p>Velkou část studií zpracováváme pro jiné dodavatele fotovoltaiky a pro investory, kteří si stavbu zajistili sami. Elektrárnu jsme stavět nemuseli — potřebujeme od vás jen podklady.</p>
+    </div>
+    <div class="services">
+      <a class="svc" href="simulace-souladu.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 3 4-7"/></svg>Simulace souladu</h3>
+        <div class="body"><p>Dynamický model výrobny v DIgSILENT PowerFactory, katalog testů podle kategorie a report s kvantitativním verdiktem pro každý bod.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="zkousky-na-miste.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Zkoušky na místě</h3>
+        <div class="body"><p>Jeden výjezd, všechny protokoly. Kvalimetr třídy A podle ČSN EN 61000-4-30, koordinace s dispečinkem a se servisem střídačů.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="zkousky-ochran.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 8.3-8 9.5C7.2 20.3 4 16.5 4 12V6z"/><path d="m9 12 2 2 4-4"/></svg>Zkoušky ochran</h3>
+        <div class="body"><p>Funkční zkouška ochran rozpadového místa a protokol o nastavení ochran — povinná položka žádosti o ÚPOS.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="rtu-dispecerske-rizeni.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg>RTU a dispečerské řízení</h3>
+        <div class="body"><p>Audit signálů proti tabulce telemetrie, doplnění RTU, funkční zkouška přenosu dat s dispečinkem a protokol.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="podklady.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Dokumentace a jednání s PDS</h3>
+        <div class="body"><p>Žádost o ÚPOS i o ÚTP, vyplněný Dokument výrobního modulu, místní provozní předpisy a vypořádání připomínek distributora.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="bateriova-uloziste-zue.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2M6 11v2M10 11v2M14 11v2"/></svg>Bateriová úložiště</h3>
+        <div class="body"><p>Vlastní metodika ZUE od 1. 9. 2025: ověření v režimu dodávky i odběru, jiné hodnoty ochran, samostatný dokument ověřování souladu.</p><span class="go">Otevřít →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="block alt" id="pds">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Provozovatelé distribučních soustav</p>
+      <h2>Metodiky jsou společné, procesy nejsou</h2>
+      <p><b>Metodiky ověřování souladu B1 a B2 (od 1. 2. 2025) i metodika pro bateriová úložiště (od 1. 9. 2025) jsou společné pro ČEZ Distribuce, EG.D a PREdistribuce.</b> Co se ověřuje, je tedy stejné. Liší se připojovací podmínky, formuláře, telemetrie a nastavení ochran.</p>
+    </div>
+    <div class="services">
+      <a class="svc" href="cez-distribuce.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/></svg>ČEZ Distribuce</h3>
+        <div class="body"><p>Připojovací podmínky vn/vvn od 1. 9. 2025 s přílohami VP_01–VP_15: nastavení ochran, charakteristika Q(U), telemetrie, fyzický test omezování výkonu.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="egd.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/></svg>EG.D</h3>
+        <div class="body"><p>Podklady DE ČE pro dispečerské řízení a chránění ve dvou verzích podle výkonu, stupně řízení P0–P4 a procesní formuláře podle čl. 41 RfG.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="predistribuce.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/></svg>PREdistribuce</h3>
+        <div class="body"><p>Praha a Roztoky, podnikové normy řady PN KA 5xx. Nadřazený rámec je shodný — PREdistribuce je spoluautorem společných metodik.</p><span class="go">Otevřít →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="block" id="aktualne">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Aktuálně</p>
+      <h2>Co se v posledních měsících změnilo</h2>
+      <p>Agenda ověřování souladu se mění každou sezónu. Tři změny, které se právě teď nejčastěji podepisují na rozsahu prací:</p>
+    </div>
+    <div class="services">
+      <a class="svc" href="kategorie-a2.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Od 2026 jen akreditované certifikáty</h3>
+        <div class="body"><p>Protokoly laboratoří provozovatelů distribučních soustav byly přechodnou alternativou <b>jen do 31. 12. 2025</b>. Dnes je platným dokladem certifikát vydaný subjektem akreditovaným u ČIA. Řada starších podkladů ke střídačům tak už nestačí.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="bateriova-uloziste-zue.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2M6 11v2M10 11v2M14 11v2"/></svg>Bateriová úložiště mají vlastní metodiku</h3>
+        <div class="body"><p>Od <b>1. 9. 2025</b> platí společná metodika ověřování souladu ZUE a dodatky připojovacích podmínek ČEZ Distribuce. Ověřuje se v obou provozních režimech a hodnoty ochran se od fotovoltaiky liší.</p><span class="go">Otevřít →</span></div>
+      </a>
+      <a class="svc" href="cez-distribuce.html">
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg>Nové připojovací podmínky</h3>
+        <div class="body"><p>ČEZ Distribuce vydala připojovací podmínky vn/vvn s platností od <b>1. 9. 2025</b>, EG.D připojovací podmínky VN/VVN od <b>1. 2. 2026</b> — měřicí soupravy u výroben nad 250 kW a trafostanice žadatele.</p><span class="go">Otevřít →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="block" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Ptáte se</p>
+      <h2>Na co se ptají nejčastěji</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Co jsou „simulační zkoušky“?</summary>
+        <div class="answer"><p>Souhrnné označení pro ověření souladu výrobny s RfG: <b>simulace souladu</b> (matematický model výrobny) a <b>zkoušky na místě</b> (měření na hotové elektrárně). Rozsah obojího určuje kategorie výrobního modulu.</p></div>
+      </details>
+      <details>
+        <summary>Od jakého výkonu se mě to týká?</summary>
+        <div class="answer"><p>Ověření souladu se týká každé výrobny a každého bateriového úložiště připojeného paralelně s distribuční soustavou. Do 100 kW (kategorie A1 a A2) se ale prokazuje výhradně certifikáty zařízení — bez zkoušek na výrobně a bez simulací. Od 100 kW (kategorie B1) přicházejí zkoušky na místě i simulace.</p></div>
+      </details>
+      <details>
+        <summary>Jak zjistím kategorii své výrobny?</summary>
+        <div class="answer"><p>Je uvedena ve <b>smlouvě o připojení</b>. Orientačně ji poznáte z výkonu podle tabulky výš — u fotovoltaiky s baterií se posuzuje celkový výkon výrobny. Rozhodující je vždy smlouva.</p></div>
+      </details>
+      <details>
+        <summary>Musí k nám u B1 někdo fyzicky přijet?</summary>
+        <div class="answer"><p>Ano. U kategorie B1 je šest bodů vázaných výhradně na zkoušku na místě: řízení činného výkonu, automatické opětovné připojení, komunikace a výměna informací, regulace U/Q/cos φ, nastavení ochran a omezování výkonu. Zbytek se dá doložit od stolu simulací nebo certifikátem.</p></div>
+      </details>
+      <details>
+        <summary>Kdy stačí certifikát a nemusí se nic měřit?</summary>
+        <div class="answer"><p>Jen u bodů, kde to Tabulka 1 připouští, a <b>jen u výrobny složené z jediné výrobní jednotky</b>. Máte-li čtyři střídače, certifikátem to nedoložíte a řeší se to simulací celé výrobny. Body „jen zkouška“ nenahradí certifikát nikdy.</p></div>
+      </details>
+      <details>
+        <summary>Platí ještě protokoly laboratoří?</summary>
+        <div class="answer"><p>Ne. Protokoly laboratoří provozovatelů distribučních soustav platily jako alternativa certifikátu <b>jen do 31. 12. 2025</b>. Dnes je platným dokladem certifikát od subjektu akreditovaného u ČIA podle RfG a nařízení (ES) 765/2008.</p></div>
+      </details>
+      <details>
+        <summary>Děláte to i pro elektrárny, které jste nestavěli?</summary>
+        <div class="answer"><p>Ano, tvoří to velkou část naší práce — zpracováváme studie pro jiné dodavatele fotovoltaiky i pro investory. Potřebujeme <a href="podklady.html">podklady</a>, ne vlastní stavbu.</p></div>
+      </details>
+    </div>
+  </div>
+</section><section class="block">
+  <div class="container">
+    <div class="crosslinks">
+      <span class="t">Souvisejicí stránky</span>
+      <a href="faq.html">Všechny časté dotazy</a>
+      <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
+      <a href="reference.html">Reference</a>
+      <a href="podklady.html">Podklady k zahájení</a>
+    </div>
+  </div>
+</section>
+<section class="contact-section" id="poptavka">
+  <div class="bg"><picture>
+    <source type="image/webp" srcset="assets/title-photo-1024.webp 1024w, assets/title-photo.webp 2048w" sizes="(max-width: 980px) 100vw, 33vw">
+    <img src="assets/title-photo.jpg" alt="" aria-hidden="true" loading="lazy" width="2048" height="1536" srcset="assets/title-photo-1024.jpg 1024w, assets/title-photo.jpg 2048w" sizes="(max-width: 980px) 100vw, 33vw">
+  </picture></div>
+  <div class="container contact-grid">
+    <div class="contact-aside">
+      <p class="eyebrow">Poptávka</p>
+      <h2>Pošlete nám smlouvu<br>o připojení.</h2>
+      <p>Ze smlouvy o připojení a jednopólového schématu poznáme kategorii výrobního modulu i rozsah ověření. Ozveme se s tím, co vás čeká, do dvou pracovních dnů.</p>
+      <div class="quick">
+        <a href="tel:+420776111100">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.25a2 2 0 0 1 2.11-.45c.85.33 1.74.56 2.64.68A2 2 0 0 1 22 16.92z"/></svg></span>
+          +420 776 111 100
+        </a>
+        <a href="mailto:info@bfksystems.cz">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+          info@bfksystems.cz
+        </a>
+      </div>
+      <div class="firm">
+        <b>BFK systems s.r.o.</b><br>
+        Obchodní 455/12, 405 02 Děčín<br>
+        IČO 23571853 · DIČ CZ23571853
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <h3 style="margin:0 0 14px;font-size:20px;color:#222">Co potřebujeme vědět</h3>
+      <p style="margin:0 0 18px;font-size:15px">Čím víc toho napíšete rovnou, tím přesněji odpovíme. Ideálně: provozovatel distribuční soustavy, kategorie ze smlouvy o připojení, instalovaný výkon, počet a typ střídačů a jestli je součástí bateriové úložiště.</p>
+      <a class="btn btn-primary" href="kontakt.html">Přejít na poptávkový formulář</a>
+    </div>
+  </div>
+</section>
+<!-- PATICKA -->
+<footer class="site">
+  <div class="container grid">
+    <div class="logo-cell">
+      <picture>
+          <source type="image/webp" srcset="assets/logo-sz-300.webp 300w, assets/logo-sz-600.webp 600w" sizes="210px">
+          <img src="assets/logo-sz-600.png" alt="simulacni-zkousky.cz" width="1037" height="324" srcset="assets/logo-sz-300.png 300w, assets/logo-sz-600.png 600w" sizes="210px">
+        </picture>
+      <span class="foot-by">Web provozuje</span>
+      <a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">
+        <picture>
+          <source type="image/webp" srcset="assets/bfk-logo-210.webp 210w, assets/bfk-logo-420.webp 420w" sizes="150px">
+          <img class="foot-bfk" src="assets/bfk-logo-420.png" alt="BFK systems s.r.o." width="420" height="171" srcset="assets/bfk-logo-210.png 210w, assets/bfk-logo-420.png 420w" sizes="150px">
+        </picture>
+      </a>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <div><span class="lbl">Tel</span><a href="tel:+420776111100" style="display:inline">+420 776 111 100</a></div>
+      <div><span class="lbl">Mail</span><a href="mailto:info@bfksystems.cz" style="display:inline">info@bfksystems.cz</a></div>
+      <div style="margin-top:10px">Obchodní 455/12<br>405 02 Děčín</div>
+      <div style="margin-top:10px">IČO 23571853<br>DIČ CZ23571853</div>
+    </div>
+    <div>
+      <h4>Kategorie</h4>
+      <a href="kategorie-a1.html">A1 — do 11 kW</a>
+      <a href="kategorie-a2.html">A2 — 11 až 100 kW</a>
+      <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
+      <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
+      <a href="kategorie-c-d.html">C a D — nad 30 MW</a>
+      <a href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+      <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
+    </div>
+    <div>
+      <h4>Distributoři</h4>
+      <a href="cez-distribuce.html">ČEZ Distribuce</a>
+      <a href="egd.html">EG.D</a>
+      <a href="predistribuce.html">PREdistribuce</a>
+    </div>
+    <div>
+      <h4>Služby</h4>
+      <a href="simulace-souladu.html">Simulace souladu</a>
+      <a href="zkousky-na-miste.html">Zkoušky na místě</a>
+      <a href="zkousky-ochran.html">Zkoušky ochran</a>
+      <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
+      <a href="podklady.html">Podklady k zahájení</a>
+    </div>
+    <div>
+      <h4>Proces</h4>
+      <a href="proces-pripojeni.html">Proces připojení krok za krokem</a>
+      <a href="upos.html">ÚPOS — dočasný provoz</a>
+      <a href="utp.html">ÚTP — trvalý provoz</a>
+      <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
+      <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
+      <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
+    </div>
+    <div>
+      <h4>Dále</h4>
+      <a href="reference.html">Reference</a>
+      <a href="faq.html">Časté dotazy</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">bfksystems.cz</a>
+      <a href="https://www.bftechnology.cz/" target="_blank" rel="noopener">bftechnology.cz</a>
+    </div>
+  </div>
+  <div class="copy">
+    <div class="container row">
+      <span>© <span id="year">2026</span> BFK systems s.r.o. – všechna práva vyhrazena</span>
+      <span><a href="zasady-zpracovani-osobnich-udaju.html">Zásady zpracování osobních údajů</a></span>
+      <span>www.simulacni-zkousky.cz</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/nav.js"></script>
+
+</body>
+</html>

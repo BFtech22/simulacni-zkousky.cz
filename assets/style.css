@@ -1,0 +1,1169 @@
+  /* Barvy podle loga BFK systems: oranzova + tmave seda.
+     --orange   = plochy (tlacitka, pruhy, ikony)
+     --orange-d = tmavsi odstin na hover
+     --orange-t = text a odkazy (kontrast na bilem pozadi >= 4.5:1)
+     --amber    = svetly akcent na tmavem pozadi (cisla, podtrzeni v menu) */
+  :root {
+    --dark:     #3C3C3C;   /* tmave seda z loga BFK */
+    --orange:   #F08A00;   /* oranzova z loga BFK */
+    --orange-d: #D07600;
+    --orange-t: #A35C00;
+    --amber:    #FFB23F;
+    --text:     #4A4A4A;
+    --black:    #222222;
+    --cream:    #FAF7F2;   /* teple svetle pozadi sekci */
+    --white:    #FFFFFF;
+    --grey-bg:  #ECEAE7;
+    --line:     #E7E1D7;
+    --max: 1240px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--orange-t); text-decoration: none; }
+  a:hover { color: var(--dark); }
+  img { max-width: 100%; display: block; height: auto; }
+  /* <picture> je jen obal pro <source> — nesmi vytvaret vlastni box, jinak by
+     se rozbily selektory typu ".ph img" a vysky pocitane z rodice (hero). */
+  picture { display: contents; }
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ============= HEADER ============= */
+  .site-header {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 4px solid var(--orange);
+  }
+  /* Vodorovny padding musi byt i tady — pravidlo .container by ho jinak
+     prebilo a logo s tlacitkem by se na uzsim okne lepily na okraj. */
+  .site-header .row { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; gap: 16px; }
+  .brand img { height: 52px; width: auto; }
+  /* Logo a ikonky siti drzi pohromade vlevo — bez obalu by je flex
+     s justify-content: space-between roztahl po celé sirce hlavicky. */
+  .brand-wrap { display: flex; align-items: center; gap: 18px; }
+  .hdr-social { display: flex; gap: 6px; }
+  .hdr-social a {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 50%;
+    color: var(--dark); background: var(--grey-bg);
+    transition: background .2s, color .2s, transform .15s;
+  }
+  .hdr-social a:hover {
+    background: var(--orange); color: #fff; transform: translateY(-1px);
+  }
+  .hdr-social svg { width: 17px; height: 17px; }
+  nav.primary { display: flex; gap: 16px; align-items: center; flex-shrink: 0; }
+  nav.primary a {
+    color: var(--dark); font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.3px;
+    position: relative; padding: 6px 0;
+  }
+  nav.primary a::after {
+    content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0;
+    background: var(--amber); transition: width .2s ease;
+  }
+  nav.primary a:hover::after { width: 100%; }
+  /* Aktivni podstranka v menu — zluty podtrh zustava natrvalo. */
+  nav.primary a.active { color: var(--orange-t); }
+  nav.primary a.active::after { width: 100%; }
+  .mobile-menu a.active { color: var(--orange-t); }
+
+  /* ----- Rozbalovaci polozka menu (Fotovoltaika) -----
+     Zamerne bez JS: otevira se na :hover a na :focus-within, takze to funguje
+     i pri prochazeni klavesnici. Na mobilu se cely blok rozpadne do plocheho
+     seznamu v .mobile-menu, kde zadny dropdown neni. */
+  nav.primary .has-sub { position: relative; }
+  nav.primary .sub-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--dark); font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.3px;
+    background: none; border: 0; padding: 6px 0; cursor: pointer;
+    font-family: inherit; position: relative;
+  }
+  nav.primary .sub-toggle::after {
+    content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0;
+    background: var(--amber); transition: width .2s ease;
+  }
+  nav.primary .has-sub:hover .sub-toggle::after,
+  nav.primary .has-sub:focus-within .sub-toggle::after { width: 100%; }
+  nav.primary .sub-toggle svg { width: 13px; height: 13px; flex-shrink: 0; }
+  nav.primary .has-sub.is-active .sub-toggle { color: var(--orange-t); }
+  nav.primary .has-sub.is-active .sub-toggle::after { width: 100%; }
+
+  nav.primary .sub {
+    position: absolute; top: 100%; left: -14px;
+    min-width: 260px; padding: 8px;
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 6px; box-shadow: 0 14px 34px rgba(60,60,60,0.18);
+    display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transform: translateY(6px);
+    transition: opacity .16s ease, transform .16s ease, visibility .16s;
+    z-index: 60;
+  }
+  /* .open nastavuje assets/nav.js — kvuli dotykovym zarizenim, kde hover neni. */
+  nav.primary .has-sub:hover .sub,
+  nav.primary .has-sub:focus-within .sub,
+  nav.primary .has-sub.open .sub {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+  nav.primary .has-sub.open .sub-toggle::after { width: 100%; }
+  nav.primary .sub a {
+    padding: 10px 12px; border-radius: 4px;
+    font-size: 13.5px; text-transform: none; letter-spacing: 0;
+    white-space: nowrap;
+  }
+  nav.primary .sub a::after { display: none; }
+  nav.primary .sub a:hover { background: var(--cream); color: var(--orange-t); }
+  nav.primary .sub a.active { background: var(--cream); color: var(--orange-t); }
+
+  /* Podpolozky v mobilnim menu — odsazene pod nadrazenym popiskem. */
+  .mobile-menu .m-group {
+    margin-top: 16px; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--orange-t);
+  }
+  .mobile-menu a.m-sub { padding-left: 16px; font-size: 17px; }
+
+  /* Selektor musi byt specifictejsi nez "nav.primary a" (0,1,2) — jinak by
+     tlacitko prebiral padding 6px 0 z obycejnych odkazu v menu a nemelo by
+     zadne mezery po stranach. */
+  nav.primary a.header-cta,
+  .header-cta {
+    background: var(--orange); color: #fff !important; font-weight: 700;
+    padding: 12px 20px; border-radius: 4px; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    transition: background .2s; white-space: nowrap;
+  }
+  nav.primary a.header-cta::after { display: none; }
+  /* Na uzsim okne se tlacitko zkrati na "Poptávka" — usetreny prostor drzi
+     v hlavicce znacku provozovatele i plnou nabidku. */
+  .header-cta .kratky { display: none; }
+  .header-cta:hover { background: var(--dark); }
+
+  .hamburger {
+    display: none;
+    background: transparent; border: 1px solid var(--line); border-radius: 6px;
+    width: 42px; height: 42px; padding: 0; cursor: pointer; color: var(--dark);
+    align-items: center; justify-content: center;
+  }
+  .hamburger svg { width: 22px; height: 22px; }
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 100;
+    background: var(--white); padding: 80px 24px 24px; overflow-y: auto;
+  }
+  .mobile-menu.open { display: block; }
+  /* Blokace rolovani stranky pod otevrenym menu — nastavuje assets/nav.js. */
+  html.menu-open, html.menu-open body { overflow: hidden; }
+  .mobile-menu .close {
+    position: absolute; top: 18px; right: 18px; width: 42px; height: 42px;
+    background: transparent; border: 1px solid var(--line); border-radius: 6px;
+    color: var(--dark); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mobile-menu a {
+    display: block; padding: 16px 0; font-size: 20px; font-weight: 900;
+    color: var(--dark); border-bottom: 1px solid var(--line);
+    text-transform: uppercase; letter-spacing: 0.6px;
+  }
+  .mobile-menu a:hover { color: var(--orange-t); }
+  .mobile-menu .cta-mobile {
+    display: inline-block; margin-top: 24px; padding: 14px 24px;
+    background: var(--orange); color: #fff; border-radius: 6px;
+    font-weight: 900; text-transform: uppercase; border-bottom: none;
+  }
+
+  /* ============= HERO (titulní strana nabídky) ============= */
+  .hero {
+    position: relative;
+    min-height: min(78vh, 760px);
+    display: flex; flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero .photo {
+    position: absolute; inset: 0;
+  }
+  .hero .photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .hero .gradient-overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(100deg,
+        rgba(30, 30, 30, 0.88) 0%,
+        rgba(30, 30, 30, 0.55) 45%,
+        rgba(30, 30, 30, 0.14) 75%,
+        rgba(30, 30, 30, 0.02) 100%),
+      linear-gradient(0deg, rgba(0,0,0,0.25), rgba(0,0,0,0.05) 30%);
+  }
+  .hero .content {
+    position: relative; z-index: 2;
+    flex: 1;
+    width: 100%; max-width: var(--max);
+    margin: 0 auto;
+    padding: 46px 24px 64px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    margin: 0 0 22px;
+    font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--amber);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+  }
+  .hero-eyebrow::before {
+    content: ""; width: 46px; height: 4px; background: var(--orange);
+    border-radius: 2px; flex-shrink: 0;
+  }
+  .hero h1 {
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 900; line-height: 1.04; margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    max-width: 13ch;
+  }
+  /* Podtitulek pod H1 — puvodni marketingova veta se presunula pod nadpis,
+     ktery ted nese klicovy vyraz. */
+  .hero .hero-claim-big {
+    margin: 4px 0 0; font-size: clamp(19px, 2.1vw, 24px);
+    font-weight: 500; color: rgba(255,255,255,0.92);
+  }
+  .hero-lead {
+    font-size: clamp(16px, 1.9vw, 20px);
+    font-weight: 400; line-height: 1.55;
+    margin: 22px 0 0; max-width: 46ch;
+    color: rgba(255,255,255,0.94);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  /* Duveryhodnostni radek pod leadem — zelena fajfka a tucny text. */
+  .hero-claim {
+    /* fit-content, protoze display: inline-flex tu prebiji jine pravidlo
+       a pilulka by se roztahla pres celou sirku hero bloku */
+    display: inline-flex; width: fit-content; align-self: flex-start;
+    align-items: center; gap: 10px;
+    margin: 20px 0 0; padding: 9px 16px 9px 13px;
+    background: rgba(0,0,0,0.32); border-radius: 999px;
+    backdrop-filter: blur(4px);
+    font-size: clamp(14px, 1.5vw, 16px); font-weight: 700;
+    color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+  .hero-claim svg { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; }
+
+  .hero .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+  .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 14px;
+    border: 2px solid transparent;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--orange); color: #241A08; }
+  .btn-primary:hover { background: var(--orange-d); color: #241A08; }
+  .btn-light { border-color: rgba(255,255,255,0.7); color: #fff; }
+  .btn-light:hover { background: rgba(255,255,255,0.15); border-color: #fff; color: #fff; }
+
+  /* ============= STATS PRUH ============= */
+  .stats-band {
+    background: var(--dark);
+    border-bottom: 4px solid var(--amber);
+    padding: 26px 0;
+    color: #fff;
+  }
+  /* Tri dlazdice — po odebrani "24/7 Servisni podpora" by ctyri sloupce
+     nechavaly prazdne misto vpravo a pruh vypadal rozhozene. */
+  /* Cislo i popisek pod nim jsou vycentrovane — na vsech sirkach vcetne
+     mobilu, kde je kazda dlazdice na svem radku. */
+  .stats-band .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    text-align: center;
+  }
+  .stats-band .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .stats-band .num {
+    font-size: clamp(24px, 3vw, 36px); font-weight: 900; line-height: 1;
+    color: var(--amber);
+  }
+  .stats-band .label {
+    margin-top: 7px;
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* ============= SEKCE ============= */
+  section.block { padding: 84px 0; }
+  /* Stridani pozadi na podstrankach. Domovska pouziva pojmenovane tridy
+     (.why, .pricing), pro podstranky staci obecne .alt. */
+  section.block.alt { background: var(--cream); }
+  .section-head { margin: 0 0 44px; }
+  .section-head .eyebrow {
+    color: var(--orange-t); font-size: 13px; font-weight: 700;
+    letter-spacing: 2.4px; text-transform: uppercase; margin: 0 0 10px;
+  }
+  /* h1 je tu kvuli podstrankam — ty nemaji hero, takze hlavni nadpis nese
+     .section-head. Na domovske zustava h1 v hero a tohle se ho netyka. */
+  .section-head h2,
+  .section-head h1 {
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.08; margin: 0 0 14px;
+    font-weight: 900; letter-spacing: -0.3px;
+    color: var(--black);
+    text-transform: uppercase;
+  }
+  .section-head h2::after,
+  .section-head h1::after {
+    content: ""; display: block; width: 84px; height: 5px;
+    background: var(--orange); margin-top: 16px; border-radius: 2px;
+  }
+  .section-head p { color: var(--text); margin: 0; font-size: clamp(15px, 1.6vw, 17px); max-width: 800px; }
+
+  /* ============= SLUŽBY (karty jako v nabídce) ============= */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  /* Pro sekce se ctyrmi kartami — ve trech sloupcich by ctvrta zustala sama
+     na druhem radku. Mobilni prepis je v @media nize (vyssi specificita
+     .services.cols-2 by jinak mobilni pravidlo pro .services prebila). */
+  .services.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .svc {
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+  .svc:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(60,60,60,0.16); }
+  /* Odkaz z karty sluzby na podstranku s detailem. */
+  .svc-more { margin: 14px 0 0; font-size: 14.5px; font-weight: 700; }
+  .svc-more a { color: var(--orange-t); text-decoration: none; }
+  .svc-more a:hover { text-decoration: underline; }
+  /* Hlavicka karty je <h3 class="hdr"> kvuli semanticke strukture nadpisu —
+     proto nulujeme vychozi margin a velikost pisma od prohlizece. */
+  .svc .hdr {
+    margin: 0;
+    background: var(--dark); color: #fff;
+    font-size: 14px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 10px 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .svc .hdr svg { width: 20px; height: 20px; color: var(--amber); flex-shrink: 0; }
+  .svc .body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+  .svc .body p { margin: 0 0 14px; font-size: 14.5px; }
+  .svc ul { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  .svc ul li {
+    position: relative; padding: 6px 0 6px 20px;
+    border-top: 1px solid var(--line);
+  }
+  .svc ul li:first-child { border-top: none; }
+  .svc ul li::before {
+    content: ""; position: absolute; left: 0; top: 14px;
+    width: 11px; height: 3px; background: var(--orange);
+  }
+  .svc .more {
+    margin-top: 14px; font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--orange-t);
+  }
+  .svc .more:hover { color: var(--dark); }
+
+  /* ============= PROČ BFT (cream fieldy + dark strip) ============= */
+  .why { background: var(--cream); }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .why-box {
+    background: var(--white);
+    border-left: 6px solid var(--dark);
+    border-radius: 0 4px 4px 0;
+    padding: 20px 22px;
+    box-shadow: 0 2px 10px rgba(60,60,60,0.06);
+  }
+  .why-box .t {
+    font-weight: 700; color: var(--black); font-size: 17px;
+    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  }
+  .why-box .t .check {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--orange); color: #fff; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 900;
+  }
+  .why-box p { margin: 0; font-size: 14.5px; }
+
+  .supplier-strip {
+    margin-top: 28px;
+    display: grid; grid-template-columns: 1.05fr 1.1fr 0.9fr;
+    background: var(--dark); color: var(--white);
+    border-radius: 6px; overflow: hidden;
+  }
+  .supplier-strip > div { padding: 18px 24px; }
+  .supplier-strip .cap {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 5px; letter-spacing: 0.06em;
+  }
+  .supplier-strip .name { font-size: 17px; font-weight: 700; }
+  .supplier-strip .line { font-size: 13.5px; margin-top: 3px; color: rgba(255,255,255,0.92); }
+  .supplier-strip .line a { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.35); text-underline-offset: 3px; }
+  .supplier-strip .line a:hover { text-decoration-color: var(--amber); }
+  .supplier-strip .role { font-weight: 700; color: var(--amber); font-size: 13px; }
+
+  /* ============= JAK TO FUNGUJE ============= */
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: step; }
+  .step {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--orange);
+    border-radius: 4px;
+    padding: 22px 18px 20px;
+  }
+  .step::before {
+    counter-increment: step;
+    content: counter(step);
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--dark); color: var(--amber);
+    font-weight: 900; font-size: 15px;
+    margin-bottom: 14px;
+  }
+  .step h3 { margin: 0 0 6px; font-size: 16px; font-weight: 700; color: var(--black); line-height: 1.3; }
+  .step p { margin: 0; font-size: 13.5px; line-height: 1.55; }
+  .step .tag {
+    display: inline-block; margin-top: 10px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    background: rgba(139,184,85,0.18); color: var(--orange-t);
+    padding: 3px 9px; border-radius: 3px;
+  }
+
+  /* ============= FAQ ============= */
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; align-items: start; }
+  .faq details {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--dark);
+    border-radius: 0 4px 4px 0;
+    padding: 0;
+    transition: border-left-color .18s;
+  }
+  .faq details[open] { border-left-color: var(--orange); }
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 46px 16px 20px;
+    font-weight: 700; font-size: 15.5px; color: var(--black);
+    position: relative;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "";
+    position: absolute; right: 20px; top: 50%;
+    width: 11px; height: 11px;
+    border-right: 2.5px solid var(--orange); border-bottom: 2.5px solid var(--orange);
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform .2s;
+  }
+  .faq details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+  .faq summary:hover { color: var(--orange-t); }
+  .faq .answer { padding: 0 20px 18px; font-size: 14.5px; line-height: 1.6; }
+  .faq .answer p { margin: 0 0 10px; }
+  .faq .answer p:last-child { margin: 0; }
+
+  /* ============= CENY — SEGMENTY A BALÍČKY ============= */
+  .pricing { background: var(--cream); }
+
+  .seg-tabs {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin: 0 0 34px;
+  }
+  .seg-tab {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 13px 22px;
+    font: inherit; font-size: 14px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--dark);
+    cursor: pointer;
+    transition: background .18s, color .18s, border-color .18s;
+  }
+  .seg-tab svg { width: 19px; height: 19px; color: var(--orange); flex-shrink: 0; transition: color .18s; }
+  .seg-tab:hover { border-color: var(--orange); }
+  .seg-tab[aria-selected="true"] { background: var(--dark); color: #fff; border-color: var(--dark); }
+  .seg-tab[aria-selected="true"] svg { color: var(--amber); }
+
+  .seg-panel[hidden] { display: none; }
+  .seg-intro { margin: 0 0 26px; font-size: 16px; max-width: 800px; }
+
+  /* Karty balíčků */
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .tier {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+  .tier:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(60,60,60,0.14); }
+  .tier.featured {
+    border-color: var(--orange);
+    box-shadow: 0 6px 24px rgba(139,184,85,0.28);
+  }
+  /* Fotka nad hlavickou varianty. Je ilustrativni — z nasich realizaci, ne
+     presne ta konfigurace. Vyska je dana pomerem stran, aby vsechny tri karty
+     zacinaly stejne vysoko. */
+  /* Pozadi musi sedet na pozadi samotnych renderu (~#FAFAFA), jinak by kolem
+     obrazku byl videt obdelnik. Proto neutralni svetla, ne kremova. */
+  .tier .tier-photo {
+    aspect-ratio: 16 / 10; overflow: hidden;
+    background: #FAFAFA;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tier .tier-photo img {
+    width: 100%; height: 100%; object-fit: contain;
+    transition: transform .35s ease;
+  }
+  .tier:hover .tier-photo img { transform: scale(1.04); }
+  .tier .tier-hdr {
+    background: var(--dark); color: #fff;
+    padding: 13px 22px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .tier.featured .tier-hdr { background: var(--orange-d); }
+  .tier .tier-name {
+    font-size: 15px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  /* Vykon rovnou v hlavicce karty, aby ho zakaznik videl bez cteni odrazek.
+     Zluty ram ho odlisi od nazvu varianty vedle. */
+  .tier .tier-spec {
+    margin-right: auto;
+    font-size: 13px; font-weight: 900; letter-spacing: 0.03em;
+    white-space: nowrap; color: var(--amber);
+    border: 2px solid var(--amber); border-radius: 4px;
+    padding: 3px 10px;
+  }
+  .tier.featured .tier-spec { color: #fff; border-color: rgba(255,255,255,0.85); }
+  .tier .tier-flag {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    background: var(--amber); color: var(--black);
+    padding: 3px 9px; border-radius: 3px; white-space: nowrap;
+  }
+  .tier .tier-body { padding: 24px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+  .tier .price-from {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--orange-t); margin: 0 0 2px;
+  }
+  .tier .price {
+    font-size: clamp(28px, 3vw, 36px); font-weight: 900;
+    color: var(--black); line-height: 1.05;
+  }
+  .tier .price .cur { font-size: 18px; font-weight: 700; }
+  .tier .price-note { font-size: 12.5px; color: #8a8a8a; margin: 6px 0 0; }
+  .tier .tier-for {
+    margin: 16px 0 0; padding: 12px 14px;
+    background: var(--cream);
+    border-left: 5px solid var(--dark);
+    border-radius: 0 4px 4px 0;
+    font-size: 13.5px;
+  }
+  .tier .tier-for b { color: var(--black); }
+  .tier ul { list-style: none; margin: 18px 0 22px; padding: 0; font-size: 14px; }
+  .tier ul li {
+    position: relative; padding: 8px 0 8px 26px;
+    border-top: 1px solid var(--line);
+  }
+  .tier ul li:first-child { border-top: none; }
+  .tier ul li::before {
+    content: "";
+    position: absolute; left: 0; top: 15px;
+    width: 15px; height: 3px; background: var(--orange); border-radius: 2px;
+  }
+  .tier ul li.off { color: #a5a5a5; }
+  .tier ul li.off::before { background: #d8d8d8; }
+  /* Doplnky k variante (baterie, wallbox) — nejsou v cene, ale nejsou to
+     ani chybejici polozky, takze zluty plus misto zelene carky. */
+  .tier ul li.plus::before {
+    content: "+"; background: none; border-radius: 0;
+    width: auto; height: auto; top: 6px;
+    color: var(--amber); font-weight: 900; font-size: 17px; line-height: 1;
+  }
+  .tier ul li.plus { color: var(--text); }
+  .tier ul li.plus strong { color: var(--black); }
+  .tier .tier-cta {
+    margin-top: auto;
+    display: block; text-align: center;
+    padding: 13px 20px; border-radius: 4px;
+    font-weight: 700; font-size: 13.5px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border: 2px solid var(--dark); color: var(--dark);
+    transition: background .18s, color .18s, border-color .18s;
+  }
+  .tier .tier-cta:hover { background: var(--dark); color: #fff; }
+  .tier.featured .tier-cta { background: var(--orange); border-color: var(--orange); color: #fff; }
+  .tier.featured .tier-cta:hover { background: var(--dark); border-color: var(--dark); color: #fff; }
+
+  /* Doplňkový pruh — ohřev vody */
+  .addon {
+    margin-top: 18px;
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: center; gap: 22px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    padding: 22px 26px;
+  }
+  .addon .addon-ico {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(250,178,26,0.16); color: #d99400;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .addon .addon-ico svg { width: 26px; height: 26px; }
+  .addon h3 { margin: 0 0 4px; font-size: 19px; font-weight: 700; color: var(--black); }
+  .addon p { margin: 0; font-size: 14px; }
+  .addon .addon-price { text-align: right; white-space: nowrap; }
+  .addon .addon-price .lbl {
+    display: block; font-size: 11.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange-t);
+  }
+  .addon .addon-price .val { font-size: 27px; font-weight: 900; color: var(--black); line-height: 1.1; }
+  .addon .addon-price .val .cur { font-size: 16px; font-weight: 700; }
+  .addon .addon-price .vat { display: block; margin-top: 3px; font-size: 12.5px; color: #8a8a8a; }
+
+  /* Segmenty bez fixního ceníku (bytovky, firmy) */
+  .seg-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  /* Pro ctyri karty — ve trech sloupcich by ctvrta zustala sama na druhem
+     radku. Mobilni prepis je v @media nize (vyssi specificita by ho jinak
+     prebila). */
+  .seg-cases.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .seg-case {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 22px;
+  }
+  .seg-case .kwp {
+    display: inline-block;
+    background: var(--amber); color: var(--black);
+    font-weight: 900; font-size: 14px;
+    padding: 3px 10px; border-radius: 3px; margin-bottom: 10px;
+  }
+  .seg-case h3 { margin: 0 0 6px; font-size: 16.5px; font-weight: 700; color: var(--black); line-height: 1.3; }
+  .seg-case p { margin: 0; font-size: 13.5px; }
+  /* Dve mrizky karet za sebou (rozbor moznosti + sluzby na bytovych domech)
+     by se jinak dotykaly — svc karty maji tmavou hlavicku hned u okraje. */
+  .seg-cases + .services { margin-top: 22px; }
+  .seg-note {
+    margin-top: 18px; padding: 20px 24px;
+    background: var(--dark); color: rgba(255,255,255,0.92);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 22px; flex-wrap: wrap;
+  }
+  .seg-note p { margin: 0; font-size: 15px; }
+  .seg-note b { color: var(--amber); }
+  .seg-note .btn { flex-shrink: 0; }
+
+  .price-disclaimer {
+    margin: 26px 0 0; font-size: 13px; color: #8a8a8a;
+    padding-top: 16px; border-top: 1px solid var(--line);
+  }
+
+  /* ============= SKUPINA BFK + BF technology ============= */
+  .group-band { background: var(--cream); }
+  .group-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px; }
+  .group-col {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 6px; padding: 26px 26px 28px;
+  }
+  .group-col h3 {
+    margin: 0 0 4px; font-size: 21px; font-weight: 900;
+    color: var(--black); text-transform: uppercase; letter-spacing: -0.2px;
+  }
+  .group-col .group-role {
+    margin: 0 0 16px; font-size: 12.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange-t);
+  }
+  .group-col ul { margin: 0; padding-left: 20px; }
+  .group-col li { margin-bottom: 7px; font-size: 14.5px; }
+  .group-col .group-more { margin: 16px 0 0; font-weight: 700; font-size: 14.5px; }
+  .group-col .group-more a { color: var(--orange-t); text-decoration: none; }
+  .group-col .group-more a:hover { text-decoration: underline; }
+
+
+  /* ============= KONTAKT ============= */
+  .contact-section {
+    position: relative;
+    color: #fff;
+    padding: 84px 0;
+    overflow: hidden;
+  }
+  .contact-section .bg { position: absolute; inset: 0; }
+  .contact-section .bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; }
+  .contact-section .bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(60,60,60,0.95) 0%, rgba(60,60,60,0.88) 55%, rgba(245,166,35,0.72) 100%);
+  }
+  .contact-grid {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1.35fr; gap: 56px; align-items: start;
+  }
+  .contact-aside .eyebrow {
+    color: var(--amber); font-size: 13px; font-weight: 700;
+    letter-spacing: 2.4px; text-transform: uppercase; margin: 0 0 12px;
+  }
+  .contact-aside h2 {
+    font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08;
+    margin: 0 0 18px; font-weight: 900; text-transform: uppercase;
+  }
+  .contact-aside p { color: rgba(255,255,255,0.9); margin: 0 0 26px; font-size: 16px; }
+  .contact-aside .quick { display: grid; gap: 4px; }
+  .contact-aside .quick a {
+    display: flex; align-items: center; gap: 12px;
+    color: #fff; font-weight: 700; font-size: 16px;
+    padding: 10px 0;
+  }
+  .contact-aside .quick a:hover { color: var(--amber); }
+  .contact-aside .quick .ico {
+    width: 38px; height: 38px; border-radius: 8px;
+    background: rgba(255,255,255,0.14); color: var(--amber);
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .contact-aside .quick .ico svg { width: 19px; height: 19px; }
+  .contact-aside .firm {
+    margin-top: 26px; padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.35);
+    font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.7;
+  }
+  .contact-aside .firm b { color: #fff; }
+
+  .contact-form-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 32px;
+    color: var(--text);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+  }
+  .contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+  .contact-form .field { display: flex; flex-direction: column; }
+  .contact-form .field.full { grid-column: 1 / -1; }
+  .contact-form label {
+    color: var(--dark); font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.8px; margin: 0 0 6px;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--dark);
+    border-radius: 0 4px 4px 0;
+    color: var(--black);
+    padding: 11px 14px;
+    font: inherit; font-size: 15px; font-weight: 500;
+    transition: border-color .15s, background .15s;
+  }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none; border-color: var(--orange); border-left-color: var(--orange); background: #fff;
+  }
+  .contact-form textarea { resize: vertical; min-height: 120px; }
+  .contact-form .gdpr { color: #8a8a8a; font-size: 12px; line-height: 1.55; margin: 12px 0 16px; }
+  .contact-form button[type=submit] {
+    background: var(--orange); color: #fff; border: 0;
+    padding: 15px 34px; border-radius: 4px;
+    font-weight: 700; font-size: 14px; font-family: inherit;
+    text-transform: uppercase; letter-spacing: 0.6px; cursor: pointer;
+    transition: background .2s;
+  }
+  .contact-form button[type=submit]:hover { background: var(--dark); }
+  #contact-status { display: none; margin: 0 0 16px; padding: 13px 16px; border-radius: 4px; font-weight: 700; font-size: 14px; }
+  #contact-status.ok { display: block; background: rgba(139,184,85,0.15); color: var(--orange-t); border: 1px solid var(--orange); }
+  #contact-status.err { display: block; background: rgba(220,60,40,0.1); color: #c0392b; border: 1px solid #e74c3c; }
+  .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+
+  /* ============= FOOTER (jako v nabídce) ============= */
+  footer.site {
+    background: var(--white);
+    border-top: 4px solid var(--orange);
+    padding: 42px 0 0;
+    font-size: 14px;
+  }
+  footer.site .grid {
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 36px;
+    padding-bottom: 34px;
+  }
+  footer.site .logo-cell img { height: 62px; width: auto; margin-bottom: 10px; }
+  footer.site .logo-cell span { color: var(--dark); font-weight: 700; font-size: 15px; display: block; }
+  footer.site h4 {
+    color: var(--black); font-size: 13px;
+    text-transform: uppercase; letter-spacing: 1px; margin: 0 0 14px;
+  }
+  footer.site h4::after { content: ""; display: block; width: 34px; height: 3px; background: var(--amber); margin-top: 7px; }
+  footer.site a { display: block; padding: 3px 0; color: var(--text); }
+  footer.site a:hover { color: var(--orange-t); }
+  footer.site .lbl { font-weight: 700; color: var(--dark); margin-right: 8px; }
+  footer.site .copy {
+    background: var(--dark); color: rgba(255,255,255,0.8);
+    padding: 14px 0; font-size: 13px;
+  }
+  footer.site .copy .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  footer.site .copy a { display: inline; color: rgba(255,255,255,0.8); padding: 0; }
+  footer.site .copy a:hover { color: var(--amber); }
+
+  /* WhatsApp float */
+  .wa-float {
+    position: fixed; right: 22px; bottom: 22px; z-index: 90;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.35);
+    transition: transform .2s ease;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 32px; height: 32px; display: block; }
+
+  /* ============= STRANKA RfG (simulacni zkousky) =============
+     Tabulka kategorii vyrobnich modulu a cislovane kroky metodiky. */
+  .spec-table { overflow-x: auto; margin: 0 0 8px; }
+  .spec-table table {
+    border-collapse: collapse; width: 100%; min-width: 640px;
+    font-size: 14px; background: var(--white);
+  }
+  .spec-table th, .spec-table td {
+    border: 1px solid var(--line); padding: 11px 14px;
+    text-align: left; vertical-align: top;
+  }
+  .spec-table th {
+    background: var(--dark); color: #fff; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.8px; border-color: var(--dark);
+  }
+  .spec-table td:first-child { font-weight: 900; color: var(--black); white-space: nowrap; }
+  /* Podtitulek pod H1 tam, kde H1 nese klicovy vyraz a marketingova veta
+     se presunula pod nej (bateriova uloziste). */
+  .section-head .h1-claim {
+    margin: -4px 0 16px; font-size: 19px; font-weight: 500; color: var(--orange-t);
+  }
+  .spec-h3 { font-size: 17px; margin: 30px 0 12px; color: var(--black); }
+  .spec-note { margin: 0 0 8px; font-size: 13px; color: #8a8a8a; }
+
+  /* Datum posledni technicke kontroly u odbornych textu (RfG, ekonomika BESS).
+     Cislo v takovem textu zastara — navstevnik musi videt, k cemu se vaze. */
+  .reviewed {
+    display: inline-block; margin: 0 0 26px;
+    background: var(--cream); border-left: 4px solid var(--orange);
+    padding: 9px 16px; font-size: 13px; color: var(--text);
+  }
+  .reviewed b { color: var(--black); }
+
+  /* Kroky metodiky WP1-WP6 a zkousky Z1-Z5. */
+  .wp-list { display: grid; gap: 10px; margin-bottom: 8px; }
+  .wp-item {
+    display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: baseline;
+    background: var(--white); border: 1px solid var(--line);
+    border-left: 4px solid var(--amber); border-radius: 6px; padding: 15px 20px;
+  }
+  .wp-item .kod {
+    font-weight: 900; font-size: 14px; color: var(--orange-t);
+    letter-spacing: 0.6px;
+  }
+  .wp-item p { margin: 0; font-size: 14.5px; }
+
+  /* Zaskrtavaci seznam podkladu od zakaznika. */
+  .checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 28px; margin: 0 0 8px; padding: 0; list-style: none; }
+  .checklist li { position: relative; padding-left: 30px; font-size: 14.5px; }
+  .checklist li::before {
+    content: ""; position: absolute; left: 0; top: 6px;
+    width: 16px; height: 9px; border-left: 3px solid var(--orange);
+    border-bottom: 3px solid var(--orange); transform: rotate(-45deg);
+  }
+
+  /* ============= PRAVNI TEXTY (zasady zpracovani osobnich udaju) =============
+     Dlouhy souvisly text — uzsi sloupec kvuli citelnosti, vetsi rozestupy
+     nadpisu a tabulka ucelu/pravnich zakladu, ktera se na mobilu roluje. */
+  .legal { max-width: 820px; }
+  .legal .updated {
+    color: #8a8a8a; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1px; margin: 0 0 30px;
+  }
+  .legal h2 {
+    font-size: 22px; margin: 42px 0 14px; scroll-margin-top: 100px;
+  }
+  .legal h2:first-of-type { margin-top: 0; }
+  .legal h3 { font-size: 16px; margin: 26px 0 8px; }
+  .legal p { margin: 0 0 14px; }
+  .legal ul { margin: 0 0 16px; padding-left: 0; list-style: none; }
+  .legal ul li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+  .legal ul li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 7px; height: 7px; background: var(--amber); border-radius: 1px;
+  }
+  .legal a { color: var(--orange-t); text-decoration: underline; }
+  .legal .toc {
+    background: var(--cream); border-left: 4px solid var(--amber);
+    padding: 20px 24px; margin: 0 0 40px;
+  }
+  .legal .toc ol { margin: 0; padding-left: 20px; font-size: 15px; }
+  .legal .toc li { margin-bottom: 5px; }
+  /* Tabulka ucelu — na uzkem displeji ji nechame rolovat vodorovne misto
+     lamani bunek, jinak se sloupec "pravni zaklad" stane necitelnym. */
+  .legal .table-wrap { overflow-x: auto; margin: 0 0 20px; }
+  .legal table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14px; }
+  .legal th, .legal td {
+    border: 1px solid var(--line); padding: 11px 13px;
+    text-align: left; vertical-align: top;
+  }
+  .legal th { background: var(--cream); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .legal .contact-box {
+    background: var(--cream); border-left: 4px solid var(--orange);
+    padding: 20px 24px; margin: 0 0 20px;
+  }
+  .legal .contact-box p:last-child { margin-bottom: 0; }
+
+  /* ============= RESPONSIVE ============= */
+  /* Prepnuti na hamburger driv nez ostatni mrizky: po pridani rozbalovaci
+     polozky menu je sirsi. Body ma overflow-x: hidden, takze prilis siroka
+     hlavicka nezpusobi vodorovny posuvnik — jen se nabidka prekryje s logem
+     a prava polozka se orizne. Radeji prepneme na hamburger drive: plne menu
+     (6 polozek + tlacitko) se vejde od 1080 px — pod tim hamburger.
+     Layout sekci se prepina az na 980 px niz. */
+  @media (max-width: 1080px) {
+    nav.primary { display: none; }
+    .hamburger { display: inline-flex; }
+    .header-cta { display: none; }
+  }
+
+  @media (max-width: 980px) {
+    .services { grid-template-columns: 1fr 1fr; }
+    .group-split { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .faq { grid-template-columns: 1fr; }
+    .tiers { grid-template-columns: 1fr; }
+    .seg-cases,
+    .seg-cases.cols-2 { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .supplier-strip { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    footer.site .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .container { padding: 0 16px; }
+    .hero { min-height: 0; }
+    .hero .content { padding: 54px 16px 58px; }
+    .hero-eyebrow {
+      flex-direction: column; align-items: flex-start; gap: 12px;
+      font-size: 12px; letter-spacing: 0.12em; margin-bottom: 18px;
+    }
+    /* Tri dlazdice ve dvou sloupcich nechavaly tretí samotnou na druhem radku,
+       takze pod 980 px jde kazda na svuj radek. */
+    .stats-band .grid { grid-template-columns: 1fr; gap: 16px; }
+    /* Nejdelsi hodnota ("10 kWh – 5 MWh") se ve dvou sloupcich lamala na dva
+       radky a rozjizdela popisky v radku — drzime vsechny na jednom radku. */
+    .stats-band .num { font-size: 20px; white-space: nowrap; }
+    .services,
+    .services.cols-2 { grid-template-columns: 1fr; }
+    /* Nazev + vykon + stitek "Nejcastejsi volba" se na uzkem displeji do
+       jednoho radku nevejdou — necháme stitek spadnout pod. */
+    .tier .tier-hdr { flex-wrap: wrap; row-gap: 6px; }
+    .tier .tier-spec { margin-right: 0; }
+    .steps { grid-template-columns: 1fr; gap: 10px; }
+    .seg-tab { flex: 1 1 100%; justify-content: center; padding: 12px 16px; }
+    .addon { grid-template-columns: 1fr; gap: 14px; text-align: left; }
+    .addon .addon-price { text-align: left; }
+    .seg-note { flex-direction: column; align-items: flex-start; }
+    section.block { padding: 60px 0; }
+    .ref-detail { grid-template-columns: 1fr; gap: 24px; }
+    .wp-item { grid-template-columns: 1fr; gap: 4px; }
+    .checklist { grid-template-columns: 1fr; }
+    .contact-form .row { grid-template-columns: 1fr; }
+    .contact-form-card { padding: 22px 18px; }
+    footer.site .grid { grid-template-columns: 1fr; gap: 26px; }
+    .btn { width: 100%; text-align: center; }
+    .hero .cta-row .btn { width: auto; flex: 1; }
+    .wa-float { right: 16px; bottom: 16px; width: 52px; height: 52px; }
+    .wa-float svg { width: 28px; height: 28px; }
+  }
+
+  /* ============= KOMPONENTY NAVIC (jen tenhle web) =============
+     Web je odborny rozcestnik — potrebuje veci, ktere prodejni web BFT nema:
+     zvyraznene poznamky k metodikam, slovnikova hesla, kotvy v dlouhem textu
+     a prokliky mezi souvisejicimi strankami. */
+
+  /* Uvodni odstavec sekce nebo stranky. */
+  .lead { font-size: 17px; line-height: 1.65; max-width: 78ch; }
+
+  /* Zvyraznena poznamka. .callout = vysvetleni, .callout.warn = na co si dat pozor. */
+  .callout {
+    background: var(--cream); border: 1px solid var(--line);
+    border-left: 5px solid var(--orange);
+    border-radius: 0 6px 6px 0; padding: 18px 22px; margin: 22px 0 0;
+  }
+  .callout p { margin: 0 0 10px; font-size: 15px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout .t {
+    display: block; margin: 0 0 8px;
+    font-size: 12px; font-weight: 900; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--orange-t);
+  }
+  .callout.warn { border-left-color: var(--dark); }
+  .callout.warn .t { color: var(--dark); }
+
+  /* Rozcestnik: cela karta je odkaz. */
+  a.svc { display: block; color: inherit; }
+  a.svc:hover { color: inherit; }
+  a.svc .go {
+    display: inline-block; margin-top: 12px;
+    font-size: 13px; font-weight: 900; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--orange-t);
+  }
+  a.svc:hover .go { color: var(--dark); }
+
+  /* Kotvy v dlouhem textu ("Na teto strance"). */
+  .anchor-nav {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 0 0 34px; padding: 0; list-style: none;
+  }
+  .anchor-nav a {
+    display: inline-block; padding: 7px 14px;
+    background: var(--cream); border: 1px solid var(--line); border-radius: 999px;
+    font-size: 13px; font-weight: 700; color: var(--dark);
+  }
+  .anchor-nav a:hover { background: var(--orange); border-color: var(--orange); color: #241A08; }
+
+  /* Prokliky na souvisejici stranky (pata obsahu). */
+  .crosslinks { margin: 40px 0 0; padding: 24px 0 0; border-top: 2px solid var(--line); }
+  .crosslinks .t {
+    display: block; margin-bottom: 12px;
+    font-size: 12px; font-weight: 900; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text);
+  }
+  .crosslinks a {
+    display: inline-block; margin: 0 8px 8px 0; padding: 8px 15px;
+    background: var(--white); border: 1px solid var(--line); border-radius: 4px;
+    font-size: 14px; font-weight: 700; color: var(--dark);
+  }
+  .crosslinks a:hover { border-color: var(--orange); color: var(--orange-t); }
+
+  /* Slovnik pojmu. */
+  .glossary { margin: 0; }
+  .glossary > div {
+    padding: 18px 0; border-bottom: 1px solid var(--line);
+    display: grid; grid-template-columns: 230px 1fr; gap: 24px;
+  }
+  .glossary dt { font-weight: 900; color: var(--black); font-size: 15.5px; }
+  .glossary dt small { display: block; font-weight: 400; color: var(--text); font-size: 12.5px; margin-top: 3px; }
+  .glossary dd { margin: 0; font-size: 15px; }
+
+  /* Stitek u pozadavku (napr. "jen zkouska"). */
+  .badge {
+    display: inline-block; padding: 3px 9px; border-radius: 3px;
+    font-size: 11px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase;
+    background: var(--grey-bg); color: var(--dark); white-space: nowrap;
+  }
+  .badge.zk { background: var(--dark); color: #fff; }
+  .badge.sim { background: var(--orange); color: #241A08; }
+  .badge.cert { background: var(--amber); color: #241A08; }
+
+  /* Cislovany seznam kroku v textu. */
+  ol.kroky { counter-reset: k; list-style: none; margin: 0; padding: 0; }
+  ol.kroky li {
+    counter-increment: k; position: relative;
+    padding: 0 0 16px 46px; font-size: 15px;
+  }
+  ol.kroky li::before {
+    content: counter(k); position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--dark); color: #fff;
+    font-size: 14px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  @media (max-width: 640px) {
+    .glossary > div { grid-template-columns: 1fr; gap: 6px; }
+    .anchor-nav { gap: 6px; }
+  }
+
+  /* Polozky rozbalovaciho menu nesou jednotky (kW, MW) a znacky psane
+     smisenymi pismeny (EG.D, PREdistribuce) — verzalky by je zkomolily. */
+  nav.primary .sub a,
+  .mobile-menu a.m-sub { text-transform: none; letter-spacing: 0; font-size: 14.5px; }
+
+  /* ---- Logo webu + vazba na provozovatele ----------------------------------
+     Hlavicka nese logo simulacni-zkousky.cz, hned vedle nej za svislou carou
+     znacku BFK systems — kdo web provozuje. Na uzkych displejich zustava jen
+     znacka bez popisku, jinak by se logo s hamburgerem nevesly vedle sebe. */
+  .brand img { height: 50px; }
+  .brand-wrap { gap: 14px; flex-shrink: 0; }
+  .brand-by {
+    display: flex; align-items: center; gap: 9px;
+    padding-left: 14px;
+    border-left: 1px solid var(--line);
+  }
+  .brand-by img { height: 30px; width: auto; }
+  .brand-by .lbl {
+    display: flex; flex-direction: column; line-height: 1.25;
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #8A8A8A; white-space: nowrap;
+  }
+  .brand-by .lbl b {
+    font-size: 12.5px; letter-spacing: 0.01em;
+    text-transform: none; color: var(--dark);
+  }
+  .brand-by:hover .lbl b { color: var(--orange-t); }
+
+  /* Paticka: logo webu, pod nim logo provozovatele. */
+  footer.site .logo-cell img { height: 54px; margin-bottom: 4px; }
+  footer.site .logo-cell .foot-by {
+    margin: 14px 0 6px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #8A8A8A;
+  }
+  footer.site .logo-cell a { padding: 0; }
+  footer.site .logo-cell img.foot-bfk { height: 36px; margin-bottom: 0; }
+
+  /* Vazba na provozovatele stoji v hlavicce misto: popisek 90 px, znacka
+     s carou dalsich 57 px. Nabidka ma prednost — pod 1400 px zustava jen
+     znacka. Misto se sezene zkracenim tlacitka poptavky, ne skryvanim
+     znacky — vazba na BFK ma v hlavicce zustat. */
+  @media (max-width: 1400px) {
+    .brand-by .lbl { display: none; }
+    .brand-by { padding-left: 12px; }
+  }
+  @media (max-width: 1240px) {
+    .header-cta .dlouhy { display: none; }
+    .header-cta .kratky { display: inline; }
+  }
+  @media (max-width: 400px) {
+    .brand img { height: 40px; }
+    .brand-by { padding-left: 10px; gap: 0; }
+    .brand-by img { height: 26px; }
+  }
+
+  /* Drobeckova navigace nad nadpisem podstranky. */
+  .breadcrumb { font-size: 13px; color: #8a8a8a; margin: 0 0 22px; }
+  .breadcrumb a { color: var(--orange-t); }
+  .breadcrumb span { margin: 0 6px; }
+  .breadcrumb span[aria-current] { margin: 0; color: var(--text); }
+
+  /* Odborny web pise jednotky presne — kW, MW, cos φ. Verzalky z nadpisu
+     v nabidce by z "kW" udelaly "KW", takze H1 zustava v prirozenem tvaru;
+     verzalky drzi jen H2 sekci, kde jednotky skoro nejsou. */
+  .section-head h1 { text-transform: none; letter-spacing: -0.5px; }
+
+  /* Hero nese dlouhy odborny nadpis — puvodni max-width 13ch ho lamal na
+     ctyri radky a zakryval fotku. */
+  .hero h1 { max-width: 20ch; }
+  @media (max-width: 640px) { .hero h1 { max-width: none; } }
