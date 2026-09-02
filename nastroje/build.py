@@ -78,13 +78,15 @@ LOGO_IMG = """<picture>
           <img src="assets/logo-sz-600.png" alt="simulacni-zkousky.cz" width="1037" height="324" srcset="assets/logo-sz-300.png 300w, assets/logo-sz-600.png 600w" sizes="{sizes}">
         </picture>"""
 
-# Vazba na provozovatele — vedle loga webu v hlavicce a v paticce.
+# Vazba na provozovatele — v hlavicce cele logo BFK vcetne napisu (samotna
+# ctvercova znacka bez textu nikomu nerekne, ci web to je). Popisek "provozuje"
+# se vejde az na sirokych displejich.
 BFK_ZNACKA = """<a class="brand-by" href="https://www.bfksystems.cz/" target="_blank" rel="noopener" title="Web provozuje BFK systems s.r.o.">
+        <span class="lbl">provozuje</span>
         <picture>
-          <source type="image/webp" srcset="assets/bfk-znacka-60.webp 60w, assets/bfk-znacka-120.webp 120w" sizes="30px">
-          <img src="assets/bfk-znacka-120.png" alt="" width="120" height="120" srcset="assets/bfk-znacka-60.png 60w, assets/bfk-znacka-120.png 120w" sizes="30px">
+          <source type="image/webp" srcset="assets/bfk-logo-210.webp 210w, assets/bfk-logo-420.webp 420w" sizes="80px">
+          <img src="assets/bfk-logo-420.png" alt="BFK systems s.r.o." width="420" height="171" srcset="assets/bfk-logo-210.png 210w, assets/bfk-logo-420.png 420w" sizes="80px">
         </picture>
-        <span class="lbl">provozuje<b>BFK systems</b></span>
       </a>"""
 
 

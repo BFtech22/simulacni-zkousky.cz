@@ -1114,15 +1114,10 @@
   }
   .brand-by img { height: 30px; width: auto; }
   .brand-by .lbl {
-    display: flex; flex-direction: column; line-height: 1.25;
     font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em;
     text-transform: uppercase; color: #8A8A8A; white-space: nowrap;
   }
-  .brand-by .lbl b {
-    font-size: 12.5px; letter-spacing: 0.01em;
-    text-transform: none; color: var(--dark);
-  }
-  .brand-by:hover .lbl b { color: var(--orange-t); }
+  .brand-by:hover img { opacity: 0.75; }
 
   /* Paticka: logo webu, pod nim logo provozovatele. */
   footer.site .logo-cell img { height: 54px; margin-bottom: 4px; }
