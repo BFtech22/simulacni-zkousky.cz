@@ -1162,3 +1162,9 @@
      ctyri radky a zakryval fotku. */
   .hero h1 { max-width: 20ch; }
   @media (max-width: 640px) { .hero h1 { max-width: none; } }
+
+/* --- preskoceni na obsah: viditelne az pri fokusu z klavesnice ----------- */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;
+  background:#F08A00;color:#fff;padding:12px 20px;border-radius:0 0 6px 0;
+  font-weight:700;text-decoration:none}
+.skip-link:focus{left:0}

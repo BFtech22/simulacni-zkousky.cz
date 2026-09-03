@@ -24,6 +24,32 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BFK Systems s.r.o.",
+  "alternateName": "Simulační zkoušky",
+  "url": "https://www.simulacni-zkousky.cz/",
+  "logo": "https://www.simulacni-zkousky.cz/assets/logo-sz-600.png",
+  "image": "https://www.simulacni-zkousky.cz/assets/title-photo.jpg",
+  "email": "info@bfksystems.cz",
+  "telephone": "+420 776 111 100",
+  "vatID": "CZ23571853",
+  "taxID": "23571853",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Obchodní 455/12",
+    "addressLocality": "Děčín V-Rozbělesy, Děčín",
+    "postalCode": "405 02",
+    "addressCountry": "CZ"
+  },
+  "sameAs": [
+    "https://www.bfksystems.cz/",
+    "https://www.bftechnology.cz/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
@@ -39,7 +65,7 @@
       "name": "Od jakého výkonu se mě to týká?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ověření souladu se týká každé výrobny a každého bateriového úložiště připojeného paralelně s distribuční soustavou. Do 100 kW (kategorie A1 a A2) se ale prokazuje výhradně certifikáty zařízení — bez zkoušek na výrobně a bez simulací. Od 100 kW (kategorie B1) přicházejí zkoušky na místě i simulace."
+        "text": "Ověření souladu se týká každé výrobny a každého bateriového úložiště připojeného paralelně s distribuční soustavou. Do 100 kW (kategorie A1 a A2) se ale prokazuje jen doklady k zařízení — certifikátem, nebo protokolem laboratoře — bez zkoušek na výrobně a bez simulací. Od 100 kW (kategorie B1) přicházejí zkoušky na místě i simulace."
       }
     },
     {
@@ -71,7 +97,7 @@
       "name": "Platí ještě protokoly laboratoří?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ne. Protokoly laboratoří provozovatelů distribučních soustav platily jako alternativa certifikátu  jen do 31. 12. 2025 . Dnes je platným dokladem certifikát od subjektu akreditovaného u ČIA podle RfG a nařízení (ES) 765/2008."
+        "text": "Ano, ale s dvojím omezením. Protokol odborné laboratoře — dnes těm požadavkům vyhovují laboratoře  ČEZ Distribuce  a  EG.D  — nahrazuje u A1 a A2 certifikát jen tehdy, byl-li  vydán nejpozději 31. 12. 2025 , a distributoři ho akceptují  do 31. 12. 2026 . Od  1. 1. 2027  jde soulad A1 a A2 doložit už jen osvědčením o souladu od akreditovaného zkušebního pracoviště podle nařízení (ES) č. 765/2008, nebo výjimkou ERÚ."
       }
     },
     {
@@ -88,6 +114,7 @@
 </head>
 
 <body>
+<a class="skip-link" href="#obsah">Přeskočit na hlavní obsah</a>
 <!-- HLAVICKA (generovano z nastroje/build.py) -->
 <header class="site-header">
   <div class="container row">
@@ -200,6 +227,7 @@
   <a href="faq.html">Časté dotazy</a>
   <a class="cta-mobile" href="kontakt.html">Nezávazná poptávka</a>
 </div>
+<main id="obsah">
 <!-- HERO -->
 <section class="hero">
   <div class="photo"><picture>
@@ -266,7 +294,7 @@
       </article>
       <article class="svc">
         <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Certifikát zařízení</h3>
-        <div class="body"><p>Doklad od certifikátora akreditovaného u ČIA. Nahradí zkoušku nebo simulaci jen tam, kde to Tabulka&nbsp;1 Dokumentu výrobního modulu připouští — a jen u výrobny z jediné výrobní jednotky.</p></div>
+        <div class="body"><p>Osvědčení o souladu od akreditovaného zkušebního pracoviště. Nahradí zkoušku nebo simulaci jen tam, kde to Tabulka&nbsp;1 Dokumentu výrobního modulu připouští — a jen u výrobny z jediné výrobní jednotky.</p></div>
       </article>
     </div>    <div class="callout">
       <span class="t">Tady se láme rozsah prací i cena</span>
@@ -287,8 +315,8 @@
           <tr><th>Kategorie</th><th>Rozsah výkonu</th><th>Zkoušky na místě</th><th>Simulace souladu</th><th>Certifikát</th></tr>
         </thead>
         <tbody>
-          <tr><td><a href="kategorie-a1.html">A1</a></td><td>0,8 kW – 11 kW včetně</td><td>ne</td><td>ne</td><td>výhradně certifikáty</td></tr>
-          <tr><td><a href="kategorie-a2.html">A2</a></td><td>nad 11 kW – pod 100 kW</td><td>ne</td><td>ne</td><td>výhradně certifikáty</td></tr>
+          <tr><td><a href="kategorie-a1.html">A1</a></td><td>0,8 kW – 11 kW včetně</td><td>ne</td><td>ne</td><td>certifikát nebo protokol laboratoře</td></tr>
+          <tr><td><a href="kategorie-a2.html">A2</a></td><td>nad 11 kW – pod 100 kW</td><td>ne</td><td>ne</td><td>certifikát nebo protokol laboratoře</td></tr>
           <tr><td><a href="kategorie-b1.html">B1</a></td><td>100 kW – pod 1 MW</td><td><b>6 bodů „jen zkouška“</b></td><td>10 / 12 bodů — lze i certifikátem</td><td>jen výrobna z 1 VJ</td></tr>
           <tr><td><a href="kategorie-b2.html">B2</a></td><td>1 MW – pod 30 MW</td><td>ano, širší rozsah než B1</td><td>povinná celá kapitola 6 + předání modelu</td><td>jen výrobna z 1 VJ</td></tr>
           <tr><td><a href="kategorie-c-d.html">C</a></td><td>30 MW – pod 75 MW</td><td>ano</td><td>ano, plný rozsah</td><td>částečně</td></tr>
@@ -298,6 +326,7 @@
     </div>
     <p class="spec-note">Dělení A1/A2 a B1/B2 je české upřesnění, v RfG není. U nesynchronních výroben (fotovoltaika, bateriová úložiště) se posuzuje celkový výkon výrobny, ne jednotlivé moduly.</p>
     <p class="spec-note"><b>Kategorie je uvedena ve smlouvě o připojení</b> a ta je vždy rozhodující. Do kategorie D vedou dvě cesty — výkon od 75 MW, nebo napěťová hladina 110 kV a výše bez ohledu na výkon.</p>
+    <p class="spec-note"><b>Pozor na jednotky:</b> <i>kWp</i> je špičkový výkon fotovoltaických panelů, <i>Pn</i> je jmenovitý činný výkon výrobního modulu (typicky dán střídači) a <i>rezervovaný výkon</i> je hodnota sjednaná ve smlouvě o připojení. Kategorii neurčuje kWp — 698 kWp panelů může být výrobní modul s Pn 550 kW. Rozhodný údaj vždy ověřujeme podle smlouvy o připojení a definice příslušného provozovatele.</p>
   </div>
 </section>
 <section class="block alt" id="proces">
@@ -406,8 +435,8 @@
     </div>
     <div class="services">
       <a class="svc" href="kategorie-a2.html">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Od 2026 jen akreditované certifikáty</h3>
-        <div class="body"><p>Protokoly laboratoří provozovatelů distribučních soustav byly přechodnou alternativou <b>jen do 31. 12. 2025</b>. Dnes je platným dokladem certifikát vydaný subjektem akreditovaným u ČIA. Řada starších podkladů ke střídačům tak už nestačí.</p><span class="go">Otevřít →</span></div>
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Protokolům laboratoří končí platnost</h3>
+        <div class="body"><p>Protokol odborné laboratoře (ČEZ Distribuce, EG.D) je u A1 a A2 pořád platnou alternativou certifikátu — ale jen ten <b>vydaný do 31. 12. 2025</b> a jen <b>do 31. 12. 2026</b>. Od 1. 1. 2027 uznají distributoři už jen osvědčení o souladu od akreditovaného certifikátora. Starší podklady ke střídačům je načase projít.</p><span class="go">Otevřít →</span></div>
       </a>
       <a class="svc" href="bateriova-uloziste-zue.html">
         <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2M6 11v2M10 11v2M14 11v2"/></svg>Bateriová úložiště mají vlastní metodiku</h3>
@@ -433,7 +462,7 @@
       </details>
       <details>
         <summary>Od jakého výkonu se mě to týká?</summary>
-        <div class="answer"><p>Ověření souladu se týká každé výrobny a každého bateriového úložiště připojeného paralelně s distribuční soustavou. Do 100 kW (kategorie A1 a A2) se ale prokazuje výhradně certifikáty zařízení — bez zkoušek na výrobně a bez simulací. Od 100 kW (kategorie B1) přicházejí zkoušky na místě i simulace.</p></div>
+        <div class="answer"><p>Ověření souladu se týká každé výrobny a každého bateriového úložiště připojeného paralelně s distribuční soustavou. Do 100 kW (kategorie A1 a A2) se ale prokazuje jen doklady k zařízení — certifikátem, nebo protokolem laboratoře — bez zkoušek na výrobně a bez simulací. Od 100 kW (kategorie B1) přicházejí zkoušky na místě i simulace.</p></div>
       </details>
       <details>
         <summary>Jak zjistím kategorii své výrobny?</summary>
@@ -449,7 +478,7 @@
       </details>
       <details>
         <summary>Platí ještě protokoly laboratoří?</summary>
-        <div class="answer"><p>Ne. Protokoly laboratoří provozovatelů distribučních soustav platily jako alternativa certifikátu <b>jen do 31. 12. 2025</b>. Dnes je platným dokladem certifikát od subjektu akreditovaného u ČIA podle RfG a nařízení (ES) 765/2008.</p></div>
+        <div class="answer"><p>Ano, ale s dvojím omezením. Protokol odborné laboratoře — dnes těm požadavkům vyhovují laboratoře <b>ČEZ Distribuce</b> a <b>EG.D</b> — nahrazuje u A1 a A2 certifikát jen tehdy, byl-li <b>vydán nejpozději 31. 12. 2025</b>, a distributoři ho akceptují <b>do 31. 12. 2026</b>. Od <b>1. 1. 2027</b> jde soulad A1 a A2 doložit už jen osvědčením o souladu od akreditovaného zkušebního pracoviště podle nařízení (ES) č. 765/2008, nebo výjimkou ERÚ.</p></div>
       </details>
       <details>
         <summary>Děláte to i pro elektrárny, které jste nestavěli?</summary>
@@ -501,6 +530,7 @@
     </div>
   </div>
 </section>
+</main>
 <!-- PATICKA -->
 <footer class="site">
   <div class="container grid">

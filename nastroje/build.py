@@ -16,6 +16,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import subprocess
 from datetime import date
 from pathlib import Path
 
@@ -260,6 +261,31 @@ def faq_blok(polozky: list[tuple[str, str]], nadpis: str = "Časté dotazy") -> 
     return blok, ld
 
 
+def organizace() -> str:
+    """Organization JSON-LD provozovatele — jen na domovske strance."""
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": FIRMA,
+        "alternateName": ZNACKA,
+        "url": f"{DOMENA}/",
+        "logo": f"{DOMENA}/assets/logo-sz-600.png",
+        "image": f"{DOMENA}/assets/title-photo.jpg",
+        "email": MAIL,
+        "telephone": TEL,
+        "vatID": "CZ23571853",
+        "taxID": "23571853",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Obchodní 455/12",
+            "addressLocality": "Děčín V-Rozbělesy, Děčín",
+            "postalCode": "405 02",
+            "addressCountry": "CZ",
+        },
+        "sameAs": ["https://www.bfksystems.cz/", "https://www.bftechnology.cz/"],
+    }, ensure_ascii=False, indent=2)
+
+
 def stranka(p: dict) -> str:
     """Slozi celou HTML stranku z jednoho zaznamu obsahu."""
     slug = p["slug"]
@@ -273,7 +299,7 @@ def stranka(p: dict) -> str:
     faq_html, faq_ld = faq_blok(p.get("faq", []), p.get("faq_nadpis", "Časté dotazy"))
 
     ldjson = ""
-    for data in (bc_ld, faq_ld, p.get("ld", "")):
+    for data in (organizace() if slug == "index.html" else "", bc_ld, faq_ld, p.get("ld", "")):
         if data:
             ldjson += f'\n<script type="application/ld+json">\n{data}\n</script>'
 
@@ -303,6 +329,7 @@ def stranka(p: dict) -> str:
 </head>
 
 <body>
+<a class="skip-link" href="#obsah">Přeskočit na hlavní obsah</a>
 """
 
     # uvodni sekce (mimo domovskou, ktera ma vlastni hero v obsahu)
@@ -348,8 +375,9 @@ def stranka(p: dict) -> str:
 """
 
     kontakt = "" if p.get("bez_kontaktu") else KONTAKT_PRUH
-    return (hlava + hlavicka(p.get("nav", "")) + uvod + pruh + p["body"]
-            + faq_html + cross + kontakt + paticka() + "\n</body>\n</html>\n")
+    return (hlava + hlavicka(p.get("nav", "")) + '<main id="obsah">\n'
+            + uvod + pruh + p["body"] + faq_html + cross + kontakt + "</main>\n"
+            + paticka() + "\n</body>\n</html>\n")
 
 
 # Vyzva ke kontaktu nad patickou — na kazde strance krome kontaktu.
@@ -389,6 +417,26 @@ KONTAKT_PRUH = f"""<section class="contact-section" id="poptavka">
 """
 
 
+def posledni_zmena(slug: str, dnes: str) -> str:
+    """Datum posledni skutecne zmeny stranky.
+
+    Google pouziva <lastmod>, jen kdyz je dlouhodobe spolehlivy — datum dnesniho
+    buildu u vsech 27 stranek spolehlivy neni. Vygenerovany .html se commituje,
+    takze staci vzit datum posledniho commitu, ktery na soubor sahl. Kdyz se
+    soubor prave ted zmenil (nebo git neni k dispozici), plati dnesek.
+    """
+    try:
+        zmeneno = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", slug],
+                                 cwd=KOREN, capture_output=True).returncode
+        if zmeneno:
+            return dnes
+        r = subprocess.run(["git", "log", "-1", "--format=%cs", "--", slug],
+                           cwd=KOREN, capture_output=True, text=True)
+        return r.stdout.strip() or dnes
+    except (OSError, subprocess.SubprocessError):
+        return dnes
+
+
 def sitemap(stranky: list[dict]) -> str:
     dnes = date.today().isoformat()
     radky = []
@@ -398,7 +446,8 @@ def sitemap(stranky: list[dict]) -> str:
         slug = p["slug"]
         loc = f"{DOMENA}/" if slug == "index.html" else f"{DOMENA}/{slug}"
         priorita = "1.0" if slug == "index.html" else p.get("prio", "0.7")
-        radky.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{dnes}</lastmod>\n"
+        radky.append(f"  <url>\n    <loc>{loc}</loc>\n"
+                     f"    <lastmod>{posledni_zmena(slug, dnes)}</lastmod>\n"
                      f"    <priority>{priorita}</priority>\n  </url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
