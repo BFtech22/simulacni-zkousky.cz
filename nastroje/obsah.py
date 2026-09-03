@@ -126,7 +126,7 @@ HERO = """<!-- HERO -->
   </picture></div>
   <div class="gradient-overlay"></div>
   <div class="content">
-    <p class="hero-eyebrow">BFK systems &middot; ověření souladu s RfG</p>
+    <p class="hero-eyebrow">BFK Systems &middot; ověření souladu s RfG</p>
     <h1>Simulační zkoušky a ověření souladu výroben</h1>
     <p class="hero-claim-big">Simulace souladu, zkoušky na místě, Dokument výrobního modulu — od jedné firmy.</p>
     <p class="hero-lead">Bez doloženého souladu s&nbsp;RfG nevydá provozovatel distribuční soustavy souhlas s&nbsp;trvalým provozem. Od kategorie B1, tedy od 100&nbsp;kW, se část požadavků prokazuje výpočtem dopředu a část funkčními zkouškami přímo na výrobně. Děláme obojí — včetně žádostí o&nbsp;ÚPOS a&nbsp;ÚTP.</p>
@@ -314,7 +314,7 @@ HUB_UVOD = sekce(
 STRANKY.append({
     "slug": "index.html",
     "nav": "",
-    "title": "Simulační zkoušky a ověření souladu RfG | BFK systems",
+    "title": "Simulační zkoušky a ověření souladu RfG | BFK Systems",
     "desc": "Ověření souladu výroben s RfG: simulace souladu v DIgSILENT PowerFactory, zkoušky na místě, "
             "Dokument výrobního modulu, žádosti o ÚPOS a ÚTP. Fotovoltaika i baterie od 100 kW.",
     "prio": "1.0",
@@ -2044,10 +2044,10 @@ STRANKY.append({
         eyebrow="Anonymizovaně",
     ) + sekce(
         "Kdo to dělá",
-        "<p class=\"lead\">Ověřování souladu zajišťuje <b>BFK systems s.r.o.</b> Se sesterskou "
+        "<p class=\"lead\">Ověřování souladu zajišťuje <b>BFK Systems s.r.o.</b> Se sesterskou "
         "společností <a href=\"https://www.bftechnology.cz/\" target=\"_blank\" rel=\"noopener\">BF "
         "technology</a> tvoříme jednu skupinu — stejné vedení, stejné sídlo i telefon. BF technology "
-        "staví fotovoltaické elektrárny, BFK systems dělá inženýrskou část: projekty, simulace, "
+        "staví fotovoltaické elektrárny, BFK Systems dělá inženýrskou část: projekty, simulace, "
         "zkoušky a jednání s provozovateli distribučních soustav. Zkušenosti máme z projektů pro "
         "energetiku, petrochemii i automobilový průmysl.</p>"
         + cta("Chcete referenci na konkrétní typ projektu? Řekněte si o ni — po dohodě "
@@ -2084,8 +2084,8 @@ FORMULAR = """<section class="contact-section" id="poptavka">
         </a>
       </div>
       <div class="firm">
-        <b>BFK systems s.r.o.</b><br>
-        Obchodní 455/12, 405 02 Děčín<br>
+        <b>BFK Systems s.r.o.</b><br>
+        Obchodní 455/12, Děčín V-Rozbělesy, 405 02 Děčín<br>
         IČO 23571853 &middot; DIČ CZ23571853
       </div>
     </div>
@@ -2188,7 +2188,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
 STRANKY.append({
     "slug": "kontakt.html", "nav": "kontakt", "bez_kontaktu": True,
     "title": "Kontakt — ověření souladu výroben s RfG",
-    "desc": "BFK systems s.r.o., Obchodní 455/12, Děčín. Poptávka na simulace souladu, zkoušky na "
+    "desc": "BFK Systems s.r.o., Obchodní 455/12, Děčín. Poptávka na simulace souladu, zkoušky na "
             "místě a vyřízení dokumentace k dočasnému i trvalému provozu.",
     "eyebrow": "Kontakt", "h1": "Ozvěte se",
     "bc_nazev": "Kontakt", "breadcrumb": [],
@@ -2196,16 +2196,15 @@ STRANKY.append({
              "výrobního modulu i rezervovaný výkon, tedy dvě věci, ze kterých se odvíjí celý rozsah "
              "ověření. Přiložte ji rovnou k poptávce.</p>",
     "body": sekce(
-        "Na koho se obrátit",
+        "Kontaktní údaje",
         karty([
-            (I["dok"], "Obchod a nabídky",
-             "<p><b>PhDr. Jan Böhme</b><br>jednatel<br>"
-             '<a href="tel:+420776111100">+420 776 111 100</a><br>'
-             '<a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a></p>'),
-            (I["lupa"], "Technika a ověření souladu",
-             "<p><b>Michal Kovář</b><br>technický kontakt<br>"
-             '<a href="tel:+420608344660">+420 608 344 660</a><br>'
-             '<a href="mailto:servis@bfksystems.cz">servis@bfksystems.cz</a></p>'),
+            (I["dok"], "BFK Systems s.r.o.",
+             "<p>Obchodní 455/12<br>Děčín V-Rozbělesy, 405 02 Děčín</p>"
+             "<p>IČO 23571853<br>DIČ CZ23571853</p>"),
+            (I["sit"], "Spojení",
+             '<p><a href="tel:+420776111100">+420 776 111 100</a><br>'
+             '<a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a><br>'
+             '<a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">www.bfksystems.cz</a></p>'),
         ], sloupce=2)
         + callout(
             "Co nám poslat s poptávkou",
@@ -2213,22 +2212,38 @@ STRANKY.append({
             "schéma, počet a typ střídačů a informaci, jestli je součástí bateriové úložiště. "
             "Z toho se dá odhadnout rozsah i to, které body půjde doložit certifikátem. "
             "<a href=\"podklady.html\">Kompletní seznam podkladů →</a></p>"),
-        eyebrow="Lidé",
+        eyebrow="Kde nás najdete",
+    ) + sekce(
+        "Kdo se vám ozve",
+        karty([
+            (I["lupa"], "Bc. Petr Fencl",
+             "<p><b>Technický ředitel</b></p><p>Specialista na průmyslovou automatizaci, "
+             "fotovoltaiku a integrace MES/ERP. Zkušenosti z projektů pro ČEZ a ČEPS.</p>"),
+            (I["dok"], "PhDr. Jan Böhme",
+             "<p><b>Obchodní a finanční ředitel</b></p><p>Nabídky, smlouvy a jednání s investory. "
+             "Praxe z managementu, ekonomie a financí.</p>"),
+            (I["blesk"], "Michal Kovář",
+             "<p><b>Specialista VN a řízení FVE</b></p><p>Vysoké napětí, průmyslové řízení "
+             "a aplikace SCADA. Desítky projektů v Evropě i zámoří.</p>"),
+        ], sloupce=3)
+        + '    <p class="spec-note">Tým a kontakty podle <a href="https://www.bfksystems.cz/" '
+          'target="_blank" rel="noopener">www.bfksystems.cz</a>.</p>',
+        eyebrow="Tým", alt=True,
     ) + FORMULAR + sekce(
         "Fakturační a identifikační údaje",
         tabulka(
             ["", ""],
-            [["Obchodní firma", "BFK systems s.r.o."],
+            [["Obchodní firma", "BFK Systems s.r.o."],
              ["Sídlo", "Obchodní 455/12, Děčín V-Rozbělesy, 405 02 Děčín"],
              ["IČO", "23571853"],
              ["DIČ", "CZ23571853"],
              ["Zápis v OR", "Krajský soud v Ústí nad Labem, oddíl C, vložka 54375"],
-             ["Bankovní spojení", "277317967/0600"],
              ["Telefon", '<a href="tel:+420776111100">+420 776 111 100</a>'],
-             ["E-mail", '<a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a>']],
+             ["E-mail", '<a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a>'],
+             ["Web", '<a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">www.bfksystems.cz</a>']],
             min_sirka=520,
         ),
-        eyebrow="Údaje", alt=True,
+        eyebrow="Údaje",
     ),
     "cross": [("Podklady k zahájení", "podklady.html"), ("Časté dotazy", "faq.html"),
               ("Reference", "reference.html")],
@@ -2238,7 +2253,7 @@ STRANKY.append({
 STRANKY.append({
     "slug": "zasady-zpracovani-osobnich-udaju.html", "nav": "", "prio": "0.2",
     "title": "Zásady zpracování osobních údajů",
-    "desc": "Jak BFK systems s.r.o. zpracovává osobní údaje z poptávkového formuláře na webu "
+    "desc": "Jak BFK Systems s.r.o. zpracovává osobní údaje z poptávkového formuláře na webu "
             "simulacni-zkousky.cz: účely, právní základ, doba uchování, příjemci a vaše práva.",
     "eyebrow": "Právní informace", "h1": "Zásady zpracování osobních údajů",
     "bc_nazev": "Zásady zpracování osobních údajů", "breadcrumb": [],
@@ -2248,7 +2263,7 @@ STRANKY.append({
       <p class="updated">Účinné od 1. 9. 2026</p>
 
       <h2>1. Kdo údaje zpracovává</h2>
-      <p>Správcem osobních údajů je <b>BFK systems s.r.o.</b>, IČO 23571853, se sídlem Obchodní 455/12,
+      <p>Správcem osobních údajů je <b>BFK Systems s.r.o.</b>, IČO 23571853, se sídlem Obchodní 455/12,
       Děčín V-Rozbělesy, 405 02 Děčín, zapsaná v obchodním rejstříku vedeném Krajským soudem v Ústí nad
       Labem, oddíl C, vložka 54375.</p>
       <p>Kontakt ve věcech ochrany osobních údajů: <a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a>,

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generator webu simulacni-zkousky.cz (BFK systems).
+"""Generator webu simulacni-zkousky.cz (BFK Systems).
 
 Web ma pres dvacet stranek se stejnou hlavickou, patickou a menu. Rucne
 udrzovana kopie hlavicky v kazdem souboru (jako na webu BF technology) se pri
@@ -24,7 +24,7 @@ import obsah
 KOREN = Path(__file__).resolve().parent.parent
 DOMENA = "https://www.simulacni-zkousky.cz"
 ZNACKA = "Simulační zkoušky"
-FIRMA = "BFK systems s.r.o."
+FIRMA = "BFK Systems s.r.o."
 
 # ---------------------------------------------------------------- menu -----
 # (nazev, klic pro zvyrazneni, polozky | odkaz)
@@ -81,11 +81,11 @@ LOGO_IMG = """<picture>
 # Vazba na provozovatele — v hlavicce cele logo BFK vcetne napisu (samotna
 # ctvercova znacka bez textu nikomu nerekne, ci web to je). Popisek "provozuje"
 # se vejde az na sirokych displejich.
-BFK_ZNACKA = """<a class="brand-by" href="https://www.bfksystems.cz/" target="_blank" rel="noopener" title="Web provozuje BFK systems s.r.o.">
+BFK_ZNACKA = """<a class="brand-by" href="https://www.bfksystems.cz/" target="_blank" rel="noopener" title="Web provozuje BFK Systems s.r.o.">
         <span class="lbl">provozuje</span>
         <picture>
           <source type="image/webp" srcset="assets/bfk-logo-210.webp 210w, assets/bfk-logo-420.webp 420w" sizes="80px">
-          <img src="assets/bfk-logo-420.png" alt="BFK systems s.r.o." width="420" height="171" srcset="assets/bfk-logo-210.png 210w, assets/bfk-logo-420.png 420w" sizes="80px">
+          <img src="assets/bfk-logo-420.png" alt="BFK Systems s.r.o." width="420" height="171" srcset="assets/bfk-logo-210.png 210w, assets/bfk-logo-420.png 420w" sizes="80px">
         </picture>
       </a>"""
 
@@ -171,7 +171,7 @@ def paticka() -> str:
       <a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">
         <picture>
           <source type="image/webp" srcset="assets/bfk-logo-210.webp 210w, assets/bfk-logo-420.webp 420w" sizes="150px">
-          <img class="foot-bfk" src="assets/bfk-logo-420.png" alt="BFK systems s.r.o." width="420" height="171" srcset="assets/bfk-logo-210.png 210w, assets/bfk-logo-420.png 420w" sizes="150px">
+          <img class="foot-bfk" src="assets/bfk-logo-420.png" alt="BFK Systems s.r.o." width="420" height="171" srcset="assets/bfk-logo-210.png 210w, assets/bfk-logo-420.png 420w" sizes="150px">
         </picture>
       </a>
     </div>
@@ -179,7 +179,7 @@ def paticka() -> str:
       <h4>Kontakt</h4>
       <div><span class="lbl">Tel</span><a href="tel:{TEL_HREF}" style="display:inline">{TEL}</a></div>
       <div><span class="lbl">Mail</span><a href="mailto:{MAIL}" style="display:inline">{MAIL}</a></div>
-      <div style="margin-top:10px">Obchodní 455/12<br>405 02 Děčín</div>
+      <div style="margin-top:10px">Obchodní 455/12<br>Děčín V-Rozbělesy<br>405 02 Děčín</div>
       <div style="margin-top:10px">IČO 23571853<br>DIČ CZ23571853</div>
     </div>
 {rozcestnik}
@@ -375,7 +375,7 @@ KONTAKT_PRUH = f"""<section class="contact-section" id="poptavka">
       </div>
       <div class="firm">
         <b>{FIRMA}</b><br>
-        Obchodní 455/12, 405 02 Děčín<br>
+        Obchodní 455/12, Děčín V-Rozbělesy, 405 02 Děčín<br>
         IČO 23571853 · DIČ CZ23571853
       </div>
     </div>

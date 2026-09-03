@@ -1,6 +1,6 @@
 # www.simulacni-zkousky.cz
 
-Specializovaný web BFK systems s.r.o. na **ověřování souladu výroben s RfG** —
+Specializovaný web BFK Systems s.r.o. na **ověřování souladu výroben s RfG** —
 simulace souladu, zkoušky na místě, dokumentace a jednání s provozovateli
 distribučních soustav. Statický web bez backendu.
 
@@ -35,7 +35,7 @@ Když upravíš vygenerovaný `.html` v kořeni, další build to přepíše.
 │   ├── form.js             # odeslání poptávkového formuláře
 │   ├── logo_SZ.png         # ZDROJ loga webu (originál, stránky ho nenačítají)
 │   ├── logo-sz-300/600.*   # logo webu pro hlavičku a patičku (generované)
-│   ├── bfk-logo*, bfk-znacka-*  # logo a značka BFK systems (generované)
+│   ├── bfk-logo*, bfk-znacka-*  # logo a značka BFK Systems (generované)
 │   ├── favicon.png         # oranžový čtverec s fajfkou (kreslený skriptem)
 │   └── title-photo*        # titulní fotka (hero, pozadí kontaktu)
 ├── podklady/               # interní rešerše (v .gitignore, nepublikuje se)
@@ -52,12 +52,30 @@ z něj udělá ořez bez bílého okraje, průhledné pozadí a zmenšeniny
 `logo-sz-300/600.png|webp`, na které se odkazuje hlavička i patička.
 **Po výměně originálu skript spusť znovu**, jinak zůstanou staré varianty.
 
-Vazba na provozovatele: v hlavičce je za svislou čarou značka BFK systems
-s popiskem „provozuje", v patičce logo webu a pod ním celé logo BFK. Na displejích
-pod 900 px se popisek skryje a zůstane jen značka.
+Vazba na provozovatele: v hlavičce je za svislou čarou **celé logo BFK Systems**
+(samotná čtvercová značka bez nápisu nikomu neřekne, čí web to je), v patičce logo
+webu a pod ním logo BFK s popiskem „Web provozuje".
 
 Favicon je oranžový čtverec s bílou fajfkou (kreslí ho stejný skript) — celá
 značka s monitorem je v 16 px nečitelná.
+
+## Hlavička a šířky
+
+Hlavička nese o položku víc než web BF technology, takže se do ní musí vejít logo
+webu, logo BFK, šest položek menu a tlačítko. Místo se uvolňuje po krocích:
+
+| Šířka okna | Hlavička |
+|---|---|
+| do 1080 px | hamburger (menu i tlačítko v rozbalovacím panelu) |
+| 1081–1240 px | loga, plné menu, zkrácené tlačítko „Poptávka" |
+| 1241–1400 px | k tomu dlouhé „Nezávazná poptávka" |
+| od 1400 px | navíc popisek „provozuje" před logem BFK |
+
+Pozor při ladění: `body` má `overflow-x: hidden`, takže **příliš široká hlavička
+nezpůsobí vodorovný posuvník** — jen se menu překryje s logem a pravá položka se
+ořízne. Kontroluje se to porovnáním šířky loga a menu proti šířce hlavičky, ne
+testem posuvníku. Počítej i s tím, že než se načte Roboto, kreslí se náhradní
+Arial, který je asi o 6 % širší.
 
 ## Struktura webu
 
