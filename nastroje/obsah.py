@@ -298,11 +298,12 @@ HUB_UVOD = sekce(
 ) + sekce(
     "Co se v posledních měsících změnilo",
     karty([
-        (I["dok"], "Protokolům laboratoří končí platnost",
-         "<p>Protokol odborné laboratoře (ČEZ Distribuce, EG.D) je u A1 a A2 pořád platnou alternativou "
-         "certifikátu — ale jen ten <b>vydaný do 31. 12. 2025</b> a jen <b>do 31. 12. 2026</b>. "
-         "Od 1. 1. 2027 uznají distributoři už jen osvědčení o souladu od akreditovaného "
-         "certifikátora. Starší podklady ke střídačům je načase projít.</p>", "kategorie-a2.html"),
+        (I["dok"], "Končí přechodné období protokolů laboratoří",
+         "<p>Protokol odborné laboratoře je u A1 a A2 pořád platnou alternativou certifikátu — ale jen "
+         "ten <b>vydaný nejpozději 31. 12. 2025</b>. <b>EG.D</b> a <b>PREdistribuce</b> mají v přechodných "
+         "podmínkách výslovně napsáno, že takový protokol akceptují <b>do 31. 12. 2026</b> a od "
+         "<b>1. 1. 2027</b> uznají už jen osvědčení o souladu. Starší podklady ke střídačům je načase "
+         "projít.</p>", "kategorie-a2.html"),
         (I["baterie"], "Bateriová úložiště mají vlastní metodiku",
          "<p>Od <b>1. 9. 2025</b> platí společná metodika ověřování souladu ZUE a dodatky připojovacích "
          "podmínek ČEZ Distribuce. Ověřuje se v obou provozních režimech a hodnoty ochran se od "
@@ -353,11 +354,15 @@ STRANKY.append({
          "jednotky</b>. Máte-li čtyři střídače, certifikátem to nedoložíte a řeší se to simulací celé "
          "výrobny. Body „jen zkouška“ nenahradí certifikát nikdy.</p>"),
         ("Platí ještě protokoly laboratoří?",
-         "<p>Ano, ale s dvojím omezením. Protokol odborné laboratoře — dnes těm požadavkům vyhovují "
-         "laboratoře <b>ČEZ Distribuce</b> a <b>EG.D</b> — nahrazuje u A1 a A2 certifikát jen tehdy, "
-         "byl-li <b>vydán nejpozději 31. 12. 2025</b>, a distributoři ho akceptují <b>do 31. 12. 2026</b>. "
-         "Od <b>1. 1. 2027</b> jde soulad A1 a A2 doložit už jen osvědčením o souladu od akreditovaného "
-         "zkušebního pracoviště podle nařízení (ES) č. 765/2008, nebo výjimkou ERÚ.</p>"),
+         "<p>Ano, ale s omezeními a u každého provozovatele distribuční soustavy trochu jinak. "
+         "Protokol musí pocházet z odborné laboratoře — dnes těm požadavkům vyhovují laboratoře "
+         "<b>ČEZ Distribuce</b> a <b>EG.D</b> — a musí být <b>vydaný nejpozději 31. 12. 2025</b>. "
+         "<b>EG.D</b> a <b>PREdistribuce</b> mají v přechodných podmínkách shodně uvedeno, že takový "
+         "protokol akceptují <b>do 31. 12. 2026</b> a od <b>1. 1. 2027</b> už jen osvědčení o souladu "
+         "od akreditovaného zkušebního pracoviště podle nařízení (ES) č. 765/2008, nebo výjimku ERÚ. "
+         "<b>ČEZ Distribuce</b> shodné datum nezveřejňuje a uvádí, že protokoly akceptuje po dobu "
+         "jejich platnosti. U konkrétního projektu proto vždy ověřujeme podmínky toho PDS, "
+         "ke kterému se připojujete.</p>"),
         ("Děláte to i pro elektrárny, které jste nestavěli?",
          "<p>Ano, tvoří to velkou část naší práce — zpracováváme studie pro jiné dodavatele fotovoltaiky "
          "i pro investory. Potřebujeme <a href=\"podklady.html\">podklady</a>, ne vlastní stavbu.</p>"),
@@ -395,7 +400,8 @@ STRANKY.append({
             (I["check"], "Certifikát, protokol, nebo výjimka",
              "<p>Soulad se dokládá osvědčením o souladu (certifikátem) od <b>akreditovaného zkušebního "
              "pracoviště</b> podle nařízení (ES) č. 765/2008, protokolem odborné laboratoře, nebo výjimkou "
-             "ERÚ. Protokol platí přechodně: musí být vydaný do 31. 12. 2025 a uznává se do 31. 12. 2026.</p>"),
+             "ERÚ. Protokol platí přechodně: musí být vydaný nejpozději 31. 12. 2025 a u EG.D "
+             "a PREdistribuce se uznává do 31. 12. 2026.</p>"),
             (I["hodiny"], "Bez fáze dočasného provozu",
              "<p>U kategorií A1 a A2 se žádost o uvedení do trvalého provozu podává rovnou po splnění "
              "podmínek smlouvy o připojení — nečeká se na zkoušky, protože žádné nejsou.</p>"),
@@ -414,7 +420,8 @@ STRANKY.append({
             "Zkontrolujte si doklad ke střídači",
             "<p>Nejčastější zádrhel u malých elektráren není zkouška, ale doklad ke střídači: certifikát "
             "nemusí pokrývat všechny požadavky instalačního dokumentu a u protokolu laboratoře je potřeba "
-            "hlídat, že byl vydaný do 31. 12. 2025 — po 31. 12. 2026 už ho distributor neuzná. Ověříme, "
+            "hlídat, že byl vydaný nejpozději 31. 12. 2025 — u EG.D a PREdistribuce ho po 31. 12. 2026 "
+            "už neuznají. Ověříme, "
             "co váš střídač doloží a co bude potřeba doplnit.</p>"),
         eyebrow="Checklist", alt=True,
     ) + sekce("", ZDROJ.format(
@@ -441,14 +448,14 @@ STRANKY.append({
     "slug": "kategorie-a2.html", "nav": "kategorie", "reviewed": True,
     "title": "Výrobní modul A2 — 11 až 100 kW a certifikát střídače",
     "desc": "Kategorie A2 (11 až 100 kW): soulad certifikátem střídače přes instalační dokument. "
-            "Protokol odborné laboratoře platí přechodně do 31. 12. 2026, pak už jen certifikát.",
+            "Protokol odborné laboratoře platí v přechodném období do 31. 12. 2026, pak už jen certifikát.",
     "eyebrow": "Kategorie výrobního modulu", "h1": "Výrobní modul A2 — 11 až 100 kW",
     "claim": "Rozhoduje certifikát vašeho střídače.",
     "bc_nazev": "Kategorie A2", "breadcrumb": BC_KAT,
     "intro": "<p>Typická firemní střešní elektrárna. Stejně jako u A1 se nic neměří na výrobně a nedělají "
              "se simulace — ale požadavky jsou širší a všechno stojí a padá s tím, co má doložené váš "
              "střídač.</p>",
-    "stats": [("11 – 100 kW", "Rozsah kategorie A2"), ("31. 12. 2026", "Dokdy platí protokoly laboratoří")],
+    "stats": [("11 – 100 kW", "Rozsah kategorie A2"), ("31. 12. 2026", "Konec přechodného období")],
     "body": sekce(
         "Co pro A2 platí",
         karty([
@@ -478,15 +485,18 @@ STRANKY.append({
         "<li>Když doplnit nejde, navrhneme technické řešení — jiné zařízení nebo úpravu konfigurace.</li>"
         "<li>Zkompletujeme dokumentaci a podáme ji distributorovi.</li></ol>"
         + callout(
-            "Protokolům laboratoří končí platnost",
-            "<p>Protokol odborné laboratoře (ČEZ Distribuce, EG.D) nahrazuje certifikát jen tehdy, byl-li "
-            "<b>vydaný nejpozději 31. 12. 2025</b> — a distributoři ho uznají <b>jen do 31. 12. 2026</b>. "
-            "Od 1. 1. 2027 zbývá osvědčení o souladu od akreditovaného certifikátora, nebo výjimka ERÚ. "
-            "Máte-li podklady ze starší instalace, zkontrolujte je dřív, než je pošlete s žádostí.</p>"),
+            "Končí přechodné období protokolů laboratoří",
+            "<p>Protokol z laboratoře ČEZ Distribuce nebo EG.D nahrazuje certifikát jen tehdy, byl-li "
+            "<b>vydaný nejpozději 31. 12. 2025</b>. <b>EG.D</b> a <b>PREdistribuce</b> ho pak uznávají "
+            "<b>do 31. 12. 2026</b> a od 1. 1. 2027 zbývá osvědčení o souladu od akreditovaného "
+            "zkušebního pracoviště, nebo výjimka ERÚ. <b>ČEZ Distribuce</b> shodné datum nezveřejňuje "
+            "a uvádí, že protokoly akceptuje po dobu jejich platnosti. Máte-li podklady ze starší "
+            "instalace, zkontrolujte je dřív, než je pošlete s žádostí.</p>"),
         eyebrow="Praxe", alt=True,
     ) + sekce("", ZDROJ.format(
         "Instalační dokument VM A2 (platný od 1. 1. 2025) · formuláře EG.D 0920-G97 a 0920-G98 · "
-        "PPDS, příloha 4, Tab. 1 · ČEZ Distribuce, Ověření souladu s RfG, a EG.D, Změna procesu "
+        "PPDS, příloha 4, Tab. 1 · přechodné podmínky EG.D a PREdistribuce a ČEZ Distribuce, "
+        "Ověření souladu s RfG · Změna procesu "
         "prokázání souladu s RfG — ověřeno 3. 9. 2026")),
     "faq": [
         ("Co když certifikát nepokrývá všechny požadavky?",
@@ -693,10 +703,10 @@ STRANKY.append({
 
 STRANKY.append({
     "slug": "kategorie-c-d.html", "nav": "kategorie", "reviewed": True,
-    "title": "Kategorie C a D — nad 30 MW a připojení na 110 kV",
+    "title": "Kategorie C a D — od 30 MW a připojení na 110 kV",
     "desc": "Kategorie C (30–75 MW) a D (od 75 MW nebo připojení na 110 kV a výše): plný rozsah zkoušek "
             "i simulací, u typu D až 19 testů 6.1 až 6.19 a vlastní Dokument výrobního modulu.",
-    "eyebrow": "Kategorie výrobního modulu", "h1": "Kategorie C a D — nad 30 MW a 110 kV",
+    "eyebrow": "Kategorie výrobního modulu", "h1": "Kategorie C a D — od 30 MW a 110 kV",
     "bc_nazev": "Kategorie C a D", "breadcrumb": BC_KAT,
     "intro": "<p>Nejnáročnější režim ověřování. Zkoušky na místě i simulace souladu v plném rozsahu, "
              "u typu D až devatenáct simulačních testů. Do posouzení vstupuje i provozovatel přenosové "
@@ -1987,10 +1997,13 @@ STRANKY.append({
          "<p>Jen u bodů, kde to Tabulka 1 připouští, a jen u výrobny složené z jedné výrobní "
          "jednotky. Body označené „jen zkouška“ certifikát nenahradí nikdy.</p>"),
         ("Platí ještě protokoly laboratoří?",
-         "<p>Ano, přechodně. Protokol odborné laboratoře (ČEZ Distribuce, EG.D) nahrazuje u A1 a A2 "
-         "certifikát, pokud byl <b>vydaný do 31. 12. 2025</b>; distributoři ho akceptují <b>do "
-         "31. 12. 2026</b>. Od 1. 1. 2027 už jen osvědčení o souladu od akreditovaného zkušebního "
-         "pracoviště podle nařízení (ES) č. 765/2008, nebo výjimka ERÚ.</p>"),
+         "<p>Ano, v přechodném období. Protokol z odborné laboratoře (dnes ČEZ Distribuce a EG.D) "
+         "nahrazuje u A1 a A2 certifikát, pokud byl <b>vydaný nejpozději 31. 12. 2025</b>. "
+         "<b>EG.D</b> a <b>PREdistribuce</b> ho akceptují <b>do 31. 12. 2026</b>, od 1. 1. 2027 už jen "
+         "osvědčení o souladu od akreditovaného zkušebního pracoviště podle nařízení (ES) č. 765/2008, "
+         "nebo výjimku ERÚ. <b>ČEZ Distribuce</b> shodné datum nezveřejňuje a uvádí, že protokoly "
+         "akceptuje po dobu jejich platnosti — u konkrétního projektu proto ověřujeme podmínky "
+         "vašeho PDS.</p>"),
         ("Musí k nám u kategorie B1 někdo fyzicky přijet?",
          "<p>Ano, na šest funkčních zkoušek: řízení činného výkonu, automatické opětovné připojení, "
          "komunikace s dispečinkem, regulace U/Q/cos φ, nastavení ochran a omezování výkonu. Zbytek "
@@ -2157,7 +2170,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
               <option>A2 (11 – 100 kW)</option>
               <option>B1 (100 kW – 1 MW)</option>
               <option>B2 (1 – 30 MW)</option>
-              <option>C nebo D (nad 30 MW / 110 kV)</option>
+              <option>C nebo D (od 30 MW / 110 kV)</option>
               <option>Nevím</option>
             </select>
           </div>

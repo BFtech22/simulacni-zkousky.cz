@@ -35,7 +35,7 @@ NAV = [
         ("A2 — 11 až 100 kW", "kategorie-a2.html"),
         ("B1 — 100 kW až 1 MW", "kategorie-b1.html"),
         ("B2 — 1 až 30 MW", "kategorie-b2.html"),
-        ("C a D — nad 30 MW", "kategorie-c-d.html"),
+        ("C a D — od 30 MW", "kategorie-c-d.html"),
         ("Bateriová úložiště (ZUE)", "bateriova-uloziste-zue.html"),
         ("Přidání baterie k FVE", "pridani-baterie-k-fve.html"),
     ]),
@@ -282,7 +282,9 @@ def organizace() -> str:
             "postalCode": "405 02",
             "addressCountry": "CZ",
         },
-        "sameAs": ["https://www.bfksystems.cz/", "https://www.bftechnology.cz/"],
+        # sameAs = URL tehoz subjektu. BF technology je jina pravnicka osoba,
+        # do sameAs nepatri — sesterska vazba je popsana textem na strance Reference.
+        "sameAs": ["https://www.bfksystems.cz/"],
     }, ensure_ascii=False, indent=2)
 
 
