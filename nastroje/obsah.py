@@ -168,9 +168,10 @@ HUB_UVOD = sekce(
          "U kategorie B1 je takto vázáno <b>šest bodů</b>, které nelze obejít ani simulací, ani certifikátem.</p>"),
         (I["graf"], "Simulace",
          "<p>Ověřený dynamický model výrobny a report s verdiktem splněno/nesplněno pro každý bod. "
-         "U kategorie B2 a výše je celá kapitola simulací povinná — včetně předání modelu distributorovi.</p>"),
+         "U kategorie B2 a výše je rozsah simulací podstatně širší a přibývá předání modelů "
+         "distributorovi.</p>"),
         (I["dok"], "Certifikát zařízení",
-         "<p>Osvědčení o souladu od akreditovaného zkušebního pracoviště. Nahradí zkoušku nebo simulaci jen tam, kde to "
+         "<p>Certifikát zařízení od certifikátora. Nahradí zkoušku nebo simulaci jen tam, kde to "
          "Tabulka&nbsp;1 Dokumentu výrobního modulu připouští — a jen u výrobny z jediné výrobní jednotky.</p>"),
     ], sloupce=3)
     + callout(
@@ -199,7 +200,7 @@ HUB_UVOD = sekce(
              "<b>6 bodů „jen zkouška“</b>", "10 / 12 bodů — lze i certifikátem",
              "jen výrobna z 1 VJ"],
             ['<a href="kategorie-b2.html">B2</a>', "1 MW – pod 30 MW", "ano, širší rozsah než B1",
-             "povinná celá kapitola 6 + předání modelu", "jen výrobna z 1 VJ"],
+             "širší rozsah kap. 6 + předání modelů", "jen výrobna z 1 VJ"],
             ['<a href="kategorie-c-d.html">C</a>', "30 MW – pod 75 MW", "ano", "ano, plný rozsah",
              "částečně"],
             ['<a href="kategorie-c-d.html">D</a>', "od 75 MW <b>nebo</b> připojení na 110 kV a výše",
@@ -220,8 +221,10 @@ HUB_UVOD = sekce(
         min_sirka=880,
     ),
     eyebrow="Do které kategorie spadáte",
-    uvod="<p>Rozsah povinností se řídí instalovaným výkonem a napěťovou hladinou. Klikněte na kategorii — "
-         "u každé je popsané, co se prokazuje, co se měří na místě a jaké dokumenty distributor chce.</p>",
+    uvod="<p>Kategorii určuje <b>jmenovitý činný výkon</b> výrobního modulu — Příloha 4 výslovně uvádí, že "
+         "výkonové kategorie nemají přímou vazbu na napěťovou úroveň přípojného bodu. Jedinou výjimkou je "
+         "hranice 110 kV, ze které plyne kategorie D. Klikněte na kategorii — u každé je popsané, co se "
+         "prokazuje, co se měří na místě a jaké dokumenty distributor chce.</p>",
     kotva="kategorie",
 ) + sekce(
     "Proces připojení v pěti krocích",
@@ -231,7 +234,7 @@ HUB_UVOD = sekce(
          "vyjadřuje do 30 dnů.", "SoP + PD"),
         ("Žádost o ÚPOS",
          "Dossier podle PPDS, přílohy 4, kap. 12.1, body a)–j). PDS rozhodne do 30 dnů od úplné žádosti "
-         "a vydá Dočasné provozní oznámení.", "Vyřídíme za vás"),
+         "a vydá souhlas s dočasným provozem pro ověření technologie.", "Vyřídíme za vás"),
         ("Zkoušky a simulace",
          "Dočasný provoz platí nejdéle 12 měsíců. U každého bodu Tabulky 1 se volí cesta ověření: "
          "zkouška, simulace, nebo certifikát.", "Naše práce"),
@@ -337,7 +340,7 @@ STRANKY.append({
          "model výrobny) a <b>zkoušky na místě</b> (měření na hotové elektrárně). Rozsah obojího určuje "
          "kategorie výrobního modulu.</p>"),
         ("Od jakého výkonu se mě to týká?",
-         "<p>Ověření souladu se týká každé výrobny a každého bateriového úložiště připojeného paralelně "
+         "<p>Ověření souladu se týká výroben a bateriových úložišť připojených paralelně "
          "s distribuční soustavou. Do 100 kW (kategorie A1 a A2) se ale prokazuje jen doklady k zařízení "
          "— certifikátem, nebo protokolem laboratoře — bez zkoušek na výrobně a bez simulací. "
          "Od 100 kW (kategorie B1) přicházejí zkoušky "
@@ -398,10 +401,12 @@ STRANKY.append({
              "1. 10. 2024, platný od 1. 1. 2025) a certifikáty použitého zařízení. Dokument vyplňuje "
              "a podepisuje odborná firma, která výstavbu realizuje.</p>"),
             (I["check"], "Certifikát, protokol, nebo výjimka",
-             "<p>Soulad se dokládá osvědčením o souladu (certifikátem) od <b>akreditovaného zkušebního "
-             "pracoviště</b> podle nařízení (ES) č. 765/2008, protokolem odborné laboratoře, nebo výjimkou "
-             "ERÚ. Protokol platí přechodně: musí být vydaný nejpozději 31. 12. 2025 a u EG.D "
-             "a PREdistribuce se uznává do 31. 12. 2026.</p>"),
+             "<p>Soulad se dokládá <b>certifikátem zařízení od certifikátora</b>, protokolem odborné "
+             "laboratoře, nebo výjimkou ERÚ. Příloha 4 definuje certifikátora jako subjekt akreditovaný "
+             "pobočkou EA podle nařízení (ES) č. 765/2008; instalační dokumenty provozovatelů "
+             "distribučních soustav pro ČR přitom požadují akreditaci <b>u ČIA</b> — u zahraničního "
+             "certifikátu proto uznání raději ověřujeme předem. Protokol platí přechodně: musí být "
+             "vydaný nejpozději 31. 12. 2025 a u EG.D a PREdistribuce se uznává do 31. 12. 2026.</p>"),
             (I["hodiny"], "Bez fáze dočasného provozu",
              "<p>U kategorií A1 a A2 se žádost o uvedení do trvalého provozu podává rovnou po splnění "
              "podmínek smlouvy o připojení — nečeká se na zkoušky, protože žádné nejsou.</p>"),
@@ -415,7 +420,10 @@ STRANKY.append({
             "Certifikáty střídače od akreditovaného certifikátora",
             "Výchozí revizi elektrického zařízení výrobny i přípojky",
             "Projektovou dokumentaci a jednopólové schéma",
-            "Protokol o nastavení ochran, pokud jej podmínky připojení vyžadují",
+            "Protokol o nastavení ochran",
+            "Potvrzení odborné firmy, že výrobna je provedena podle smlouvy o připojení",
+            "Protokoly o úředním ověření MTP / MTN, jsou-li osazeny",
+            "Místní provozní předpisy (MPP)",
         ]) + callout(
             "Zkontrolujte si doklad ke střídači",
             "<p>Nejčastější zádrhel u malých elektráren není zkouška, ale doklad ke střídači: certifikát "
@@ -466,8 +474,9 @@ STRANKY.append({
              "<p>Soulad se opět prokazuje jen doklady k zařízení prostřednictvím instalačního dokumentu "
              "platného od 1. 1. 2025. Bez zkoušek na výrobně, bez simulací.</p>"),
             (I["check"], "Jaký certifikát uznají",
-             "<p>Osvědčení o souladu vydané <b>akreditovaným zkušebním pracovištěm</b> podle nařízení "
-             "(ES) č. 765/2008 a ČSN EN ISO/IEC 17025:2018. "
+             "<p>Certifikát zařízení vydaný <b>certifikátorem</b> — Příloha 4 jím rozumí subjekt "
+             "akreditovaný pobočkou EA podle nařízení (ES) č. 765/2008, instalační dokumenty PDS "
+             "pro ČR žádají akreditaci u ČIA. "
              "Je-li certifikátů víc, přikládá se příloha s uvedením, na jaké zařízení a na jaký požadavek "
              "byl každý vydán.</p>"),
             (I["sipky"], "U EG.D navíc formuláře",
@@ -612,14 +621,15 @@ STRANKY.append({
 STRANKY.append({
     "slug": "kategorie-b2.html", "nav": "kategorie", "reviewed": True,
     "title": "Simulace souladu B2 — výrobny 1 až 30 MW",
-    "desc": "Kategorie B2: povinná celá kapitola simulací souladu, předání ověřeného modelu výrobny "
+    "desc": "Kategorie B2: výrazně širší kapitola simulací souladu, předání modelů výrobny "
             "distributorovi a praktické zkoušky na místě. 24 až 27 bodů Tabulky 1.",
     "eyebrow": "Kategorie výrobního modulu", "h1": "Simulace souladu B2 — 1 až 30 MW",
-    "claim": "Skok proti B1: celá kapitola simulací je povinná.",
+    "claim": "Skok proti B1: podstatně širší kapitola simulací.",
     "bc_nazev": "Kategorie B2", "breadcrumb": BC_KAT,
     "intro": "<p>Od 1 MW se rozsah ověření zásadně mění. K funkčním zkouškám na místě přibývá "
-             "<b>povinná celá kapitola simulací souladu</b> a povinnost předat provozovateli distribuční "
-             "soustavy ověřený simulační model výrobny. Počet bodů Tabulky 1 skáče z 16/18 na 24/27.</p>",
+             "<b>kapitola simulací souladu</b> v podstatně širším rozsahu než u B1 a požadavek předat "
+             "provozovateli distribuční soustavy modely výrobny. Počet bodů Tabulky 1 skáče "
+             "z 16/18 na 24/27.</p>",
     "stats": [("24 / 27", "Bodů Tabulky 1 (synchronní / nesynchronní)"),
               ("Povinná", "Celá kapitola simulací souladu"),
               ("12 měsíců", "Nejdelší platnost dočasného provozu")],
@@ -628,19 +638,23 @@ STRANKY.append({
     "body": sekce(
         "Co se mění proti kategorii B1",
         karty([
-            (I["graf"], "Povinná kapitola simulací",
-             "<p>Zatímco u B1 jde o jednotlivé body, u B2 je <b>celá kapitola simulací souladu "
-             "povinná</b>: frekvenční stabilita, RoCoF, LFSM-O i LFSM-U, FSM, překlenutí poruch UVRT "
+            (I["graf"], "Širší kapitola simulací",
+             "<p>Zatímco u B1 jde o jednotlivé body, u B2 se kapitola simulací souladu "
+             "<b>rozšiřuje na většinu požadavků</b>: frekvenční stabilita, RoCoF, LFSM-O i LFSM-U, "
+             "překlenutí poruch UVRT "
              "a OVRT, obnova činného výkonu po poruše, napěťová stabilita, podpora napětí jalovým "
              "výkonem, ostrovní provoz, robustnost a detekce ztráty úhlové stability. Nesynchronní "
              "moduly mají navíc rychlý poruchový proud, prioritu Q před P a tlumení oscilací.</p>"),
             (I["sipky"], "Předání modelu distributorovi",
-             "<p>Povinnou součástí je <b>předání ověřeného simulačního modelu výrobny</b>. Model musí "
-             "odrážet ustálený stav, přechodné i elektromagnetické jevy — ne jen jednu vybranou "
-             "situaci.</p>"),
+             "<p>U B2 Příloha 4 <b>požaduje předání modelů</b> ve formě strukturních a blokových "
+             "diagramů, jejich vstupních dat a výstupů dokládajících chování modulu. Plné simulační "
+             "modely podle čl. 15.6 c) RfG se pak poskytují <b>na žádost</b> provozovatele distribuční "
+             "soustavy — a mají odrážet ustálený stav a přechodné jevy (složka 50 Hz), <i>nebo</i> "
+             "elektromagnetické přechodové děje.</p>"),
             (I["blesk"], "Přebírá požadavky kategorie C",
              "<p>B2 přejímá vybrané požadavky kategorie C podle čl. 15 RfG — v praxi „malé C“. "
-             "Umělou setrvačnost ale ČEZ Distribuce po kategorii B2 nepožaduje (jen C a D).</p>"),
+             "Umělá setrvačnost se podle Přílohy 4 vyžaduje po nesynchronních modulech B2, C i D, "
+             "u B2 ale <b>výběrově</b> — po odsouhlasení s provozovatelem přenosové soustavy.</p>"),
             (I["lupa"], "Zkoušky na místě zůstávají",
              "<p>Praktické zkoušky se nikam neztrácejí — rozsah je obdobný jako u B1 a podle typu "
              "zařízení se rozšiřuje. Simulace je nenahrazují, doplňují.</p>"),
@@ -692,8 +706,9 @@ STRANKY.append({
          "simulace dělají před zkouškami na místě — úprava v modelu stojí zlomek toho co opakovaný "
          "výjezd.</p>"),
         ("Je u B2 potřeba umělá setrvačnost?",
-         "<p>ČEZ Distribuce ji po kategorii B2 nepožaduje — týká se kategorií C a D. Rozhodující jsou "
-         "vždy podmínky připojení konkrétního provozovatele a smlouva o připojení.</p>"),
+         "<p>Příloha 4 ji vyžaduje po nesynchronních modulech B2, C i D — u B2 ale <b>výběrově</b>, po odsouhlasení s provozovatelem přenosové soustavy. Té výběrovosti využívá i ČEZ Distribuce, "
+         "která v příloze VP_09 uvádí, že ji po B2 nepožaduje. Rozhodující jsou vždy podmínky "
+         "připojení konkrétního provozovatele a smlouva o připojení.</p>"),
     ],
     "cross": [("Simulace souladu (služba)", "simulace-souladu.html"),
               ("Zkoušky na místě", "zkousky-na-miste.html"),
@@ -967,7 +982,8 @@ STRANKY.append({
              "<b>VP_01 až VP_15</b> — ochrany, Q(U), telemetrie, testy.</p>"),
             (I["blesk"], "Upřesnění požadavků RfG (VP_09)",
              "<p>Rychlý poruchový proud s gradientem <b>k = 3</b>. Umělou setrvačnost ČEZ Distribuce "
-             "požaduje jen u kategorií C a D. Start ze tmy ani ostrovní provoz nepožaduje.</p>"),
+             "požaduje u kategorií C a D; po B2 ji — v souladu s výběrovostí, kterou Příloha 4 "
+             "připouští — nepožaduje. Start ze tmy ani ostrovní provoz nepožaduje.</p>"),
             (I["stit"], "Ochrany rozpadového místa (VP_05)",
              "<p>Předepsané hodnoty a zpoždění pro výrobní moduly i akumulaci od 0 do 30 MW. "
              "Ochrany za rozpadovým místem se nastavují shodně s rozpadovým místem. "
@@ -1473,8 +1489,10 @@ STRANKY.append({
               "zpracujeme my — určuje i délku dočasného provozu"],
              ["j", "Seznam certifikátů od certifikátora", "certifikáty střídačů a dalšího zařízení"]],
             poznamky=["Žádost o uvedení do trvalého provozu zrcadlí body a) až h) a přidává "
-                      "Dokument výrobního modulu a instalační dokument. U ČEZ Distribuce je "
-                      "povinnou přílohou i protokol fyzického testu omezování činného výkonu."],
+                      "Dokument výrobního modulu a instalační dokument. Body a) až h) se nepřikládají "
+                      "znovu, pokud už byly součástí žádosti o ÚPOS a žadatel potvrdí, že nedošlo "
+                      "ke změnám zařízení. U ČEZ Distribuce je povinnou přílohou i protokol "
+                      "fyzického testu omezování činného výkonu."],
             min_sirka=820,
         ),
         eyebrow="Body a) až j)",
@@ -1530,7 +1548,8 @@ STRANKY.append({
              "dokumentaci se distributor vyjadřuje do 30 dnů.", "30 dnů na vyjádření"),
             ("Žádost o dočasný provoz (ÚPOS)",
              "Kompletní dossier podle PPDS, přílohy 4, kap. 12.1, body a) až j). Distributor "
-             "rozhodne do 30 dnů od úplné žádosti a vydá Dočasné provozní oznámení.",
+             "rozhodne do 30 dnů od úplné žádosti a vydá souhlas s dočasným provozem "
+             "pro ověření technologie.",
              "30 dnů od úplné žádosti"),
             ("Zkoušky a simulace",
              "Dočasný provoz trvá nejdéle 12 měsíců podle předloženého harmonogramu. U každého bodu "
@@ -1596,27 +1615,29 @@ STRANKY.append({
 STRANKY.append({
     "slug": "upos.html", "nav": "proces", "reviewed": True,
     "title": "ÚPOS — dočasný provoz pro ověření souladu",
-    "desc": "Co je ÚPOS a Dočasné provozní oznámení, jak se podává žádost, jak dlouho dočasný provoz "
+    "desc": "Co je ÚPOS a souhlas s dočasným provozem, jak se podává žádost, jak dlouho dočasný provoz "
             "platí (12 měsíců), kdy jde prodloužit a kdy jej distributor přeruší.",
     "eyebrow": "Proces", "h1": "ÚPOS — dočasný provoz pro ověření souladu",
     "claim": "Fáze, ve které se smí vyrábět jen kvůli zkouškám.",
     "bc_nazev": "ÚPOS", "breadcrumb": BC_PROC,
-    "intro": "<p>U ČEZ Distribuce se tomu oficiálně říká <b>souhlas s dočasným provozem pro ověření "
-             "souladu</b>, jinde <b>umožnění provozu pro ověření souladu</b>. Zkratka je stejná: "
-             "ÚPOS. Je to fáze, ve které výrobna smí běžet — ale jen proto, aby se na ní daly "
-             "provést zkoušky a doložit soulad.</p>",
+    "intro": "<p><b>ÚPOS</b> je <b>umožnění provozu pro ověření souladu</b> — tak ten proces "
+             "shodně pojmenovávají metodiky všech tří provozovatelů distribučních soustav. "
+             "Dokument, který z něj vzejde, je <b>souhlas s dočasným provozem pro ověření "
+             "technologie</b>. Je to fáze, ve které výrobna smí běžet — ale jen proto, aby se "
+             "na ní daly provést zkoušky a doložit soulad.</p>",
     "stats": [("30 dnů", "Rozhodnutí od úplné žádosti"),
               ("12 měsíců", "Nejdelší platnost dočasného provozu")],
     "body": sekce(
-        "ÚPOS a DPO — jak to spolu souvisí",
+        "ÚPOS a provozní oznámení — jak to spolu souvisí",
         karty([
-            (I["dok"], "ÚPOS je souhlas",
+            (I["dok"], "ÚPOS je proces",
              "<p>Podáte žádost s podklady a) až j). Distributor ji posoudí a <b>do 30 dnů od úplné "
              "žádosti</b> rozhodne.</p>"),
-            (I["check"], "DPO je výsledek",
-             "<p>Schválením vzniká <b>Dočasné provozní oznámení</b> — dokument, kterým se dočasný "
-             "provoz řídí. Platí nejdéle 12 měsíců a konkrétní dobu určí distributor podle "
-             "harmonogramu zkoušek, který jste předložili.</p>"),
+            (I["check"], "Výsledkem je souhlas s dočasným provozem",
+             "<p>U kategorií <b>B1, B2 a C</b> vydá distributor <b>souhlas s dočasným provozem "
+             "výrobního modulu pro ověření technologie</b>. <b>Dočasné provozní oznámení (DPO)</b> "
+             "se podle Přílohy 4 vydává u typu <b>D</b>. Obojí platí nejdéle 12 měsíců a konkrétní "
+             "dobu určí distributor podle harmonogramu zkoušek, který jste předložili.</p>"),
         ], sloupce=2),
         eyebrow="Dva pojmy, jeden proces",
     ) + sekce(
@@ -1647,7 +1668,7 @@ STRANKY.append({
                        "a B2 · dodatek č. 2 ČEZ Distribuce"),
     ),
     "faq": [
-        ("Jak dlouho DPO platí?",
+        ("Jak dlouho souhlas s dočasným provozem platí?",
          "<p>Nejdéle 12 měsíců, podle harmonogramu zkoušek. Při překážce mimo vaši vůli lze požádat "
          "o prodloužení o nezbytně nutnou dobu.</p>"),
         ("Co když to nestihneme?",
@@ -1679,7 +1700,9 @@ STRANKY.append({
         karty([
             (I["dok"], "Zrcadlí žádost o dočasný provoz",
              "<p>Dokumentace odpovídá bodům a) až h) žádosti o ÚPOS a navíc přibývá "
-             "<b>i) Dokument výrobního modulu</b> a <b>j) instalační dokument</b>.</p>"),
+             "<b>i) Dokument výrobního modulu</b> a <b>j) instalační dokument</b>. Body a) až h) "
+             "ale <b>nemusíte přikládat znovu</b>, pokud jste je podali už k ÚPOS a potvrdíte, "
+             "že se zařízení mezitím nezměnilo.</p>"),
             (I["check"], "Zkoušky se neopakují",
              "<p>Zkoušky řádně provedené v rámci dočasného provozu distributor neopakuje — ledaže "
              "se změnily okolnosti (jiná konfigurace, jiné nastavení).</p>"),
@@ -1840,7 +1863,7 @@ def slovnik(polozky):
 STRANKY.append({
     "slug": "slovnik-rfg.html", "nav": "proces", "reviewed": True,
     "title": "Slovník pojmů RfG — ÚPOS, DVM, LFSM, FRT a další",
-    "desc": "Vysvětlení zkratek kolem ověřování souladu výroben: RfG, PPDS příloha 4, ÚPOS, DPO, ÚTP, "
+    "desc": "Vysvětlení zkratek kolem ověřování souladu výroben: RfG, PPDS příloha 4, ÚPOS, ÚTP, KPO, "
             "DVM, FRT, UVRT, LFSM-O a LFSM-U, FSM, RoCoF, Q(U), ZUE a další.",
     "eyebrow": "Referenční přehled", "h1": "Slovník pojmů RfG",
     "bc_nazev": "Slovník pojmů", "breadcrumb": BC_PROC,
@@ -1868,8 +1891,9 @@ STRANKY.append({
              "Obdoba DVM pro kategorie A1 a A2, platná od 1. 1. 2025. Soulad se prokazuje certifikáty "
              "— bez zkoušek na výrobně a bez simulací."),
             ('<span id="certifikat">Certifikát zařízení</span>',
-             "Osvědčení o souladu vydané akreditovaným zkušebním pracovištěm podle nařízení (ES) "
-             "č. 765/2008. Nahradí zkoušku nebo "
+             "Certifikát zařízení vydaný certifikátorem — subjektem, jehož akreditaci provádí podle "
+             "Přílohy 4 pobočka EA dle nařízení (ES) č. 765/2008 (instalační dokumenty PDS pro ČR "
+             "žádají akreditaci u ČIA). Nahradí zkoušku nebo "
              "simulaci jen tam, kde to Tabulka 1 připouští, a jen u výrobny z jedné výrobní jednotky."),
         ]),
         eyebrow="Co je co",
@@ -1877,11 +1901,14 @@ STRANKY.append({
         "Proces",
         slovnik([
             ('<span id="upos">ÚPOS</span>',
-             "Souhlas s dočasným provozem pro ověření souladu (jinde „umožnění provozu pro ověření "
-             "souladu“). Fáze, ve které se smí vyrábět jen kvůli zkouškám a simulacím. "
+             "Umožnění provozu pro ověření souladu — fáze, ve které se smí vyrábět jen kvůli "
+             "zkouškám a simulacím. Dokument, který z ní vzejde, je souhlas s dočasným provozem "
+             "pro ověření technologie. "
              '<a href="upos.html">Detail →</a>'),
-            ('<span id="dpo">DPO</span><small>Dočasné provozní oznámení</small>',
-             "Vydá provozovatel distribuční soustavy po schválení žádosti o ÚPOS. Platí nejdéle "
+            ('<span id="dpo">Souhlas s dočasným provozem</span><small>u typu D: DPO</small>',
+             "Co vydá provozovatel distribuční soustavy po schválení žádosti o ÚPOS. U kategorií "
+             "B1, B2 a C je to <i>souhlas s dočasným provozem výrobního modulu pro ověření "
+             "technologie</i>, u typu D <i>Dočasné provozní oznámení (DPO)</i>. Platí nejdéle "
              "12 měsíců podle harmonogramu zkoušek."),
             ('<span id="utp">ÚTP / KPO</span>',
              "Uvedení do trvalého provozu a konečné provozní oznámení — cíl celého procesu. KPO "
@@ -1981,10 +2008,12 @@ STRANKY.append({
          "<p>Je uvedena ve smlouvě o připojení. Orientačně ji poznáte podle výkonu — "
          "<a href=\"index.html#kategorie\">tabulka kategorií</a>. U fotovoltaiky s baterií se "
          "posuzuje celkový výkon výrobny.</p>"),
-        ("Co je ÚPOS a DPO?",
-         "<p>ÚPOS je souhlas s dočasným provozem pro ověření souladu, DPO je Dočasné provozní "
-         "oznámení, kterým jej distributor potvrdí. <a href=\"upos.html\">Detail →</a></p>"),
-        ("Jak dlouho dočasné provozní oznámení platí?",
+        ("Co je ÚPOS a co z něj vzejde?",
+         "<p>ÚPOS je umožnění provozu pro ověření souladu. U kategorií B1, B2 a C jej distributor "
+         "potvrdí <b>souhlasem s dočasným provozem pro ověření technologie</b>; Dočasné provozní "
+         "oznámení (DPO) se podle Přílohy 4 vydává u typu D. "
+         "<a href=\"upos.html\">Detail →</a></p>"),
+        ("Jak dlouho dočasný provoz platí?",
          "<p>Nejdéle <b>12 měsíců</b>, podle harmonogramu zkoušek. Při překážce nezávislé na vaší "
          "vůli lze požádat o prodloužení o nezbytně nutnou dobu.</p>"),
         ("Co když to nestihneme?",
