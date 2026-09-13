@@ -36,7 +36,7 @@ NAV = [
         ("B1 — 100 kW až 1 MW", "kategorie-b1.html"),
         ("B2 — 1 až 30 MW", "kategorie-b2.html"),
         ("C a D — od 30 MW", "kategorie-c-d.html"),
-        ("Bateriová úložiště (ZUE)", "bateriova-uloziste-zue.html"),
+        ("Bateriová úložiště", "bateriova-uloziste-zue.html"),
         ("Přidání baterie k FVE", "pridani-baterie-k-fve.html"),
     ]),
     ("Distributoři", "pds", [
@@ -47,18 +47,8 @@ NAV = [
     ("Služby", "sluzby", [
         ("Simulace souladu", "simulace-souladu.html"),
         ("Zkoušky na místě", "zkousky-na-miste.html"),
-        ("Zkoušky ochran", "zkousky-ochran.html"),
-        ("RTU a dispečerské řízení", "rtu-dispecerske-rizeni.html"),
-        ("Podklady k zahájení", "podklady.html"),
     ]),
-    ("Proces", "proces", [
-        ("Proces připojení krok za krokem", "proces-pripojeni.html"),
-        ("ÚPOS — dočasný provoz", "upos.html"),
-        ("ÚTP — trvalý provoz", "utp.html"),
-        ("Dokument výrobního modulu", "dokument-vyrobniho-modulu.html"),
-        ("Rozpadové místo a ochrany", "rozpadove-misto.html"),
-        ("Slovník pojmů RfG", "slovnik-rfg.html"),
-    ]),
+    ("Postup", "proces", "proces-pripojeni.html"),
     ("Reference", "reference", "reference.html"),
     ("Kontakt", "kontakt", "kontakt.html"),
 ]
@@ -156,12 +146,15 @@ def hlavicka(aktivni: str) -> str:
 
 
 def paticka() -> str:
+    # Sloupce z rozbalovacich polozek menu; ke Sluzbam patri i Postup.
     sloupce = []
-    for nazev, _klic, cil in NAV[:4]:
-        odkazy = "\n".join(f'      <a href="{href}">{txt}</a>' for txt, href in cil)
+    for nazev, _klic, cil in NAV:
+        if isinstance(cil, str):
+            continue
+        polozky = list(cil) + ([("Postup a podklady", "proces-pripojeni.html")] if nazev == "Služby" else [])
+        odkazy = "\n".join(f'      <a href="{href}">{txt}</a>' for txt, href in polozky)
         sloupce.append(f'    <div>\n      <h4>{nazev}</h4>\n{odkazy}\n    </div>')
-    rozcestnik = "\n".join(sloupce[:2])
-    rozcestnik2 = "\n".join(sloupce[2:])
+    rozcestnik = "\n".join(sloupce)
 
     return f"""<!-- PATICKA -->
 <footer class="site">
@@ -184,7 +177,6 @@ def paticka() -> str:
       <div style="margin-top:10px">IČO 23571853<br>DIČ CZ23571853</div>
     </div>
 {rozcestnik}
-{rozcestnik2}
     <div>
       <h4>Dále</h4>
       <a href="reference.html">Reference</a>

@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
-<title>ZUE / BESS — připojení a ověření souladu bateriového úložiště | Simulační zkoušky</title>
-<meta name="description" content="Zařízení pro ukládání elektřiny: společná metodika ověřování souladu ZUE od 1. 9. 2025, ověření v režimu dodávky i odběru, LFSM-U, vlastní hodnoty ochran a DVM-ZUE.">
+<title>Bateriová úložiště — připojení a ověření souladu | Simulační zkoušky</title>
+<meta name="description" content="Bateriové úložiště (ZUE): zařazení do kategorií, ověření souladu při nabíjení i vybíjení, vlastní formuláře distributorů a co je jinak než u fotovoltaiky.">
 <link rel="canonical" href="https://www.simulacni-zkousky.cz/bateriova-uloziste-zue.html">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Simulační zkoušky – BFK Systems s.r.o.">
-<meta property="og:title" content="ZUE / BESS — připojení a ověření souladu bateriového úložiště">
-<meta property="og:description" content="Zařízení pro ukládání elektřiny: společná metodika ověřování souladu ZUE od 1. 9. 2025, ověření v režimu dodávky i odběru, LFSM-U, vlastní hodnoty ochran a DVM-ZUE.">
+<meta property="og:title" content="Bateriová úložiště — připojení a ověření souladu">
+<meta property="og:description" content="Bateriové úložiště (ZUE): zařazení do kategorií, ověření souladu při nabíjení i vybíjení, vlastní formuláře distributorů a co je jinak než u fotovoltaiky.">
 <meta property="og:url" content="https://www.simulacni-zkousky.cz/bateriova-uloziste-zue.html">
 <meta property="og:image" content="https://www.simulacni-zkousky.cz/assets/title-photo.jpg">
 <meta property="og:locale" content="cs_CZ">
@@ -41,7 +41,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Bateriová úložiště (ZUE)"
+      "name": "Bateriová úložiště"
     }
   ]
 }
@@ -56,15 +56,7 @@
       "name": "Platí pro baterii stejné zkoušky jako pro fotovoltaiku?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ne. Akumulace má vlastní metodiku ověřování souladu platnou od 1. 9. 2025, ověřuje se v obou provozních režimech a hodnoty ochran se od fotovoltaiky liší."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Co se stane při podfrekvenci?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pod 49,0 Hz se úložiště musí automaticky přepnout do dodávky, jinak se odpojí. Ověřuje se to jako součást souladu."
+        "text": "Z velké části ano. Navíc se ověřuje provoz při nabíjení i vybíjení a úložiště má vlastní dokument ověřování souladu."
       }
     },
     {
@@ -72,15 +64,15 @@
       "name": "Můžeme s baterií poskytovat podpůrné služby?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Zapojení akumulace do podpůrných služeb je možné po splnění podmínek připojení, dokončení procesu uvedení do provozu a splnění samostatných podmínek příslušného distributora, ČEPS a agregátora. Podmínky pro poskytování podpůrných služeb jsou nad rámec ověření souladu — řeší se zvlášť."
+        "text": "Podmínky pro podpůrné služby jsou nad rámec ověření souladu a řeší se zvlášť — s distributorem, provozovatelem přenosové soustavy a agregátorem."
       }
     },
     {
       "@type": "Question",
-      "name": "Jak často se u akumulace přezkušují ochrany?",
+      "name": "Jak často se přezkušují ochrany?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ochrany a dálkové řízení minimálně jednou za čtyři roky. Je to periodická povinnost, na kterou se po vydání konečného provozního oznámení snadno zapomene."
+        "text": "Ochrany a dálkové řízení se u výroben i úložišť přezkušují nejméně jednou za čtyři roky. Na tuhle povinnost se po uvedení do trvalého provozu snadno zapomene."
       }
     }
   ]
@@ -119,7 +111,7 @@
           <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
           <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
           <a href="kategorie-c-d.html">C a D — od 30 MW</a>
-          <a href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+          <a href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
           <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
         </div>
       </div>
@@ -140,24 +132,9 @@
         <div class="sub">
           <a href="simulace-souladu.html">Simulace souladu</a>
           <a href="zkousky-na-miste.html">Zkoušky na místě</a>
-          <a href="zkousky-ochran.html">Zkoušky ochran</a>
-          <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
-          <a href="podklady.html">Podklady k zahájení</a>
         </div>
       </div>
-      <div class="has-sub">
-        <button class="sub-toggle" type="button" aria-expanded="false">
-          Proces <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="sub">
-          <a href="proces-pripojeni.html">Proces připojení krok za krokem</a>
-          <a href="upos.html">ÚPOS — dočasný provoz</a>
-          <a href="utp.html">ÚTP — trvalý provoz</a>
-          <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
-          <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
-          <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
-        </div>
-      </div>
+      <a href="proces-pripojeni.html">Postup</a>
       <a href="reference.html">Reference</a>
       <a href="kontakt.html">Kontakt</a>
       <a class="header-cta" href="kontakt.html"><span class="dlouhy">Nezávazná poptávka</span><span class="kratky">Poptávka</span></a>
@@ -178,7 +155,7 @@
   <a class="m-sub" href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
   <a class="m-sub" href="kategorie-b2.html">B2 — 1 až 30 MW</a>
   <a class="m-sub" href="kategorie-c-d.html">C a D — od 30 MW</a>
-  <a class="m-sub" href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+  <a class="m-sub" href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
   <a class="m-sub" href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
   <p class="m-group">Distributoři</p>
   <a class="m-sub" href="cez-distribuce.html">ČEZ Distribuce</a>
@@ -187,16 +164,7 @@
   <p class="m-group">Služby</p>
   <a class="m-sub" href="simulace-souladu.html">Simulace souladu</a>
   <a class="m-sub" href="zkousky-na-miste.html">Zkoušky na místě</a>
-  <a class="m-sub" href="zkousky-ochran.html">Zkoušky ochran</a>
-  <a class="m-sub" href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
-  <a class="m-sub" href="podklady.html">Podklady k zahájení</a>
-  <p class="m-group">Proces</p>
-  <a class="m-sub" href="proces-pripojeni.html">Proces připojení krok za krokem</a>
-  <a class="m-sub" href="upos.html">ÚPOS — dočasný provoz</a>
-  <a class="m-sub" href="utp.html">ÚTP — trvalý provoz</a>
-  <a class="m-sub" href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
-  <a class="m-sub" href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
-  <a class="m-sub" href="slovnik-rfg.html">Slovník pojmů RfG</a>
+  <a href="proces-pripojeni.html">Postup</a>
   <a href="reference.html">Reference</a>
   <a href="kontakt.html">Kontakt</a>
   <a href="faq.html">Časté dotazy</a>
@@ -208,106 +176,60 @@
     <nav class="breadcrumb" aria-label="Drobečková navigace">
       <a href="index.html">Úvod</a> <span>›</span>
       <a href="index.html#kategorie">Kategorie výroben</a> <span>›</span>
-      <span aria-current="page">Bateriová úložiště (ZUE)</span>
+      <span aria-current="page">Bateriová úložiště</span>
     </nav>
     <div class="section-head">
       <p class="eyebrow">Akumulace</p>
-      <h1>Bateriová úložiště — ověření souladu ZUE</h1>
-      <p class="h1-claim">Pro baterii neplatí to samé co pro fotovoltaiku.</p>
-      <p>Zařízení pro ukládání elektřiny — v předpisech <b>ZUE</b>, v katalozích <b>BESS</b> nebo <b>BSAE</b> — má od 1. 9. 2025 vlastní balík pravidel. Nejčastější dotaz, který dostáváme, zní: platí pro baterii totéž co pro fotovoltaiku? Neplatí.</p>
+      <h1>Bateriová úložiště — ověření souladu</h1>
+      <p class="h1-claim">Stejné kategorie, ale ověřuje se provoz v obou směrech.</p>
+      <p>Zařízení pro ukládání elektřiny — v předpisech <b>ZUE</b>, v praxi nejčastěji bateriové úložiště — má od 1. 9. 2025 vlastní pravidla. Platí pro baterii totéž co pro fotovoltaiku? Z velké části ano, ale ne úplně.</p>
       <p class="reviewed"><b>Metodiky provozovatelů distribučních soustav se průběžně mění.</b> U konkrétního projektu vždy ověřujeme aktuální verzi dokumentů příslušného provozovatele.</p>
     </div>
-    <ul class="anchor-nav">
-      <li><a href="#predpisy">Co platí od 9/2025</a></li>
-      <li><a href="#rezimy">Oba provozní režimy</a></li>
-      <li><a href="#dynamika">Dynamika a ochrany</a></li>
-      <li><a href="#faq">Časté dotazy</a></li>
-    </ul>
+    
   </div>
 </section>
 <div class="stats-band">
-  <div class="container grid">
-      <div><div class="num">1. 9. 2025</div><div class="label">Platnost metodiky ZUE</div></div>
-      <div><div class="num">Oba režimy</div><div class="label">Dodávka i odběr</div></div>
-      <div><div class="num">29 bodů</div><div class="label">DVM-ZUE typu D</div></div>
+  <div class="container grid cols-2">
+      <div><div class="num">1. 9. 2025</div><div class="label">Pravidla pro akumulaci</div></div>
+      <div><div class="num">Oba směry</div><div class="label">Nabíjení i vybíjení</div></div>
   </div>
 </div>
-<section class="block" id="predpisy">
+<section class="block">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow">Předpisy</p>
-      <h2>Co od 1. 9. 2025 platí</h2>
+      <p class="eyebrow">Pravidla</p>
+      <h2>Co pro úložiště platí</h2>
     </div>
     <div class="services cols-2">
       <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Společná metodika ZUE</h3>
-        <div class="body"><p>Metodika ověřování souladu zařízení pro ukládání elektřiny je společná pro <b>ČEZ Distribuce, EG.D i PREdistribuce</b> — stejně jako metodiky B1 a B2. K tomu dodatky č. 1 a 2 k připojovacím podmínkám ČEZ Distribuce (posouzení připojitelnosti a proces) a u EG.D dokument DVM-ZUE-D s 29 body.</p></div>
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg>Vlastní pravidla a formuláře</h3>
+        <div class="body"><p>ČEZ Distribuce vydala k 1. 9. 2025 dodatky k připojovacím podmínkám pro zařízení pro ukládání elektřiny. K úložišti se vyplňuje vlastní dokument ověřování souladu.</p></div>
       </article>
       <article class="svc">
         <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>Kategorie se určuje stejně</h3>
-        <div class="body"><p>Zařazení do A1 až D se u akumulace řídí <b>celkovým výkonem</b> — stejně jako u výroben. U hybridní elektrárny FVE + BESS se posuzuje výrobna jako celek.</p></div>
+        <div class="body"><p>Zařazení do kategorií A1 až D se u úložiště řídí stejnými výkonovými hranicemi jako u výroben.</p></div>
       </article>
       <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Proces a lhůty</h3>
-        <div class="body"><p>Dočasný provoz pro ověření souladu, rozhodnutí o trvalém provozu <b>do 30 dnů</b> od kompletní žádosti, dočasný provoz nejdéle <b>12 měsíců</b>. Ochrany a dálkové řízení se přezkušují <b>minimálně jednou za čtyři roky</b>.</p></div>
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Stejný postup</h3>
+        <div class="body"><p>UPOS, dočasný provoz nejdéle 12 měsíců, zkoušky a simulace, žádost o UTP — stejně jako u výrobny.</p></div>
       </article>
       <article class="svc">
         <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg>Rozšířená telemetrie</h3>
-        <div class="body"><p>U akumulace se přenáší i aktuální kapacita baterie a řídí se příkon ve stupních. <a href="rtu-dispecerske-rizeni.html">Telemetrie a RTU →</a></p></div>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="block alt" id="rezimy">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">Dodávka i odběr</p>
-      <h2>Ověřuje se v obou provozních režimech</h2>
-    </div>
-<p class="lead">To je hlavní rozdíl proti fotovoltaice. Požadavky se prokazují <b>v dodávce i v odběru</b>, včetně přechodů mezi nimi. Režim frekvenční citlivosti (FSM) se ověřuje v obou režimech.</p>    <div class="services cols-2">
-      <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4M21 7H8M7 21l-4-4 4-4M3 17h13"/></svg>Přechod při podfrekvenci</h3>
-        <div class="body"><p>Při poklesu frekvence pod <b>49,0 Hz</b> se akumulace musí automaticky přepnout do dodávky — jinak se odpojí. Tohle je bod, na kterém se nejčastěji láme nastavení řídicího systému.</p></div>
-      </article>
-      <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 3 4-7"/></svg>PQ diagram pro oba směry</h3>
-        <div class="body"><p>Podpora napětí jalovým výkonem se u akumulace posuzuje pro <b>oba směry činného výkonu</b>. PQ diagram tedy není jednosměrný jako u výrobny.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="block" id="dynamika">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">Technika</p>
-      <h2>Dynamické požadavky a ochrany</h2>
-    </div>
-    <div class="services cols-2">
-      <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>LFSM-U je povinné</h3>
-        <div class="body"><p>Omezená frekvenční citlivost při podfrekvenci: práh <b>49,8 Hz</b>, statika <b>5 %</b>, v režimu dodávky.</p></div>
-      </article>
-      <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>Rychlý poruchový proud</h3>
-        <div class="body"><p>Samostatný požadavek s gradientem <b>k = 3</b> — jen v režimu dodávky, odezva do 10 ms, test při 40 % jmenovitého výkonu. S LFSM-U nijak nesouvisí, i když se to často plete do jedné věty.</p></div>
-      </article>
-      <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Tři různé referenční výkony</h3>
-        <div class="body"><p>Detail, který v protokolech dělá největší zmatek: LFSM-O se vztahuje k <b>Pn</b>, odezva při podfrekvenci k <b>Pmax</b> a LFSM-U ke <b>skutečnému výkonu v okamžiku dosažení prahu</b>. Chybný referenční výkon je jeden z běžných důvodů, proč se simulace vrací k přepracování.</p></div>
-      </article>
-      <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 8.3-8 9.5C7.2 20.3 4 16.5 4 12V6z"/><path d="m9 12 2 2 4-4"/></svg>Jiné hodnoty ochran než u FVE</h3>
-        <div class="body"><p>Nastavení ochran akumulace (například U&lt;&lt; na úrovni 0,45 Un) se nesmí mechanicky přenášet na fotovoltaiku — hodnoty se mezi ZUE a FVE liší. <a href="rozpadove-misto.html">Tabulka nastavení ochran →</a></p></div>
+        <div class="body"><p>Do dispečinku se u úložiště přenáší i stav nabití baterie a distributor může řídit i příkon.</p></div>
       </article>
     </div>
   </div>
 </section>
 <section class="block alt">
   <div class="container">
-    <div class="seg-note">
-      <p>Bateriová úložiště jsou dnes nejčastější důvod, proč se ověření souladu řeší znovu u elektrárny, která už běží. <b>Napište nám výkon a kapacitu úložiště</b> a jestli jde o nový projekt nebo doplnění ke stávající FVE.</p>
+    <div class="section-head">
+      <p class="eyebrow">Nabíjení i vybíjení</p>
+      <h2>Ověřuje se v obou směrech</h2>
+    </div>
+<p class="lead">To je hlavní rozdíl proti fotovoltaice. Požadavky se prokazují při <b>vybíjení i nabíjení</b>, včetně přechodů mezi nimi. Podpora napětí jalovým výkonem se posuzuje pro oba směry činného výkonu.</p>    <div class="seg-note">
+      <p>Bateriová úložiště jsou dnes nejčastější důvod, proč se ověření souladu řeší znovu u elektrárny, která už běží. <b>Napište nám výkon a kapacitu úložiště</b> a jestli jde o nový projekt, nebo doplnění ke stávající FVE.</p>
       <a class="btn btn-primary" href="kontakt.html">Nezávazná poptávka</a>
-    </div><p class="spec-note"><b>Zdroj:</b> Metodika ověřování souladu ZUE (typ D nesynchronní), společná ČEZ Distribuce + EG.D + PREdistribuce, platná od 1. 9. 2025 · dodatky č. 1 a 2 připojovacích podmínek ČEZ Distribuce (1. 9. 2025) · DVM-ZUE-D, 29 bodů (EG.D)</p>
+    </div>
   </div>
 </section>
 <section class="block" id="faq">
@@ -319,19 +241,15 @@
     <div class="faq">
       <details open>
         <summary>Platí pro baterii stejné zkoušky jako pro fotovoltaiku?</summary>
-        <div class="answer"><p>Ne. Akumulace má vlastní metodiku ověřování souladu platnou od 1. 9. 2025, ověřuje se v obou provozních režimech a hodnoty ochran se od fotovoltaiky liší.</p></div>
-      </details>
-      <details>
-        <summary>Co se stane při podfrekvenci?</summary>
-        <div class="answer"><p>Pod 49,0 Hz se úložiště musí automaticky přepnout do dodávky, jinak se odpojí. Ověřuje se to jako součást souladu.</p></div>
+        <div class="answer"><p>Z velké části ano. Navíc se ověřuje provoz při nabíjení i vybíjení a úložiště má vlastní dokument ověřování souladu.</p></div>
       </details>
       <details>
         <summary>Můžeme s baterií poskytovat podpůrné služby?</summary>
-        <div class="answer"><p>Zapojení akumulace do podpůrných služeb je možné po splnění podmínek připojení, dokončení procesu uvedení do provozu a splnění samostatných podmínek příslušného distributora, ČEPS a agregátora. Podmínky pro poskytování podpůrných služeb jsou nad rámec ověření souladu — řeší se zvlášť.</p></div>
+        <div class="answer"><p>Podmínky pro podpůrné služby jsou nad rámec ověření souladu a řeší se zvlášť — s distributorem, provozovatelem přenosové soustavy a agregátorem.</p></div>
       </details>
       <details>
-        <summary>Jak často se u akumulace přezkušují ochrany?</summary>
-        <div class="answer"><p>Ochrany a dálkové řízení minimálně jednou za čtyři roky. Je to periodická povinnost, na kterou se po vydání konečného provozního oznámení snadno zapomene.</p></div>
+        <summary>Jak často se přezkušují ochrany?</summary>
+        <div class="answer"><p>Ochrany a dálkové řízení se u výroben i úložišť přezkušují nejméně jednou za čtyři roky. Na tuhle povinnost se po uvedení do trvalého provozu snadno zapomene.</p></div>
       </details>
     </div>
   </div>
@@ -340,9 +258,8 @@
     <div class="crosslinks">
       <span class="t">Souvisejicí stránky</span>
       <a href="pridani-baterie-k-fve.html">Přidání baterie ke stávající FVE</a>
-      <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
-      <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
-      <a href="kategorie-c-d.html">Kategorie C a D</a>
+      <a href="zkousky-na-miste.html">Zkoušky na místě</a>
+      <a href="proces-pripojeni.html">Postup a podklady</a>
     </div>
   </div>
 </section>
@@ -410,7 +327,7 @@
       <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
       <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
       <a href="kategorie-c-d.html">C a D — od 30 MW</a>
-      <a href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+      <a href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
       <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
     </div>
     <div>
@@ -423,18 +340,7 @@
       <h4>Služby</h4>
       <a href="simulace-souladu.html">Simulace souladu</a>
       <a href="zkousky-na-miste.html">Zkoušky na místě</a>
-      <a href="zkousky-ochran.html">Zkoušky ochran</a>
-      <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
-      <a href="podklady.html">Podklady k zahájení</a>
-    </div>
-    <div>
-      <h4>Proces</h4>
-      <a href="proces-pripojeni.html">Proces připojení krok za krokem</a>
-      <a href="upos.html">ÚPOS — dočasný provoz</a>
-      <a href="utp.html">ÚTP — trvalý provoz</a>
-      <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
-      <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
-      <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
+      <a href="proces-pripojeni.html">Postup a podklady</a>
     </div>
     <div>
       <h4>Dále</h4>

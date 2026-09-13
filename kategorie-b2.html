@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 <title>Simulace souladu B2 — výrobny 1 až 30 MW | Simulační zkoušky</title>
-<meta name="description" content="Kategorie B2: výrazně širší kapitola simulací souladu, předání modelů výrobny distributorovi a praktické zkoušky na místě. 24 až 27 bodů Tabulky 1.">
+<meta name="description" content="Kategorie B2: výrazně širší rozsah simulací souladu, předání modelů výrobny distributorovi a zkoušky na místě. Co se mění proti B1 a jak to stihnout.">
 <link rel="canonical" href="https://www.simulacni-zkousky.cz/kategorie-b2.html">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Simulační zkoušky – BFK Systems s.r.o.">
 <meta property="og:title" content="Simulace souladu B2 — výrobny 1 až 30 MW">
-<meta property="og:description" content="Kategorie B2: výrazně širší kapitola simulací souladu, předání modelů výrobny distributorovi a praktické zkoušky na místě. 24 až 27 bodů Tabulky 1.">
+<meta property="og:description" content="Kategorie B2: výrazně širší rozsah simulací souladu, předání modelů výrobny distributorovi a zkoušky na místě. Co se mění proti B1 a jak to stihnout.">
 <meta property="og:url" content="https://www.simulacni-zkousky.cz/kategorie-b2.html">
 <meta property="og:image" content="https://www.simulacni-zkousky.cz/assets/title-photo.jpg">
 <meta property="og:locale" content="cs_CZ">
@@ -53,10 +53,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Proč distributor chce simulační model celé výrobny?",
+      "name": "Proč distributor chce model výrobny?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Předání ověřeného modelu je samostatný bod Tabulky 1. Distributor s ním počítá stabilitu sítě v místě připojení — proto model musí odrážet ustálený stav i dynamické děje."
+        "text": "Počítá s ním chování sítě v místě připojení. Předání ověřených modelů je u B2 samostatný požadavek, který nejde nahradit certifikátem."
       }
     },
     {
@@ -64,7 +64,7 @@
       "name": "Máme střídače bez modelu od výrobce. Co teď?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Část dynamických modelů máme k dispozici od výrobců, u zbytku se model validuje proti měření. Řekněte nám typ střídače a ověříme, na čem jsme."
+        "text": "Část dynamických modelů máme k dispozici od výrobců, u zbytku se model ověřuje proti měření. Řekněte nám typ střídače a ověříme, na čem jsme."
       }
     },
     {
@@ -72,15 +72,7 @@
       "name": "Co když simulace nevyjdou?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Upraví se nastavení výrobních jednotek nebo ochran a test se opakuje. Právě proto se simulace dělají před zkouškami na místě — úprava v modelu stojí zlomek toho co opakovaný výjezd."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Je u B2 potřeba umělá setrvačnost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Příloha 4 ji vyžaduje po nesynchronních modulech B2, C i D — u B2 ale  výběrově , po odsouhlasení s provozovatelem přenosové soustavy. Té výběrovosti využívá i ČEZ Distribuce, která v příloze VP_09 uvádí, že ji po B2 nepožaduje. Rozhodující jsou vždy podmínky připojení konkrétního provozovatele a smlouva o připojení."
+        "text": "Upraví se nastavení výrobních jednotek nebo ochran a test se opakuje. Úprava v modelu stojí zlomek toho, co opakovaný výjezd."
       }
     }
   ]
@@ -119,7 +111,7 @@
           <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
           <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
           <a href="kategorie-c-d.html">C a D — od 30 MW</a>
-          <a href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+          <a href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
           <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
         </div>
       </div>
@@ -140,24 +132,9 @@
         <div class="sub">
           <a href="simulace-souladu.html">Simulace souladu</a>
           <a href="zkousky-na-miste.html">Zkoušky na místě</a>
-          <a href="zkousky-ochran.html">Zkoušky ochran</a>
-          <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
-          <a href="podklady.html">Podklady k zahájení</a>
         </div>
       </div>
-      <div class="has-sub">
-        <button class="sub-toggle" type="button" aria-expanded="false">
-          Proces <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="sub">
-          <a href="proces-pripojeni.html">Proces připojení krok za krokem</a>
-          <a href="upos.html">ÚPOS — dočasný provoz</a>
-          <a href="utp.html">ÚTP — trvalý provoz</a>
-          <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
-          <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
-          <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
-        </div>
-      </div>
+      <a href="proces-pripojeni.html">Postup</a>
       <a href="reference.html">Reference</a>
       <a href="kontakt.html">Kontakt</a>
       <a class="header-cta" href="kontakt.html"><span class="dlouhy">Nezávazná poptávka</span><span class="kratky">Poptávka</span></a>
@@ -178,7 +155,7 @@
   <a class="m-sub" href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
   <a class="m-sub" href="kategorie-b2.html">B2 — 1 až 30 MW</a>
   <a class="m-sub" href="kategorie-c-d.html">C a D — od 30 MW</a>
-  <a class="m-sub" href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+  <a class="m-sub" href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
   <a class="m-sub" href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
   <p class="m-group">Distributoři</p>
   <a class="m-sub" href="cez-distribuce.html">ČEZ Distribuce</a>
@@ -187,16 +164,7 @@
   <p class="m-group">Služby</p>
   <a class="m-sub" href="simulace-souladu.html">Simulace souladu</a>
   <a class="m-sub" href="zkousky-na-miste.html">Zkoušky na místě</a>
-  <a class="m-sub" href="zkousky-ochran.html">Zkoušky ochran</a>
-  <a class="m-sub" href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
-  <a class="m-sub" href="podklady.html">Podklady k zahájení</a>
-  <p class="m-group">Proces</p>
-  <a class="m-sub" href="proces-pripojeni.html">Proces připojení krok za krokem</a>
-  <a class="m-sub" href="upos.html">ÚPOS — dočasný provoz</a>
-  <a class="m-sub" href="utp.html">ÚTP — trvalý provoz</a>
-  <a class="m-sub" href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
-  <a class="m-sub" href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
-  <a class="m-sub" href="slovnik-rfg.html">Slovník pojmů RfG</a>
+  <a href="proces-pripojeni.html">Postup</a>
   <a href="reference.html">Reference</a>
   <a href="kontakt.html">Kontakt</a>
   <a href="faq.html">Časté dotazy</a>
@@ -213,26 +181,21 @@
     <div class="section-head">
       <p class="eyebrow">Kategorie výrobního modulu</p>
       <h1>Simulace souladu B2 — 1 až 30 MW</h1>
-      <p class="h1-claim">Skok proti B1: podstatně širší kapitola simulací.</p>
-      <p>Od 1 MW se rozsah ověření zásadně mění. K funkčním zkouškám na místě přibývá <b>kapitola simulací souladu</b> v podstatně širším rozsahu než u B1 a požadavek předat provozovateli distribuční soustavy modely výrobny. Počet bodů Tabulky 1 skáče z 16/18 na 24/27.</p>
+      <p class="h1-claim">Skok proti B1: podstatně širší simulace.</p>
+      <p>Od 1 MW se rozsah ověření zásadně mění. K zkouškám na místě přibývá <b>výrazně širší rozsah simulací</b> a předání modelů výrobny distributorovi.</p>
       <p class="reviewed"><b>Metodiky provozovatelů distribučních soustav se průběžně mění.</b> U konkrétního projektu vždy ověřujeme aktuální verzi dokumentů příslušného provozovatele.</p>
     </div>
-    <ul class="anchor-nav">
-      <li><a href="#rozdil">Co se mění proti B1</a></li>
-      <li><a href="#simulace">Katalog simulací</a></li>
-      <li><a href="#dodavka">Jak to dodáváme</a></li>
-      <li><a href="#faq">Časté dotazy</a></li>
-    </ul>
+    
   </div>
 </section>
 <div class="stats-band">
   <div class="container grid">
-      <div><div class="num">24 / 27</div><div class="label">Bodů Tabulky 1 (synchronní / nesynchronní)</div></div>
-      <div><div class="num">Povinná</div><div class="label">Celá kapitola simulací souladu</div></div>
-      <div><div class="num">12 měsíců</div><div class="label">Nejdelší platnost dočasného provozu</div></div>
+      <div><div class="num">24 / 27</div><div class="label">Bodů (synchronní / nesynchronní)</div></div>
+      <div><div class="num">Modely</div><div class="label">Předávají se distributorovi</div></div>
+      <div><div class="num">12 měsíců</div><div class="label">Nejdelší dočasný provoz</div></div>
   </div>
 </div>
-<section class="block" id="rozdil">
+<section class="block">
   <div class="container">
     <div class="section-head">
       <p class="eyebrow">Rozdíl</p>
@@ -240,61 +203,43 @@
     </div>
     <div class="services cols-2">
       <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 3 4-7"/></svg>Širší kapitola simulací</h3>
-        <div class="body"><p>Zatímco u B1 jde o jednotlivé body, u B2 se kapitola simulací souladu <b>rozšiřuje na většinu požadavků</b>: frekvenční stabilita, RoCoF, LFSM-O i LFSM-U, překlenutí poruch UVRT a OVRT, obnova činného výkonu po poruše, napěťová stabilita, podpora napětí jalovým výkonem, ostrovní provoz, robustnost a detekce ztráty úhlové stability. Nesynchronní moduly mají navíc rychlý poruchový proud, prioritu Q před P a tlumení oscilací.</p></div>
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 3 4-7"/></svg>Širší simulace</h3>
+        <div class="body"><p>Zatímco u B1 jde o jednotlivé body, u B2 se simulacemi dokládá většina požadavků — chování při poruchách v síti, odezva na změny frekvence, napěťová stabilita a další podle metodiky distributora.</p></div>
       </article>
       <article class="svc">
-        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4M21 7H8M7 21l-4-4 4-4M3 17h13"/></svg>Předání modelu distributorovi</h3>
-        <div class="body"><p>U B2 Příloha 4 <b>požaduje předání modelů</b> ve formě strukturních a blokových diagramů, jejich vstupních dat a výstupů dokládajících chování modulu. Plné simulační modely podle čl. 15.6 c) RfG se pak poskytují <b>na žádost</b> provozovatele distribuční soustavy — a mají odrážet ustálený stav a přechodné jevy (složka 50 Hz), <i>nebo</i> elektromagnetické přechodové děje.</p></div>
+        <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4M21 7H8M7 21l-4-4 4-4M3 17h13"/></svg>Předání modelů</h3>
+        <div class="body"><p>Distributor u B2 požaduje modely výrobny ve formě strukturních a blokových diagramů se vstupními daty a výstupy. Plné simulační modely se předávají na jeho žádost.</p></div>
       </article>
       <article class="svc">
         <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>Přebírá požadavky kategorie C</h3>
-        <div class="body"><p>B2 přejímá vybrané požadavky kategorie C podle čl. 15 RfG — v praxi „malé C“. Umělá setrvačnost se podle Přílohy 4 vyžaduje po nesynchronních modulech B2, C i D, u B2 ale <b>výběrově</b> — po odsouhlasení s provozovatelem přenosové soustavy.</p></div>
+        <div class="body"><p>B2 přejímá vybrané požadavky kategorie C — v praxi „malé C“. Některé z nich, například umělou setrvačnost, distributoři požadují jen výběrově.</p></div>
       </article>
       <article class="svc">
         <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Zkoušky na místě zůstávají</h3>
-        <div class="body"><p>Praktické zkoušky se nikam neztrácejí — rozsah je obdobný jako u B1 a podle typu zařízení se rozšiřuje. Simulace je nenahrazují, doplňují.</p></div>
+        <div class="body"><p>Zkoušky se nikam neztrácejí — rozsah je obdobný jako u B1. Simulace je nenahrazují, doplňují.</p></div>
       </article>
     </div>
   </div>
 </section>
-<section class="block alt" id="simulace">
+<section class="block alt">
   <div class="container">
     <div class="section-head">
       <p class="eyebrow">Praxe</p>
-      <h2>Riziko není technika, ale zdržení</h2>
+      <h2>Riziko není technika, ale kalendář</h2>
     </div>
-<p class="lead">U projektů této velikosti bývá největší problém kalendář. Dočasný provoz trvá nejdéle 12 měsíců a v té době musí být hotové simulace, zkoušky, protokoly i vyplněný Dokument výrobního modulu. Když se model vrátí k přepracování, čas ubývá rychle.</p>    <div class="services cols-2">
+<p class="lead">Dočasný provoz trvá nejdéle 12 měsíců a v té době musí být hotové simulace, zkoušky, protokoly i Dokument výrobního modulu. Když se model vrátí k přepracování, čas ubývá rychle.</p>    <div class="services cols-2">
       <article class="svc">
         <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Proč distributor vrací simulace</h3>
-        <div class="body"><p>Nejčastěji proto, že model neodpovídá skutečné konfiguraci výrobny, je chybně zvolený referenční výkon u frekvenčních testů, nebo jsou protokoly neúplné. Všechny tři důvody jde ošetřit ještě před odevzdáním.</p></div>
+        <div class="body"><p>Nejčastěji proto, že model neodpovídá skutečné konfiguraci výrobny, nebo jsou protokoly neúplné. Obojí jde ošetřit ještě před odevzdáním.</p></div>
       </article>
       <article class="svc">
         <h3 class="hdr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Simulace dřív než zkoušky</h3>
-        <div class="body"><p>Simulace odhalí, co je potřeba přenastavit — a to je levnější zjistit u počítače než na výrobně s technikem a dispečinkem. Proto pořadí: model, úpravy, teprve pak výjezd.</p></div>
+        <div class="body"><p>Simulace odhalí, co je potřeba přenastavit — a to je levnější zjistit u počítače než na výrobně s technikem a dispečinkem.</p></div>
       </article>
     </div>    <div class="seg-note">
-      <p>Rozdíl mezi B1 a B2 není v ceně o pár procent — je v tom, že u B2 přibývá celá kapitola simulací a předání modelu. <b>Pošlete nám smlouvu o připojení</b> a řekneme vám rozsah dřív, než začne běžet dočasný provoz.</p>
+      <p>Rozdíl mezi B1 a B2 není v ceně o pár procent — u B2 přibývají široké simulace a modely. <b>Pošlete nám smlouvu o připojení</b> a řekneme vám rozsah dřív, než začne běžet dočasný provoz.</p>
       <a class="btn btn-primary" href="kontakt.html">Nezávazná poptávka</a>
     </div>
-  </div>
-</section>
-<section class="block" id="dodavka">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">Část A, B, C</p>
-      <h2>Jak to dodáváme</h2>
-    </div>
-    <div class="wp-list">
-      <div class="wp-item"><span class="kod">A</span><p>Simulace souladu — model výrobny v DIgSILENT PowerFactory, katalog testů podle metodiky, report s verdiktem splněno/nesplněno u každého bodu, předání modelu distributorovi.</p></div>
-      <div class="wp-item"><span class="kod">B</span><p>Zkoušky na místě — jeden výjezd, kvalimetr třídy A podle ČSN EN 61000-4-30, koordinace s dispečinkem, ochranářem i servisem střídačů.</p></div>
-      <div class="wp-item"><span class="kod">C</span><p>Dokumentace — vyplněný Dokument výrobního modulu, protokoly, žádost o ÚPOS a o ÚTP, vypořádání připomínek distributora.</p></div>
-    </div>
-  </div>
-</section>
-<section class="block">
-  <div class="container">
-<p class="spec-note"><b>Zdroj:</b> Metodika ověřování souladu B2 (synchronní i nesynchronní), ČEZ Distribuce + EG.D + PREdistribuce, platná od 1. 2. 2025 · upřesnění požadavků RfG ČEZ Distribuce (VP_09) platné od 1. 9. 2025</p>
   </div>
 </section>
 <section class="block" id="faq">
@@ -305,20 +250,16 @@
     </div>
     <div class="faq">
       <details open>
-        <summary>Proč distributor chce simulační model celé výrobny?</summary>
-        <div class="answer"><p>Předání ověřeného modelu je samostatný bod Tabulky 1. Distributor s ním počítá stabilitu sítě v místě připojení — proto model musí odrážet ustálený stav i dynamické děje.</p></div>
+        <summary>Proč distributor chce model výrobny?</summary>
+        <div class="answer"><p>Počítá s ním chování sítě v místě připojení. Předání ověřených modelů je u B2 samostatný požadavek, který nejde nahradit certifikátem.</p></div>
       </details>
       <details>
         <summary>Máme střídače bez modelu od výrobce. Co teď?</summary>
-        <div class="answer"><p>Část dynamických modelů máme k dispozici od výrobců, u zbytku se model validuje proti měření. Řekněte nám typ střídače a ověříme, na čem jsme.</p></div>
+        <div class="answer"><p>Část dynamických modelů máme k dispozici od výrobců, u zbytku se model ověřuje proti měření. Řekněte nám typ střídače a ověříme, na čem jsme.</p></div>
       </details>
       <details>
         <summary>Co když simulace nevyjdou?</summary>
-        <div class="answer"><p>Upraví se nastavení výrobních jednotek nebo ochran a test se opakuje. Právě proto se simulace dělají před zkouškami na místě — úprava v modelu stojí zlomek toho co opakovaný výjezd.</p></div>
-      </details>
-      <details>
-        <summary>Je u B2 potřeba umělá setrvačnost?</summary>
-        <div class="answer"><p>Příloha 4 ji vyžaduje po nesynchronních modulech B2, C i D — u B2 ale <b>výběrově</b>, po odsouhlasení s provozovatelem přenosové soustavy. Té výběrovosti využívá i ČEZ Distribuce, která v příloze VP_09 uvádí, že ji po B2 nepožaduje. Rozhodující jsou vždy podmínky připojení konkrétního provozovatele a smlouva o připojení.</p></div>
+        <div class="answer"><p>Upraví se nastavení výrobních jednotek nebo ochran a test se opakuje. Úprava v modelu stojí zlomek toho, co opakovaný výjezd.</p></div>
       </details>
     </div>
   </div>
@@ -326,10 +267,10 @@
   <div class="container">
     <div class="crosslinks">
       <span class="t">Souvisejicí stránky</span>
-      <a href="simulace-souladu.html">Simulace souladu (služba)</a>
+      <a href="simulace-souladu.html">Simulace souladu</a>
       <a href="zkousky-na-miste.html">Zkoušky na místě</a>
       <a href="kategorie-c-d.html">Kategorie C a D</a>
-      <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
+      <a href="proces-pripojeni.html">Postup a podklady</a>
     </div>
   </div>
 </section>
@@ -397,7 +338,7 @@
       <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
       <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
       <a href="kategorie-c-d.html">C a D — od 30 MW</a>
-      <a href="bateriova-uloziste-zue.html">Bateriová úložiště (ZUE)</a>
+      <a href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
       <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
     </div>
     <div>
@@ -410,18 +351,7 @@
       <h4>Služby</h4>
       <a href="simulace-souladu.html">Simulace souladu</a>
       <a href="zkousky-na-miste.html">Zkoušky na místě</a>
-      <a href="zkousky-ochran.html">Zkoušky ochran</a>
-      <a href="rtu-dispecerske-rizeni.html">RTU a dispečerské řízení</a>
-      <a href="podklady.html">Podklady k zahájení</a>
-    </div>
-    <div>
-      <h4>Proces</h4>
-      <a href="proces-pripojeni.html">Proces připojení krok za krokem</a>
-      <a href="upos.html">ÚPOS — dočasný provoz</a>
-      <a href="utp.html">ÚTP — trvalý provoz</a>
-      <a href="dokument-vyrobniho-modulu.html">Dokument výrobního modulu</a>
-      <a href="rozpadove-misto.html">Rozpadové místo a ochrany</a>
-      <a href="slovnik-rfg.html">Slovník pojmů RfG</a>
+      <a href="proces-pripojeni.html">Postup a podklady</a>
     </div>
     <div>
       <h4>Dále</h4>

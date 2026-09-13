@@ -307,6 +307,9 @@
   /* Stridani pozadi na podstrankach. Domovska pouziva pojmenovane tridy
      (.why, .pricing), pro podstranky staci obecne .alt. */
   section.block.alt { background: var(--cream); }
+  /* Dve bile sekce za sebou (napr. uvod s H1 a prvni sekce obsahu) by jinak mely
+     odsazeni dvojnasobne a mezi nimi zela prazdna mezera. */
+  section.block:not(.alt) + section.block:not(.alt) { padding-top: 0; }
   .section-head { margin: 0 0 44px; }
   .section-head .eyebrow {
     color: var(--orange-t); font-size: 13px; font-weight: 700;

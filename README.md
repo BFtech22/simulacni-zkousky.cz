@@ -10,9 +10,8 @@ z webu `../bftechnology`, obsah z interní rešerše (viz `podklady/`).
 
 ## Stránky se GENERUJÍ — needituj `.html` v kořeni
 
-Web má 27 stránek se stejnou hlavičkou, patičkou a menu. Ruční kopie hlavičky
-v každém souboru (jako na webu BF technology) se při téhle velikosti neuhlídá,
-takže:
+Web má 19 stránek se stejnou hlavičkou, patičkou a menu. Ruční kopie hlavičky
+v každém souboru (jako na webu BF technology) se neuhlídá, takže:
 
 ```bash
 python3 nastroje/build.py      # vygeneruje všechny .html + sitemap.xml
@@ -25,7 +24,7 @@ Když upravíš vygenerovaný `.html` v kořeni, další build to přepíše.
 ```
 .
 ├── nastroje/
-│   ├── obsah.py            # ← TADY se edituje obsah (1 položka PAGES = 1 stránka)
+│   ├── obsah.py            # ← TADY se edituje obsah (1 položka STRANKY = 1 stránka)
 │   ├── build.py            # šablona, menu, patička, sitemap
 │   ├── kontrola.py         # kontrola odkazů a struktury
 │   └── generuj-obrazky.py  # zmenšeniny a WebP z originálů v assets/
@@ -61,8 +60,8 @@ značka s monitorem je v 16 px nečitelná.
 
 ## Hlavička a šířky
 
-Hlavička nese o položku víc než web BF technology, takže se do ní musí vejít logo
-webu, logo BFK, šest položek menu a tlačítko. Místo se uvolňuje po krocích:
+Do hlavičky se musí vejít logo webu, logo BFK, šest položek menu a tlačítko —
+při 1100 px zbývá mezi logem a menu asi 120 px. Místo se uvolňuje po krocích:
 
 | Šířka okna | Hlavička |
 |---|---|
@@ -79,15 +78,27 @@ Arial, který je asi o 6 % širší.
 
 ## Struktura webu
 
-Hub + paprsky, jedna stránka = jedna vyhledávaná fráze:
+**13. 9. 2026 zkráceno zhruba na polovinu** — kolegům byl web příliš obsáhlý
+(27 stránek → 19, text na 55 % původního). Zkoušky se popisují jen po okruzích
+(činný výkon, jalový výkon, ochrany, dálkové řízení, opětovné připojení, baterie),
+protože rozsah stejně určuje smlouva o připojení.
 
-| Sekce | Stránky |
+| Menu | Stránky |
 |---|---|
-| Kategorie | `kategorie-a1`, `-a2`, `-b1`, `-b2`, `-c-d`, `bateriova-uloziste-zue`, `pridani-baterie-k-fve` |
-| Distributoři | `cez-distribuce`, `egd`, `predistribuce` |
-| Služby | `simulace-souladu`, `zkousky-na-miste`, `zkousky-ochran`, `rtu-dispecerske-rizeni`, `podklady` |
-| Proces | `proces-pripojeni`, `upos`, `utp`, `dokument-vyrobniho-modulu`, `rozpadove-misto`, `slovnik-rfg` |
-| Ostatní | `index`, `reference`, `faq`, `kontakt`, `zasady-zpracovani-osobnich-udaju`, `404` |
+| Kategorie ▾ | `kategorie-a1`, `-a2`, `-b1`, `-b2`, `-c-d`, `bateriova-uloziste-zue`, `pridani-baterie-k-fve` |
+| Distributoři ▾ | `cez-distribuce`, `egd`, `predistribuce` |
+| Služby ▾ | `simulace-souladu`, `zkousky-na-miste` |
+| Postup | `proces-pripojeni` (UPOS, seznam a)–j), lhůty, DVM, UTP, podklady — kotvy `#upos`, `#podklady`) |
+| Reference, Kontakt | `reference`, `kontakt` |
+| mimo menu | `index`, `faq`, `zasady-zpracovani-osobnich-udaju`, `404` |
+
+Vypadly technické detaily: slovník, rozpadové místo, RTU, zkoušky ochran, katalogy
+zkoušek 5.1–5.11 a simulací 6.1–6.19, samostatné stránky UPOS/UTP/DVM/podklady.
+**Podrobná verze je v gitu pod commitem `c9d4806`.**
+
+Zkratky **UPOS** a **UTP** se píšou bez čárky, stejně jako v PPDS příloze 4.
+Nadpisy sekcí, eyebrow a nadpisy karet se sázejí verzálkami — **jednotky a „A1 a A2“
+do nich nepatří** (vzniká „KW“, „A1 A A2“); čísla patří do textu nebo do H1.
 
 Každá stránka má drobečkovou navigaci (i jako JSON-LD `BreadcrumbList`),
 kanonickou URL a Open Graph. Stránky s akordeonem dotazů mají navíc JSON-LD
@@ -119,6 +130,8 @@ PPDS přílohu 4 a nařízení (EU) 2016/631. **Nepublikovaná tvrzení označen
 v rešerši jako neověřená se na web záměrně nedostala** — seznam je v prvním
 komentáři `nastroje/obsah.py` a v `POZNAMKY-INTERNI.md`.
 
-Data se v téhle agendě mění každou sezónu. Odborné stránky proto nesou větu
-o průběžné změně metodik (`"reviewed": True` v obsahu) a u tabulek je vždy
-uvedený zdroj s datem platnosti.
+Data se v téhle agendě mění každou sezónu. Stránky kategorií a postupu proto nesou
+větu o průběžné změně metodik (`"reviewed": True` v obsahu). Podrobnosti
+z metodik — čísla bodů, parametry zkoušek, přechodná data — se na zjednodušený
+web záměrně nedávají: co tam není, nemůže zastarat. Zůstaly jen hranice
+kategorií a lhůty 30 dnů a 12 měsíců.
