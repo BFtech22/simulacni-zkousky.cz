@@ -233,7 +233,7 @@ STRANKY.append({
         ),
         eyebrow="Do které kategorie spadáte",
         uvod="<p>Rozsah ověření se odvíjí od kategorie výrobního modulu. Klikněte na kategorii — "
-             "u každé je popsané, co se dokládá a co distributor chce.</p>",
+             "u každé je popsáno, co se dokládá a co distributor chce.</p>",
         alt=True, kotva="kategorie",
     ) + sekce(
         "Tři cesty, jak požadavek doložit",
@@ -242,8 +242,8 @@ STRANKY.append({
              "<p>Ověření na hotové výrobně a protokol. Některé požadavky jinak doložit nejde — "
              "u kategorie B1 jich je šest.</p>"),
             (I["graf"], "Simulace",
-             "<p>Model výrobny a protokol s vyhodnocením splněno / nesplněno. U kategorie B2 a výš "
-             "je rozsah simulací podstatně širší.</p>"),
+             "<p>Model výrobny a protokol s vyhodnocením splněno / nesplněno. U kategorie B2 a vyšších "
+             "kategorií je rozsah simulací podstatně širší.</p>"),
             (I["dok"], "Certifikát zařízení",
              "<p>Nahradí zkoušku nebo simulaci jen tam, kde to Dokument výrobního modulu připouští. "
              "U výrobny z více výrobních jednotek část bodů certifikátem nedoložíte.</p>"),
@@ -251,8 +251,8 @@ STRANKY.append({
         + callout(
             "Tady se láme rozsah prací i cena",
             "<p>Kterou cestou se který požadavek doloží, určuje Dokument výrobního modulu "
-            "distributora. Proto se u dvou stejně velkých elektráren může rozsah ověření lišit "
-            "i násobně — podle počtu a typu střídačů.</p>"),
+            "distributora. Proto se u dvou výkonově srovnatelných elektráren může rozsah ověření "
+            "významně lišit podle počtu a typu výrobních jednotek.</p>"),
         eyebrow="Klíčový koncept", kotva="cesty",
     ) + sekce(
         "Jak to probíhá",
@@ -493,7 +493,7 @@ STRANKY.append({
              "<p>Model výrobny pokryje elektrárnu bez ohledu na počet střídačů.</p>",
              "simulace-souladu.html"),
             (I["dok"], "Certifikát zařízení",
-             "<p>Levnější cesta, ale u části bodů použitelná jen u výrobny z jedné výrobní jednotky. "
+             "<p>U části bodů použitelný jen u výrobny z jedné výrobní jednotky. "
              "U více jednotek se tyto body dokládají zkouškou nebo simulací celé výrobny.</p>"),
         ])
         + cta("<b>Máte více střídačů?</b> Napište nám jejich počet a typ a kategorii ze smlouvy "
@@ -555,12 +555,11 @@ STRANKY.append({
              "<p>Častým důvodem bývá nesoulad modelu se skutečnou konfigurací výrobny nebo neúplné "
              "protokoly. Obojí jde ošetřit ještě před odevzdáním.</p>"),
             (I["hodiny"], "Simulace dříve než zkoušky",
-             "<p>Simulace odhalí, co je potřeba přenastavit — a to je levnější zjistit u počítače "
-             "než na výrobně s technikem a dispečinkem.</p>"),
+             "<p>Simulace zpravidla odhalí, co je potřeba přenastavit, ještě před zkouškami "
+             "na výrobně.</p>"),
         ], sloupce=2)
-        + cta("Rozdíl mezi B1 a B2 není v ceně o pár procent — u B2 přibývají široké simulace "
-              "a modely. <b>Pošlete nám smlouvu o připojení</b> a řekneme vám rozsah dříve, než začne "
-              "běžet dočasný provoz."),
+        + cta("Proti B1 se u B2 významně rozšiřuje rozsah simulací a požadovaných modelů. "
+              "<b>Pošlete nám smlouvu o připojení</b> a předem stanovíme konkrétní rozsah ověření."),
         eyebrow="Praxe", alt=True,
     ),
     "faq": [
@@ -571,8 +570,8 @@ STRANKY.append({
          "<p>Část dynamických modelů máme k dispozici od výrobců, u zbytku se model ověřuje proti "
          "měření. Řekněte nám typ střídače a ověříme, na čem jsme.</p>"),
         ("Co když simulace nevyjdou?",
-         "<p>Upraví se nastavení výrobních jednotek nebo ochran a test se opakuje. Úprava v modelu "
-         "stojí zlomek toho, co opakovaný výjezd.</p>"),
+         "<p>Upraví se nastavení výrobních jednotek nebo ochran a test se opakuje. Odhalení nesouladu "
+         "v modelu zpravidla umožní provést úpravy ještě před zkouškami na výrobně.</p>"),
     ],
     "cross": [("Simulace souladu", "simulace-souladu.html"), ("Zkoušky na místě", "zkousky-na-miste.html"),
               ("Kategorie C a D", "kategorie-c-d.html"), ("Postup a podklady", "proces-pripojeni.html")],
@@ -662,9 +661,9 @@ STRANKY.append({
             (I["hodiny"], "Obdobný postup",
              "<p>Od 100 kW obdobně jako u výrobny: UPOS, dočasný provoz nejdéle 12 měsíců, zkoušky "
              "a simulace a žádost o UTP.</p>"),
-            (I["sit"], "Rozšířená telemetrie",
-             "<p>Do dispečinku se u úložiště přenáší i stav nabití baterie a distributor může řídit "
-             "i příkon.</p>"),
+            (I["sit"], "Rozšířená telemetrie a řízení",
+             "<p>U úložišť s požadavkem na dispečerské řízení se přenáší také stav nabití a distributor "
+             "může požadovat omezení dodávky i odběru činného výkonu.</p>"),
         ]),
         eyebrow="Pravidla",
     ) + sekce(
@@ -712,8 +711,8 @@ STRANKY.append({
                   "dodatkem ke smlouvě."),
             ("3", "<b>Ověření souladu úložiště.</b> Vlastní dokument ověřování souladu a ověření "
                   "provozu při nabíjení i vybíjení."),
-            ("4", "<b>Rozšíření telemetrie.</b> Doplní se signály úložiště a znovu se ověří přenos dat "
-                  "do dispečinku."),
+            ("4", "<b>Rozšíření telemetrie.</b> Vyžaduje-li distributor dispečerské řízení, doplní se "
+                  "signály úložiště a znovu se ověří přenos dat do dispečinku."),
         ]) + callout(
             "Časté nedorozumění",
             "<p>„Baterie je za střídačem, distributora to nezajímá.“ Zajímá — úložiště mění chování "
@@ -902,7 +901,7 @@ STRANKY.append({
             "U větších výroben další požadavky podle metodiky distributora",
         ]) + callout(
             "Rozsah určuje kategorie",
-            "<p>U kategorie B1 jde o vybrané body, u B2 a výš je rozsah simulací výrazně širší "
+            "<p>U kategorie B1 jde o vybrané body, u B2 a vyšších kategorií je rozsah simulací výrazně širší "
             "a distributorovi se předávají i modely výrobny. Přesný seznam vychází ze smlouvy "
             "o připojení a metodiky distributora — potvrdíme ho předem.</p>"),
         eyebrow="Rozsah",
@@ -933,7 +932,7 @@ STRANKY.append({
     ),
     "faq": [
         ("Kdy je potřeba simulační studie?",
-         "<p>Od kategorie B1. U B1 jde o vybrané body, u B2 a výš o výrazně širší rozsah. "
+         "<p>Od kategorie B1. U B1 jde o vybrané body, u B2 a vyšších kategorií o výrazně širší rozsah. "
          "U kategorií A1 a A2 se simulace nedělají.</p>"),
         ("Proč distributor vrací simulace k přepracování?",
          "<p>Z naší praxe bývá častým důvodem nesoulad modelu se skutečnou konfigurací výrobny nebo "
@@ -969,7 +968,9 @@ STRANKY.append({
             (I["sit"], "Dálkové řízení",
              "<p>Ověření komunikace a řízení výrobny z dispečinku distributora.</p>"),
             (I["hodiny"], "Opětovné připojení",
-             "<p>Ověření automatického připojení výrobny po výpadku sítě.</p>"),
+             "<p>Ověření automatického opětovného připojení u kategorií, kde ho PPDS umožňují. "
+             "U výrobních modulů typu D se ověřuje zpětné připojení na pokyn dispečinku "
+             "distributora.</p>"),
             (I["baterie"], "Bateriové úložiště",
              "<p>U výroben s baterií ověření provozu úložiště při nabíjení i vybíjení.</p>"),
         ], sloupce=3),
@@ -1108,8 +1109,8 @@ STRANKY.append({
         "než se začne stavět.</p>"
         + karty([
             (I["graf"], "Simulace ovlivní nastavení",
-             "<p>Ze simulací vyjde, jak nastavit střídače a ochrany. Levnější je to vědět před "
-             "uvedením do provozu než po neúspěšné zkoušce.</p>"),
+             "<p>Ze simulací vyjde, jak nastavit střídače a ochrany. Je lepší to vědět před "
+             "uvedením do provozu než až po neúspěšné zkoušce.</p>"),
             (I["hodiny"], "Termíny se nedají zrychlit",
              "<p>Zkouška s dispečinkem se domlouvá s předstihem a podklady od výrobců technologie "
              "chodí týdny.</p>"),
