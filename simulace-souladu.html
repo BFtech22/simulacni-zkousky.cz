@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 <title>Simulace souladu výrobny s RfG | Simulační zkoušky</title>
-<meta name="description" content="Simulace souladu výrobny s RfG: model výrobny, výpočet požadavků, které nejde ověřit měřením, a protokoly pro distributora. Od kategorie B1.">
+<meta name="description" content="Simulace souladu výrobny s RfG: model výrobny, ověření požadavků, které metodika umožňuje nebo vyžaduje doložit simulací, a protokoly pro distributora. Od kategorie B1.">
 <link rel="canonical" href="https://www.simulacni-zkousky.cz/simulace-souladu.html">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Simulační zkoušky – BFK Systems s.r.o.">
 <meta property="og:title" content="Simulace souladu výrobny s RfG">
-<meta property="og:description" content="Simulace souladu výrobny s RfG: model výrobny, výpočet požadavků, které nejde ověřit měřením, a protokoly pro distributora. Od kategorie B1.">
+<meta property="og:description" content="Simulace souladu výrobny s RfG: model výrobny, ověření požadavků, které metodika umožňuje nebo vyžaduje doložit simulací, a protokoly pro distributora. Od kategorie B1.">
 <meta property="og:url" content="https://www.simulacni-zkousky.cz/simulace-souladu.html">
 <meta property="og:image" content="https://www.simulacni-zkousky.cz/assets/title-photo.jpg">
 <meta property="og:locale" content="cs_CZ">
@@ -64,7 +64,7 @@
       "name": "Proč distributor vrací simulace k přepracování?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nejčastěji proto, že model neodpovídá skutečné konfiguraci výrobny, nebo jsou protokoly neúplné. Obojí hlídáme ještě před odevzdáním."
+        "text": "Z naší praxe bývá častým důvodem nesoulad modelu se skutečnou konfigurací výrobny nebo neúplné protokoly. Obojí hlídáme ještě před odevzdáním."
       }
     },
     {
@@ -107,10 +107,10 @@
         </button>
         <div class="sub">
           <a href="kategorie-a1.html">A1 — do 11 kW</a>
-          <a href="kategorie-a2.html">A2 — 11 až 100 kW</a>
-          <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
-          <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
-          <a href="kategorie-c-d.html">C a D — od 30 MW</a>
+          <a href="kategorie-a2.html">A2 — nad 11 kW, pod 100 kW</a>
+          <a href="kategorie-b1.html">B1 — 100 kW až pod 1 MW</a>
+          <a href="kategorie-b2.html">B2 — 1 MW až pod 30 MW</a>
+          <a href="kategorie-c-d.html">C a D — od 30 MW / 110 kV</a>
           <a href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
           <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
         </div>
@@ -151,10 +151,10 @@
   </button>
   <p class="m-group">Kategorie</p>
   <a class="m-sub" href="kategorie-a1.html">A1 — do 11 kW</a>
-  <a class="m-sub" href="kategorie-a2.html">A2 — 11 až 100 kW</a>
-  <a class="m-sub" href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
-  <a class="m-sub" href="kategorie-b2.html">B2 — 1 až 30 MW</a>
-  <a class="m-sub" href="kategorie-c-d.html">C a D — od 30 MW</a>
+  <a class="m-sub" href="kategorie-a2.html">A2 — nad 11 kW, pod 100 kW</a>
+  <a class="m-sub" href="kategorie-b1.html">B1 — 100 kW až pod 1 MW</a>
+  <a class="m-sub" href="kategorie-b2.html">B2 — 1 MW až pod 30 MW</a>
+  <a class="m-sub" href="kategorie-c-d.html">C a D — od 30 MW / 110 kV</a>
   <a class="m-sub" href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
   <a class="m-sub" href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
   <p class="m-group">Distributoři</p>
@@ -181,15 +181,15 @@
     <div class="section-head">
       <p class="eyebrow">Služba</p>
       <h1>Simulace souladu</h1>
-      <p class="h1-claim">Co se na hotové elektrárně změřit nedá, prokážeme výpočtem.</p>
-      <p>Část požadavků RfG nejde ověřit na hotové výrobně — třeba chování při poruchách v síti. Ty se prokazují <b>simulací na modelu výrobny</b>. Počítáme v prostředí DIgSILENT PowerFactory.</p>
+      <p class="h1-claim">Požadavky, které metodika umožňuje nebo vyžaduje ověřit simulací, prokážeme na modelu výrobny.</p>
+      <p>Metodiky u řady požadavků připouštějí více cest ověření — zkoušku, simulaci, nebo certifikát. <b>Simulací na modelu výrobny</b> se typicky dokládá odezva při změnách frekvence a napětí, chování při poruchových stavech a další požadavky podle kategorie výrobního modulu. Počítáme v prostředí DIgSILENT PowerFactory.</p>
     </div>
     
   </div>
 </section>
 <div class="stats-band">
   <div class="container grid cols-2">
-      <div><div class="num">100 kW – 36 MWp</div><div class="label">Rozsah zpracovaných studií</div></div>
+      <div><div class="num">až 36 MWp</div><div class="label">Rozsah zpracovaných FVE projektů</div></div>
       <div><div class="num">Splněno / nesplněno</div><div class="label">Vyhodnocení u každého bodu</div></div>
   </div>
 </div>
@@ -223,7 +223,7 @@
       <div class="wp-item"><span class="kod">4</span><p>Modely střídačů, u bateriových systémů i řídicí jednotky úložiště.</p></div>
     </div>    <div class="callout">
       <span class="t">Model musí odpovídat skutečnosti</span>
-      <p>Nejčastější důvod, proč distributor simulace vrací: model neodpovídá skutečné konfiguraci výrobny. Proto začínáme kontrolou podkladů a topologii si necháváme potvrdit dřív, než spustíme první výpočet.</p>
+      <p>Častým důvodem vrácení dokumentace bývá nesoulad modelu se skutečnou konfigurací výrobny. Proto začínáme kontrolou podkladů a topologii si necháváme potvrdit dříve, než spustíme první výpočet.</p>
     </div>
   </div>
 </section>
@@ -257,7 +257,7 @@
       </details>
       <details>
         <summary>Proč distributor vrací simulace k přepracování?</summary>
-        <div class="answer"><p>Nejčastěji proto, že model neodpovídá skutečné konfiguraci výrobny, nebo jsou protokoly neúplné. Obojí hlídáme ještě před odevzdáním.</p></div>
+        <div class="answer"><p>Z naší praxe bývá častým důvodem nesoulad modelu se skutečnou konfigurací výrobny nebo neúplné protokoly. Obojí hlídáme ještě před odevzdáním.</p></div>
       </details>
       <details>
         <summary>Máte modely našich střídačů?</summary>
@@ -268,7 +268,7 @@
 </section><section class="block">
   <div class="container">
     <div class="crosslinks">
-      <span class="t">Souvisejicí stránky</span>
+      <span class="t">Související stránky</span>
       <a href="zkousky-na-miste.html">Zkoušky na místě</a>
       <a href="kategorie-b2.html">Kategorie B2</a>
       <a href="proces-pripojeni.html">Postup a podklady</a>
@@ -303,7 +303,7 @@
     </div>
     <div class="contact-form-card">
       <h3 style="margin:0 0 14px;font-size:20px;color:#222">Co potřebujeme vědět</h3>
-      <p style="margin:0 0 18px;font-size:15px">Čím víc toho napíšete rovnou, tím přesněji odpovíme. Ideálně: provozovatel distribuční soustavy, kategorie ze smlouvy o připojení, instalovaný výkon, počet a typ střídačů a jestli je součástí bateriové úložiště.</p>
+      <p style="margin:0 0 18px;font-size:15px">Čím více toho napíšete rovnou, tím přesněji odpovíme. Ideálně: provozovatel distribuční soustavy, kategorie ze smlouvy o připojení, instalovaný výkon, počet a typ střídačů a jestli je součástí bateriové úložiště.</p>
       <a class="btn btn-primary" href="kontakt.html">Přejít na poptávkový formulář</a>
     </div>
   </div>
@@ -335,10 +335,10 @@
     <div>
       <h4>Kategorie</h4>
       <a href="kategorie-a1.html">A1 — do 11 kW</a>
-      <a href="kategorie-a2.html">A2 — 11 až 100 kW</a>
-      <a href="kategorie-b1.html">B1 — 100 kW až 1 MW</a>
-      <a href="kategorie-b2.html">B2 — 1 až 30 MW</a>
-      <a href="kategorie-c-d.html">C a D — od 30 MW</a>
+      <a href="kategorie-a2.html">A2 — nad 11 kW, pod 100 kW</a>
+      <a href="kategorie-b1.html">B1 — 100 kW až pod 1 MW</a>
+      <a href="kategorie-b2.html">B2 — 1 MW až pod 30 MW</a>
+      <a href="kategorie-c-d.html">C a D — od 30 MW / 110 kV</a>
       <a href="bateriova-uloziste-zue.html">Bateriová úložiště</a>
       <a href="pridani-baterie-k-fve.html">Přidání baterie k FVE</a>
     </div>

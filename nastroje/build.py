@@ -32,10 +32,10 @@ FIRMA = "BFK Systems s.r.o."
 NAV = [
     ("Kategorie", "kategorie", [
         ("A1 — do 11 kW", "kategorie-a1.html"),
-        ("A2 — 11 až 100 kW", "kategorie-a2.html"),
-        ("B1 — 100 kW až 1 MW", "kategorie-b1.html"),
-        ("B2 — 1 až 30 MW", "kategorie-b2.html"),
-        ("C a D — od 30 MW", "kategorie-c-d.html"),
+        ("A2 — nad 11 kW, pod 100 kW", "kategorie-a2.html"),
+        ("B1 — 100 kW až pod 1 MW", "kategorie-b1.html"),
+        ("B2 — 1 MW až pod 30 MW", "kategorie-b2.html"),
+        ("C a D — od 30 MW / 110 kV", "kategorie-c-d.html"),
         ("Bateriová úložiště", "bateriova-uloziste-zue.html"),
         ("Přidání baterie k FVE", "pridani-baterie-k-fve.html"),
     ]),
@@ -361,7 +361,7 @@ def stranka(p: dict) -> str:
         cross = f"""<section class="block{' alt' if p.get('cross_alt') else ''}">
   <div class="container">
     <div class="crosslinks">
-      <span class="t">Souvisejicí stránky</span>
+      <span class="t">Související stránky</span>
 {odkazy}
     </div>
   </div>
@@ -403,7 +403,7 @@ KONTAKT_PRUH = f"""<section class="contact-section" id="poptavka">
     </div>
     <div class="contact-form-card">
       <h3 style="margin:0 0 14px;font-size:20px;color:#222">Co potřebujeme vědět</h3>
-      <p style="margin:0 0 18px;font-size:15px">Čím víc toho napíšete rovnou, tím přesněji odpovíme. Ideálně: provozovatel distribuční soustavy, kategorie ze smlouvy o připojení, instalovaný výkon, počet a typ střídačů a jestli je součástí bateriové úložiště.</p>
+      <p style="margin:0 0 18px;font-size:15px">Čím více toho napíšete rovnou, tím přesněji odpovíme. Ideálně: provozovatel distribuční soustavy, kategorie ze smlouvy o připojení, instalovaný výkon, počet a typ střídačů a jestli je součástí bateriové úložiště.</p>
       <a class="btn btn-primary" href="kontakt.html">Přejít na poptávkový formulář</a>
     </div>
   </div>
