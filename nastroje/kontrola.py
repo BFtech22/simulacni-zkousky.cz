@@ -6,8 +6,9 @@
     python3 nastroje/kontrola.py --externi    # navic: dostupnost externich odkazu (chodi na sit)
 
 Hlida odkazy a kotvy, zakladni meta, jeden H1, canonical, parovani tagu, sitemap,
-JSON-LD (validni JSON a FAQ shodne s viditelnym textem), zastarale formulace
-a datum aktualizace na odbornych strankach.
+JSON-LD (validni JSON a FAQ shodne s viditelnym textem), zastarale formulace,
+datum aktualizace na odbornych strankach a to, ze web nenacita nic z cizich serveru
+(fonty, styly, skripty) a vsechny soubory z CSS existuji.
 """
 
 import html
@@ -116,6 +117,15 @@ def zkontroluj_stranku(cesta, jmena):
         if f'id="{kotva}"' not in obsah:
             chyba(jmeno, f"kotva #{kotva} na stránce neexistuje")
 
+    # vse, co stranka nacita, musi byt z vlastniho webu (fonty, styly, skripty)
+    for znacka in re.findall(r"<(?:link|script)\b[^>]*>", obsah):
+        cil = re.search(r'(?:href|src)="((?:https?:)?//[^"]+)"', znacka)
+        if not cil:
+            continue
+        if znacka.startswith("<script") or re.search(
+                r'rel="(?:stylesheet|preconnect|preload|modulepreload|dns-prefetch|icon)"', znacka):
+            chyba(jmeno, f"načítá externí zdroj {cil.group(1)} — fonty, styly a skripty hostujeme sami")
+
     # JSON-LD: validni JSON, FAQ shodne s viditelnym textem
     for blok in re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', obsah, re.S):
         try:
@@ -154,6 +164,19 @@ def zkontroluj_stranku(cesta, jmena):
                 upozorneni(jmeno, f"obsah aktualizován {den.day}. {den.month}. {den.year}, před {stari} dny — "
                                   "projít proti aktuálním dokumentům a posunout datum v obsah.ZDROJE")
     return obsah
+
+
+def zkontroluj_css():
+    """Styly nesmi nic tahat z cizich serveru a vsechny url() musi existovat."""
+    for css in sorted((KOREN / "assets").glob("*.css")):
+        text = css.read_text(encoding="utf-8")
+        for m in re.finditer(r"@import\b[^;]*;", text):
+            chyba(css.name, f"@import stylu: {m.group(0)}")
+        for adresa in re.findall(r"url\(\s*['\"]?([^'\")]+?)['\"]?\s*\)", text):
+            if adresa.startswith(("http://", "https://", "//")):
+                chyba(css.name, f"načítá externí zdroj {adresa} — fonty a obrázky hostujeme sami")
+            elif not adresa.startswith("data:") and not (css.parent / adresa).exists():
+                chyba(css.name, f"chybí soubor {adresa}")
 
 
 def zkontroluj_sitemap(stranky, jmena, obsahy):
@@ -222,6 +245,7 @@ def main() -> int:
     stranky = sorted(KOREN.glob("*.html"))
     jmena = {p.name for p in stranky}
     obsahy = {p.name: zkontroluj_stranku(p, jmena) for p in stranky}
+    zkontroluj_css()
     zkontroluj_sitemap(stranky, jmena, obsahy)
     staging = zkontroluj_produkci(stranky, produkce)
     pocet_externich = zkontroluj_externi(stranky) if externi else None

@@ -8,6 +8,12 @@ Barvy a typografii sdílí s cenovou nabídkou BFK (`../bfk_nabidka_html`): Robo
 oranžová `#F08A00`, tmavě šedá `#3C3C3C`. Rozvržení a komponenty vycházejí
 z webu `../bftechnology`, obsah z interní rešerše (viz `podklady/`).
 
+**Písmo Roboto je hostované na webu** (`assets/fonts/`, variabilní woff2 z Google Fonts v51,
+tloušťky 300–900, licence SIL Open Font License 1.1 — plný text je v repozitáři
+google/fonts, složka `ofl/roboto`). Stránky nevolají fonts.googleapis.com ani
+fonts.gstatic.com, takže se při načtení webu nepředává IP adresa Googlu. Hlídá to
+`kontrola.py` — externí font, styl nebo skript je chyba.
+
 ## Stránky se GENERUJÍ — needituj `.html` v kořeni
 
 Web má 19 stránek se stejnou hlavičkou, patičkou a menu. Ruční kopie hlavičky
@@ -38,6 +44,7 @@ Když upravíš vygenerovaný `.html` v kořeni, další build to přepíše.
 │   ├── style.css           # všechny styly (převzato z webu BFT, přebarveno)
 │   ├── nav.js              # rozbalovací menu + mobilní menu
 │   ├── form.js             # odeslání poptávkového formuláře
+│   ├── fonts/              # Roboto, variabilní woff2 (latin + latin-ext) — hostujeme sami
 │   ├── logo_SZ.png         # ZDROJ loga webu (originál, stránky ho nenačítají)
 │   ├── logo-sz-300/600.*   # logo webu pro hlavičku a patičku (generované)
 │   ├── bfk-logo*, bfk-znacka-*  # logo a značka BFK Systems (generované)

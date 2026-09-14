@@ -1523,8 +1523,7 @@ STRANKY.append({
 
       <h2>5. Cookies a analytika</h2>
       <p>Tento web nepoužívá analytické ani reklamní cookies a nesleduje chování návštěvníků.
-      Načítá webové fonty z externí služby; při jejich stažení se přenáší IP adresa vašeho zařízení,
-      což je technicky nezbytné pro doručení obsahu.</p>
+      Písma i ostatní části stránky se načítají přímo z tohoto webu, ne z externích služeb.</p>
 
       <h2>6. Vaše práva</h2>
       <ul>
