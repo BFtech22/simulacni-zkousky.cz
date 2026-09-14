@@ -31,7 +31,7 @@ FIRMA = "BFK Systems s.r.o."
 # (nazev, klic pro zvyrazneni, polozky | odkaz)
 NAV = [
     ("Kategorie", "kategorie", [
-        ("A1 — do 11 kW", "kategorie-a1.html"),
+        ("A1 — 0,8 až 11 kW", "kategorie-a1.html"),
         ("A2 — nad 11 kW, pod 100 kW", "kategorie-a2.html"),
         ("B1 — 100 kW až pod 1 MW", "kategorie-b1.html"),
         ("B2 — 1 MW až pod 30 MW", "kategorie-b2.html"),
@@ -146,15 +146,19 @@ def hlavicka(aktivni: str) -> str:
 
 
 def paticka() -> str:
-    # Sloupce z rozbalovacich polozek menu; ke Sluzbam patri i Postup.
-    sloupce = []
+    # Rozcestnik z rozbalovacich polozek menu; ke Sluzbam patri i Postup.
+    # Pet bunek v jedne rade: logo, kontakt, kategorie, distributori se sluzbami, dale.
+    bloky = {}
     for nazev, _klic, cil in NAV:
         if isinstance(cil, str):
             continue
         polozky = list(cil) + ([("Postup a podklady", "proces-pripojeni.html")] if nazev == "Služby" else [])
         odkazy = "\n".join(f'      <a href="{href}">{txt}</a>' for txt, href in polozky)
-        sloupce.append(f'    <div>\n      <h4>{nazev}</h4>\n{odkazy}\n    </div>')
-    rozcestnik = "\n".join(sloupce)
+        bloky[nazev] = (nazev, odkazy)
+    kat, dis, slu = bloky["Kategorie"], bloky["Distributoři"], bloky["Služby"]
+    rozcestnik = (f'    <div>\n      <h4>{kat[0]}</h4>\n{kat[1]}\n    </div>\n'
+                  f'    <div>\n      <h4>{dis[0]}</h4>\n{dis[1]}\n'
+                  f'      <h4 class="dalsi">{slu[0]}</h4>\n{slu[1]}\n    </div>')
 
     return f"""<!-- PATICKA -->
 <footer class="site">
@@ -218,6 +222,19 @@ def drobecky(cesta: list[tuple[str, str]], nazev: str) -> tuple[str, str]:
     return html_nav, ld
 
 
+def prosty_text(html_text: str) -> str:
+    """Text odpovedi pro JSON-LD: bez znacek, bez odkazu „… →“, bez zdvojenych mezer.
+
+    kontrola.py pouziva stejne pravidlo, aby overila, ze FAQ v JSON-LD odpovida
+    viditelnemu textu stranky.
+    """
+    t = re.sub(r"<a [^>]*>[^<]*→</a>", "", html_text)
+    t = re.sub(r"</?(p|br|li|ul|ol)\b[^>]*>", " ", t)
+    t = re.sub(r"<[^>]+>", "", t)
+    t = re.sub(r"\s+", " ", html.unescape(t))
+    return re.sub(r"\s+([,.;:!?)])", r"\1", t).strip()
+
+
 def faq_blok(polozky: list[tuple[str, str]], nadpis: str = "Časté dotazy") -> tuple[str, str]:
     """Akordeon + JSON-LD FAQPage."""
     if not polozky:
@@ -246,7 +263,7 @@ def faq_blok(polozky: list[tuple[str, str]], nadpis: str = "Časté dotazy") -> 
         "@context": "https://schema.org", "@type": "FAQPage",
         "mainEntity": [
             {"@type": "Question", "name": o,
-             "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", " ", a).strip()}}
+             "acceptedAnswer": {"@type": "Answer", "text": prosty_text(a)}}
             for o, a in polozky
         ],
     }, ensure_ascii=False, indent=2)
@@ -258,6 +275,7 @@ def organizace() -> str:
     return json.dumps({
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": f"{DOMENA}/#organizace",
         "name": FIRMA,
         "alternateName": ZNACKA,
         "url": f"{DOMENA}/",
@@ -280,6 +298,26 @@ def organizace() -> str:
     }, ensure_ascii=False, indent=2)
 
 
+def web() -> str:
+    """WebSite JSON-LD — jen na domovske strance."""
+    return json.dumps({
+        "@context": "https://schema.org", "@type": "WebSite",
+        "@id": f"{DOMENA}/#web", "name": ZNACKA, "url": f"{DOMENA}/", "inLanguage": "cs",
+        "publisher": {"@id": f"{DOMENA}/#organizace"},
+    }, ensure_ascii=False, indent=2)
+
+
+def sluzba(nazev: str, popis: str, url: str) -> str:
+    """Service JSON-LD pro stranky sluzeb (obsah.SLUZBY)."""
+    return json.dumps({
+        "@context": "https://schema.org", "@type": "Service",
+        "name": nazev, "serviceType": nazev, "description": popis, "url": url,
+        "areaServed": {"@type": "Country", "name": "Česko"},
+        "provider": {"@type": "Organization", "@id": f"{DOMENA}/#organizace",
+                     "name": FIRMA, "url": "https://www.bfksystems.cz/"},
+    }, ensure_ascii=False, indent=2)
+
+
 def stranka(p: dict) -> str:
     """Slozi celou HTML stranku z jednoho zaznamu obsahu."""
     slug = p["slug"]
@@ -293,7 +331,10 @@ def stranka(p: dict) -> str:
     faq_html, faq_ld = faq_blok(p.get("faq", []), p.get("faq_nadpis", "Časté dotazy"))
 
     ldjson = ""
-    for data in (organizace() if slug == "index.html" else "", bc_ld, faq_ld, p.get("ld", "")):
+    specialni = [organizace(), web()] if slug == "index.html" else []
+    if p.get("sluzba"):
+        specialni.append(sluzba(p["sluzba"], p["desc"], url))
+    for data in (*specialni, bc_ld, faq_ld, p.get("ld", "")):
         if data:
             ldjson += f'\n<script type="application/ld+json">\n{data}\n</script>'
 
@@ -368,9 +409,16 @@ def stranka(p: dict) -> str:
 </section>
 """
 
+    zdroj = ""
+    if p.get("zdroj"):
+        datum, dokumenty = p["zdroj"]
+        zdroj = (f'<section class="block zdroj">\n  <div class="container">\n'
+                 f'    <p class="spec-note"><b>Aktualizováno {datum}.</b> Zdroje: {dokumenty}</p>\n'
+                 f'  </div>\n</section>\n')
+
     kontakt = "" if p.get("bez_kontaktu") else KONTAKT_PRUH
     return (hlava + hlavicka(p.get("nav", "")) + '<main id="obsah">\n'
-            + uvod + pruh + p["body"] + faq_html + cross + kontakt + "</main>\n"
+            + uvod + pruh + p["body"] + faq_html + cross + zdroj + kontakt + "</main>\n"
             + paticka() + "\n</body>\n</html>\n")
 
 
@@ -453,6 +501,9 @@ def main() -> None:
     slugy = [p["slug"] for p in stranky]
     if len(slugy) != len(set(slugy)):
         raise SystemExit("duplicitni slug v obsah.PAGES")
+    nezname = sorted(set(getattr(obsah, "ZDROJE", {})) - set(slugy))
+    if nezname:
+        raise SystemExit("obsah.ZDROJE odkazuji na neexistujici stranky: " + ", ".join(nezname))
 
     for p in stranky:
         cil = KOREN / p["slug"]

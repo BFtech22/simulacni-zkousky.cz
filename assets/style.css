@@ -310,6 +310,9 @@
   /* Dve bile sekce za sebou (napr. uvod s H1 a prvni sekce obsahu) by jinak mely
      odsazeni dvojnasobne a mezi nimi zela prazdna mezera. */
   section.block:not(.alt) + section.block:not(.alt) { padding-top: 0; }
+  /* Radek „Aktualizováno … Zdroje: …“ dole na odbornych strankach. */
+  section.block.zdroj { padding: 28px 0; }
+  section.block.zdroj .spec-note { margin: 0; line-height: 1.6; }
   .section-head { margin: 0 0 44px; }
   .section-head .eyebrow {
     color: var(--orange-t); font-size: 13px; font-weight: 700;
@@ -806,7 +809,7 @@
     font-size: 14px;
   }
   footer.site .grid {
-    display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 36px;
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr; gap: 36px;
     padding-bottom: 34px;
   }
   footer.site .logo-cell img { height: 62px; width: auto; margin-bottom: 10px; }
@@ -815,6 +818,7 @@
     color: var(--black); font-size: 13px;
     text-transform: uppercase; letter-spacing: 1px; margin: 0 0 14px;
   }
+  footer.site h4.dalsi { margin-top: 24px; }
   footer.site h4::after { content: ""; display: block; width: 34px; height: 3px; background: var(--amber); margin-top: 7px; }
   footer.site a { display: block; padding: 3px 0; color: var(--text); }
   footer.site a:hover { color: var(--orange-t); }

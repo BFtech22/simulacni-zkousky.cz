@@ -15,8 +15,14 @@ v každém souboru (jako na webu BF technology) se neuhlídá, takže:
 
 ```bash
 python3 nastroje/build.py      # vygeneruje všechny .html + sitemap.xml
-python3 nastroje/kontrola.py   # zkontroluje odkazy, kotvy, meta a párování tagů
+python3 nastroje/kontrola.py   # odkazy, meta, JSON-LD, sitemap, zastaralé formulace, data aktualizace
+python3 nastroje/kontrola.py --externi    # navíc ověří externí odkazy (chodí na síť)
+python3 nastroje/kontrola.py --produkce   # před spuštěním: bez PLACEHOLDER, robots bez Disallow, CNAME
 ```
+
+`kontrola.py` má seznam `ZAKAZANE` — formulace, které se v minulých kolech oprav na web
+vracely (ÚPOS, „víc“, „stejných hranic“, „30 až 75 MW“…). Když se opraví další chyba,
+kterou nechceme vidět znovu, přidej ji tam.
 
 **Obsah stránek je v `nastroje/obsah.py`**, šablona a menu v `nastroje/build.py`.
 Když upravíš vygenerovaný `.html` v kořeni, další build to přepíše.
@@ -26,7 +32,7 @@ Když upravíš vygenerovaný `.html` v kořeni, další build to přepíše.
 ├── nastroje/
 │   ├── obsah.py            # ← TADY se edituje obsah (1 položka STRANKY = 1 stránka)
 │   ├── build.py            # šablona, menu, patička, sitemap
-│   ├── kontrola.py         # kontrola odkazů a struktury
+│   ├── kontrola.py         # kontrola před publikací (viz výš)
 │   └── generuj-obrazky.py  # zmenšeniny a WebP z originálů v assets/
 ├── assets/
 │   ├── style.css           # všechny styly (převzato z webu BFT, přebarveno)
@@ -121,6 +127,7 @@ kanonickou URL a Open Graph. Stránky s akordeonem dotazů mají navíc JSON-LD
    služba to je, doplnit jméno.
 5. **Věcné otevřené body** (co ještě nesmí na web, co je potřeba ověřit
    u distributorů, ceny) jsou v `POZNAMKY-INTERNI.md` — ten se do gitu nedává.
+6. **`python3 nastroje/kontrola.py --produkce` musí projít** — hlídá body 1–3.
 
 ## Poznámky k obsahu
 
@@ -135,3 +142,9 @@ větu o průběžné změně metodik (`"reviewed": True` v obsahu). Podrobnosti
 z metodik — čísla bodů, parametry zkoušek, přechodná data — se na zjednodušený
 web záměrně nedávají: co tam není, nemůže zastarat. Zůstaly jen hranice
 kategorií a lhůty 30 dnů a 12 měsíců.
+
+**Zdroje a datum aktualizace.** Odborné stránky mají dole řádek „Aktualizováno … Zdroje: …“.
+Obsah je v `obsah.ZDROJE` (datum a seznam dokumentů pro každou stránku). Datum posouvat
+jen po skutečné kontrole obsahu proti uvedeným dokumentům — proto „aktualizováno“, ne
+„ověřeno“. `kontrola.py` hlásí chybu, když odborné stránce řádek chybí, a upozorní, když
+je datum starší než půl roku.
