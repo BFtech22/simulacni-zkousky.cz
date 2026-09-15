@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Obsah webu simulacni-zkousky.cz — jedna polozka STRANKY = jedna stranka.
+"""Obsah webu simulacni-zkousky.cz – jedna polozka STRANKY = jedna stranka.
 
 ZKRACENO 13. 9. 2026 na zhruba polovinu puvodniho rozsahu (19 stranek misto 27).
 Kolegum byl web prilis obsahly. Zustaly stranky kategorii A1 az D, baterie
@@ -9,12 +9,12 @@ a podklady jsou spojene na strance Postup. Zkousky se popisuji jen po okruzich
 (cinny vykon, jalovy vykon, ochrany, dalkove rizeni...), rozsah urcuje smlouva
 o pripojeni. Podrobna verze je v gitu pod commitem c9d4806.
 
-Pri zkracovani zapracovana kontrola faktu z 3. 9. 2026 — nevracet: "ochrany
+Pri zkracovani zapracovana kontrola faktu z 3. 9. 2026 – nevracet: "ochrany
 baterie se lisi od FVE" (jsou shodne), "u B2 povinna cela kapitola simulaci",
 DPO jako vysledek UPOS u B1/B2, formulare G97/G98 "k instalacnimu dokumentu",
 "kapacita baterie" v telemetrii CEZ (je to stav nabiti), superlativy.
 
-Zkratky: UPOS a UTP BEZ carky — tak je pise PPDS priloha 4 (Umozneni…).
+Zkratky: UPOS a UTP BEZ carky – tak je pise PPDS priloha 4 (Umozneni…).
 
 Vecny podklad: interni reserse BFK (podklady/Reserse_web_simulacni_zkousky.pdf)
 a kontrola faktu podklady/_KONTROLA_WEB_simulacni-zkousky_2026-09-03.md.
@@ -135,8 +135,8 @@ HERO = """<!-- HERO -->
   <div class="content">
     <p class="hero-eyebrow">BFK Systems &middot; ověření souladu s RfG</p>
     <h1>Simulační zkoušky a ověření souladu výroben</h1>
-    <p class="hero-claim-big">Simulace souladu, zkoušky na místě a dokumentace pro distributora — od jedné firmy.</p>
-    <p class="hero-lead">Bez doloženého souladu s&nbsp;RfG nevydá provozovatel distribuční soustavy (dále také distributor) souhlas s&nbsp;trvalým provozem výrobny. Od kategorie B1, tedy od 100&nbsp;kW, se část požadavků ověřuje simulací a část zkouškami přímo na výrobně. Děláme obojí — včetně žádostí o&nbsp;UPOS a&nbsp;UTP.</p>
+    <p class="hero-claim-big">Simulace souladu, zkoušky na místě a dokumentace pro distributora – od jedné firmy.</p>
+    <p class="hero-lead">Bez doloženého souladu s&nbsp;RfG nevydá provozovatel distribuční soustavy (dále také distributor) souhlas s&nbsp;trvalým provozem výrobny. Od kategorie B1, tedy od 100&nbsp;kW, se část požadavků ověřuje simulací a část zkouškami přímo na výrobně. Děláme obojí – včetně žádostí o&nbsp;UPOS a&nbsp;UTP.</p>
     <p class="hero-claim">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
       Fotovoltaické elektrárny a bateriová úložiště od 100 kW
@@ -170,7 +170,7 @@ FAQ_OD_VYKONU = (
     "výrobny (A1, A2) dokládají soulad doklady ke střídači a instalačním dokumentem.</p>")
 FAQ_KATEGORIE = (
     "Jak zjistím kategorii své výrobny?",
-    '<p>Najdete ji ve <b>smlouvě o připojení</b>. Orientačně ji poznáte podle výkonu — '
+    '<p>Najdete ji ve <b>smlouvě o připojení</b>. Orientačně ji poznáte podle výkonu – '
     '<a href="index.html#kategorie">tabulka kategorií</a>. Když si nejste jistí, pošlete nám smlouvu.</p>')
 FAQ_CIZI_STAVBA = (
     "Děláte to i pro elektrárny, které jste nestavěli?",
@@ -178,7 +178,7 @@ FAQ_CIZI_STAVBA = (
     "i pro investory, kteří si stavbu zajistili sami. Potřebujeme podklady, ne vlastní stavbu.</p>")
 FAQ_B1_VYJEZD = (
     "Musí k nám u kategorie B1 někdo přijet?",
-    "<p>Ano, na zkoušky na místě — ověření regulace činného a jalového výkonu, ochran, komunikace "
+    "<p>Ano, na zkoušky na místě – ověření regulace činného a jalového výkonu, ochran, komunikace "
     "s dispečinkem a opětovného připojení. Zbytek požadavků se doloží simulací nebo certifikátem.</p>")
 
 STRANKY.append({
@@ -193,7 +193,7 @@ STRANKY.append({
         karty([
             (I["graf"], "Simulace souladu",
              "<p>Požadavky, které metodika umožňuje nebo vyžaduje ověřit simulací, prokážeme na modelu "
-             "výrobny — typicky odezvu při změnách frekvence a napětí a chování při poruchách.</p>",
+             "výrobny – typicky odezvu při změnách frekvence a napětí a chování při poruchách.</p>",
              "simulace-souladu.html"),
             (I["lupa"], "Zkoušky na místě",
              "<p>Ověření regulace činného a jalového výkonu, ochran, dálkového řízení a opětovného "
@@ -202,24 +202,24 @@ STRANKY.append({
              "<p>Žádost o UPOS, protokoly, Dokument výrobního modulu, žádost o UTP a vypořádání "
              "připomínek distributora až do konečného provozního oznámení.</p>", "proces-pripojeni.html"),
             (I["baterie"], "Bateriová úložiště",
-             "<p>Nové úložiště i doplnění baterie ke stávající fotovoltaice — ověření provozu při "
+             "<p>Nové úložiště i doplnění baterie ke stávající fotovoltaice – ověření provozu při "
              "nabíjení i vybíjení a vlastní formuláře distributora.</p>", "bateriova-uloziste-zue.html"),
         ], sloupce=2),
         eyebrow="Služby",
         uvod='<p class="lead">Pojem „simulační zkoušky“ používáme jako souhrnné označení služeb. Odborně '
              'jde o <b>ověření souladu výrobny s nařízením (EU) 2016/631 (RfG)</b>, při kterém se '
-             'požadavky dokládají simulacemi souladu, zkouškami souladu, nebo certifikáty zařízení — '
-             'podle příslušné metodiky. Elektrárnu jsme stavět nemuseli — stačí nám podklady.</p>',
+             'požadavky dokládají simulacemi souladu, zkouškami souladu, nebo certifikáty zařízení – '
+             'podle příslušné metodiky. Elektrárnu jsme stavět nemuseli – stačí nám podklady.</p>',
         kotva="sluzby",
     ) + sekce(
         "Kategorie výrobních modulů",
         tabulka(
             ["Kategorie", "Výkon", "Zkoušky na místě", "Simulace"],
-            [['<a href="kategorie-a1.html">A1</a>', "0,8 kW – 11 kW", "standardně ne", "standardně ne"],
-             ['<a href="kategorie-a2.html">A2</a>', "nad 11 kW – pod 100 kW", "standardně ne", "standardně ne"],
-             ['<a href="kategorie-b1.html">B1</a>', "100 kW – pod 1 MW", "ano", "vybrané body"],
-             ['<a href="kategorie-b2.html">B2</a>', "1 MW – pod 30 MW", "ano", "širší rozsah"],
-             ['<a href="kategorie-c-d.html">C</a>', "30 MW – pod 75 MW", "ano", "nejširší rozsah"],
+            [['<a href="kategorie-a1.html">A1</a>', "0,8 až 11 kW", "standardně ne", "standardně ne"],
+             ['<a href="kategorie-a2.html">A2</a>', "nad 11 kW, pod 100 kW", "standardně ne", "standardně ne"],
+             ['<a href="kategorie-b1.html">B1</a>', "100 kW až pod 1 MW", "ano", "vybrané body"],
+             ['<a href="kategorie-b2.html">B2</a>', "1 MW až pod 30 MW", "ano", "širší rozsah"],
+             ['<a href="kategorie-c-d.html">C</a>', "30 MW až pod 75 MW", "ano", "nejširší rozsah"],
              ['<a href="kategorie-c-d.html">D</a>', "od 75 MW, nebo připojení na 110 kV", "ano",
               "nejširší rozsah"]],
             poznamky=[
@@ -227,26 +227,26 @@ STRANKY.append({
                 "úložišť se zařazení a způsob ověření řídí aktuálními podmínkami příslušného distributora "
                 "a v některých kategoriích se může od výroben lišit.",
                 "<b>Pozor na jednotky:</b> výkon panelů v kWp není výkon, podle kterého se kategorie "
-                "určuje. Rozhoduje jmenovitý činný výkon výrobního modulu — 698 kWp panelů může být "
-                "modul s Pn 550 kW.",
+                "určuje. Rozhoduje jmenovitý činný výkon výrobního modulu – 698 kWp panelů může být "
+                "modul s P<sub>n</sub> 550 kW.",
             ],
             min_sirka=640,
         ),
         eyebrow="Do které kategorie spadáte",
-        uvod="<p>Rozsah ověření se odvíjí od kategorie výrobního modulu. Klikněte na kategorii — "
+        uvod="<p>Rozsah ověření se odvíjí od kategorie výrobního modulu. Klikněte na kategorii – "
              "u každé je popsáno, co se dokládá a co distributor chce.</p>",
         alt=True, kotva="kategorie",
     ) + sekce(
         "Tři cesty, jak požadavek doložit",
         karty([
             (I["lupa"], "Zkouška na místě",
-             "<p>Ověření na hotové výrobně a protokol. Některé požadavky jinak doložit nejde — "
+             "<p>Ověření na hotové výrobně a protokol. Některé požadavky jinak doložit nejde – "
              "u kategorie B1 jich je šest.</p>"),
             (I["graf"], "Simulace",
              "<p>Model výrobny a protokol s vyhodnocením splněno / nesplněno. U kategorie B2 a vyšších "
              "kategorií je rozsah simulací podstatně širší.</p>"),
             (I["dok"], "Certifikát zařízení",
-             "<p>Vydává ho certifikátor pro konkrétní zařízení — náš protokol ze zkoušky nebo simulace "
+             "<p>Vydává ho certifikátor pro konkrétní zařízení – náš protokol ze zkoušky nebo simulace "
              "certifikát není. Nahradí zkoušku nebo simulaci jen tam, kde to Dokument výrobního modulu "
              "připouští; u výrobny z více výrobních jednotek část bodů certifikátem nedoložíte.</p>"),
         ], sloupce=3)
@@ -283,7 +283,7 @@ STRANKY.append({
         "Společný základ, vlastní podmínky",
         karty([
             (I["tovarna"], "ČEZ Distribuce",
-             "<p>Připojovací podmínky pro VN a VVN od 1. 9. 2025 s technickými přílohami — ochrany, "
+             "<p>Připojovací podmínky pro VN a VVN od 1. 9. 2025 s technickými přílohami – ochrany, "
              "regulace jalového výkonu, telemetrie a test omezování výkonu.</p>", "cez-distribuce.html"),
             (I["tovarna"], "EG.D",
              "<p>Podklady pro dispečerské řízení a chránění decentrálních zdrojů (DEČE) a nové "
@@ -323,16 +323,16 @@ BC_KAT = [("Kategorie výroben", "index.html#kategorie")]
 
 STRANKY.append({
     "slug": "kategorie-a1.html", "nav": "kategorie", "reviewed": True,
-    "title": "Výrobní modul A1 — připojení FVE od 0,8 do 11 kW",
+    "title": "Výrobní modul A1 – připojení FVE od 0,8 do 11 kW",
     "desc": "Kategorie A1 (0,8 až 11 kW): soulad se prokazuje instalačním dokumentem a doklady ke "
             "střídači, zkoušky na výrobně ani simulace se standardně nevyžadují. Co po vás distributor chce.",
-    "eyebrow": "Kategorie výrobního modulu", "h1": "Výrobní modul A1 — 0,8 až 11 kW",
+    "eyebrow": "Kategorie výrobního modulu", "h1": "Výrobní modul A1 – 0,8 až 11 kW",
     "bc_nazev": "Kategorie A1", "breadcrumb": BC_KAT,
-    "intro": "<p>Nejmenší kategorie — prakticky každá domácí fotovoltaika. U kategorie A1 se "
+    "intro": "<p>Nejmenší kategorie – prakticky každá domácí fotovoltaika. U kategorie A1 se "
              "<b>zkoušky na výrobně ani simulace standardně neprovádějí</b>. Soulad se prokazuje "
              "instalačním dokumentem a požadovanými doklady k zařízení; jejich úplnost a vzájemný "
              "soulad jsou podmínkou trvalého provozu.</p>",
-    "stats": [("0,8 – 11 kW", "Rozsah kategorie A1"), ("Instalační dokument", "Místo zkoušek a simulací")],
+    "stats": [("0,8 až 11 kW", "Rozsah kategorie A1"), ("Instalační dokument", "Místo zkoušek a simulací")],
     "body": sekce(
         "Co pro A1 platí",
         karty([
@@ -373,11 +373,11 @@ STRANKY.append({
     "faq": [
         ("Musím u malé fotovoltaiky dělat nějaké zkoušky?",
          "<p>U standardního postupu A1 se samostatné zkoušky na hotové výrobně ani simulační studie "
-         "nevyžadují — soulad se dokládá instalačním dokumentem a doklady ke střídači. Distributor je "
+         "nevyžadují – soulad se dokládá instalačním dokumentem a doklady ke střídači. Distributor je "
          "ale při uvádění do trvalého provozu oprávněn výrobnu zkontrolovat a vyzkoušet a způsob "
          "doložení se řídí jeho aktuálními požadavky.</p>"),
         ("Kdo instalační dokument podepisuje?",
-         "<p>Firma, která instalaci provedla — potvrzuje typ a nastavení zařízení — a žadatel, "
+         "<p>Firma, která instalaci provedla – potvrzuje typ a nastavení zařízení – a žadatel, "
          "který potvrzuje doložení souladu.</p>"),
         ("Střídač má certifikát ze zahraničí. Platí v Česku?",
          "<p>Uznatelnost certifikátu se posuzuje podle rozsahu akreditace, příslušné metodiky "
@@ -390,14 +390,14 @@ STRANKY.append({
 
 STRANKY.append({
     "slug": "kategorie-a2.html", "nav": "kategorie", "reviewed": True,
-    "title": "Výrobní modul A2 (nad 11 kW, pod 100 kW) — doklad ke střídači",
+    "title": "Výrobní modul A2 (nad 11 kW, pod 100 kW) – doklad ke střídači",
     "desc": "Kategorie A2 (nad 11 kW a pod 100 kW): soulad se dokládá certifikátem nebo protokolem ke střídači "
             "přes instalační dokument. Bez zkoušek a simulací. Co dělat, když certifikát nestačí.",
-    "eyebrow": "Kategorie výrobního modulu", "h1": "Výrobní modul A2 — nad 11 kW, pod 100 kW",
+    "eyebrow": "Kategorie výrobního modulu", "h1": "Výrobní modul A2 – nad 11 kW, pod 100 kW",
     "claim": "Rozhoduje doklad k vašemu střídači.",
     "bc_nazev": "Kategorie A2", "breadcrumb": BC_KAT,
     "intro": "<p>Typická firemní střešní elektrárna. Stejně jako u A1 se zkoušky na výrobně ani "
-             "simulace standardně neprovádějí — požadavky jsou ale širší a rozhoduje, co má doložené "
+             "simulace standardně neprovádějí – požadavky jsou ale širší a rozhoduje, co má doložené "
              "váš střídač.</p>",
     "stats": [("nad 11 kW, pod 100 kW", "Rozsah kategorie A2"), ("Instalační dokument", "Místo zkoušek a simulací")],
     "body": sekce(
@@ -419,7 +419,7 @@ STRANKY.append({
         + wp([
             ("1", "Projdeme instalační dokument bod po bodu proti tomu, co certifikát skutečně obsahuje."),
             ("2", "Vyžádáme od výrobce doplňující certifikát nebo verzi k danému firmwaru."),
-            ("3", "Když doplnit nejde, navrhneme řešení — jiné zařízení nebo úpravu konfigurace."),
+            ("3", "Když doplnit nejde, navrhneme řešení – jiné zařízení nebo úpravu konfigurace."),
             ("4", "Zkompletujeme dokumentaci a podáme ji distributorovi."),
         ])
         + callout(
@@ -432,28 +432,28 @@ STRANKY.append({
     ),
     "faq": [
         ("Potřebuju u A2 simulační studii?",
-         "<p>U standardního postupu A1 a A2 se simulační studie nevyžaduje — způsob doložení souladu "
+         "<p>U standardního postupu A1 a A2 se simulační studie nevyžaduje – způsob doložení souladu "
          "se řídí instalačním dokumentem a požadavky příslušného distributora. Zlom je na 100 kW, kde "
          "začíná kategorie B1.</p>"),
         ("Mám 99 kW. Nevyplatí se přidat kilowatt?",
-         "<p>Rozhodně ne bez rozmyslu — od 100 kW spadáte do kategorie B1 a proces se výrazně "
+         "<p>Rozhodně ne bez rozmyslu – od 100 kW spadáte do kategorie B1 a proces se výrazně "
          "rozšíří: dočasný provoz pro ověření, zkoušky na místě a Dokument výrobního modulu.</p>"),
     ],
-    "cross": [("Kategorie B1 — od 100 kW", "kategorie-b1.html"),
-              ("Kategorie A1 — 0,8 až 11 kW", "kategorie-a1.html"), ("Časté dotazy", "faq.html")],
+    "cross": [("Kategorie B1 – od 100 kW", "kategorie-b1.html"),
+              ("Kategorie A1 – 0,8 až 11 kW", "kategorie-a1.html"), ("Časté dotazy", "faq.html")],
 })
 
 STRANKY.append({
     "slug": "kategorie-b1.html", "nav": "kategorie", "reviewed": True,
-    "title": "Ověření souladu B1 — výrobny 100 kW až pod 1 MW",
+    "title": "Ověření souladu B1 – výrobny 100 kW až pod 1 MW",
     "desc": "Kategorie B1: zkoušky na místě, zbytek požadavků simulací nebo certifikátem. Společná "
             "metodika ČEZ Distribuce, EG.D a PREdistribuce platná od 1. 2. 2025.",
-    "eyebrow": "Kategorie výrobního modulu", "h1": "Ověření souladu B1 — 100 kW až pod 1 MW",
+    "eyebrow": "Kategorie výrobního modulu", "h1": "Ověření souladu B1 – 100 kW až pod 1 MW",
     "claim": "Velkou část požadavků lze doložit bez zkoušky na místě.",
     "bc_nazev": "Kategorie B1", "breadcrumb": BC_KAT,
     "intro": "<p>První kategorie, u které metodika ověřování souladu vyžaduje vybrané zkoušky přímo "
              "na výrobně. Od 100 kW přichází dočasný provoz pro ověření souladu a Dokument výrobního "
-             "modulu. Jen zkouškou na místě jde doložit šest bodů — <b>ostatní požadavky lze doložit "
+             "modulu. Jen zkouškou na místě jde doložit šest bodů – <b>ostatní požadavky lze doložit "
              "i simulací nebo certifikátem</b>.</p>",
     "stats": [("16 / 18", "Bodů (synchronní / nesynchronní)"),
               ("6", "Bodů jen zkouškou na místě"),
@@ -465,14 +465,14 @@ STRANKY.append({
              "<p>Metodika ověřování souladu B1 je <b>společná pro ČEZ Distribuce, EG.D i PREdistribuce</b> "
              "a platí od 1. 2. 2025. Pokrývá synchronní (16 bodů) i nesynchronní (18 bodů) moduly.</p>"),
             (I["blesk"], "Fotovoltaika má dva body navíc",
-             "<p>Nesynchronní moduly — fotovoltaika a bateriová úložiště — dokládají navíc "
+             "<p>Nesynchronní moduly – fotovoltaika a bateriová úložiště – dokládají navíc "
              "<b>rychlý poruchový proud</b> a <b>přednost jalového výkonu před činným</b>.</p>"),
             (I["hodiny"], "Rok na dokončení",
              "<p>Ověření se dokončuje v rámci dočasného provozu po UPOS. Ten platí nejdéle "
              "<b>12 měsíců</b> podle harmonogramu, který se předkládá se žádostí.</p>"),
             (I["info"], "Závady proces zastaví",
              "<p>Při špatně nastavených ochranách nebo nefunkčním opětovném připojení distributor "
-             "zkoušky přeruší — na místě, nebo písemně do 15 pracovních dnů.</p>"),
+             "zkoušky přeruší – na místě, nebo písemně do 15 pracovních dnů.</p>"),
         ]),
         eyebrow="Fakta",
     ) + sekce(
@@ -487,7 +487,7 @@ STRANKY.append({
         ]) + callout(
             "Tohle nejde obejít",
             "<p>Tyto body nenahradí simulace ani certifikát. Zkoušky se provádějí <b>na celé "
-            "výrobně</b>, ne na jednom střídači — a obvykle je zvládneme jedním výjezdem. "
+            "výrobně</b>, ne na jednom střídači – a obvykle je zvládneme jedním výjezdem. "
             "<a href=\"zkousky-na-miste.html\">Jak zkoušky probíhají →</a></p>", warn=True),
         eyebrow="Zkoušky na místě", alt=True,
     ) + sekce(
@@ -503,12 +503,12 @@ STRANKY.append({
              "U více jednotek se tyto body dokládají zkouškou nebo simulací celé výrobny.</p>"),
         ])
         + cta("<b>Máte více střídačů?</b> Napište nám jejich počet a typ a kategorii ze smlouvy "
-              "o připojení — obratem víte, co půjde certifikáty a co simulací."),
+              "o připojení – obratem víte, co půjde certifikáty a co simulací."),
         eyebrow="Simulace nebo certifikát",
     ),
     "faq": [
         ("Musí k nám na B1 přijet technik?",
-         "<p>Ano — na šest zkoušek na místě. Zbytek se dokládá simulacemi, certifikáty a vyplněným "
+         "<p>Ano – na šest zkoušek na místě. Zbytek se dokládá simulacemi, certifikáty a vyplněným "
          "Dokumentem výrobního modulu.</p>"),
         ("Jak dlouho ověření B1 trvá?",
          "<p>Dočasný provoz platí nejdéle 12 měsíců podle předloženého harmonogramu. Reálný termín "
@@ -522,10 +522,10 @@ STRANKY.append({
 })
 STRANKY.append({
     "slug": "kategorie-b2.html", "nav": "kategorie", "reviewed": True,
-    "title": "Simulace souladu B2 — výrobny 1 MW až pod 30 MW",
+    "title": "Simulace souladu B2 – výrobny 1 MW až pod 30 MW",
     "desc": "Kategorie B2: výrazně širší rozsah simulací souladu, předání modelů výrobny distributorovi "
             "a zkoušky na místě. Co se mění proti B1 a jak to stihnout.",
-    "eyebrow": "Kategorie výrobního modulu", "h1": "Simulace souladu B2 — 1 MW až pod 30 MW",
+    "eyebrow": "Kategorie výrobního modulu", "h1": "Simulace souladu B2 – 1 MW až pod 30 MW",
     "claim": "Oproti B1 se výrazně rozšiřuje rozsah simulací a práce s modely.",
     "bc_nazev": "Kategorie B2", "breadcrumb": BC_KAT,
     "intro": "<p>Od 1 MW se rozsah ověření zásadně mění. K zkouškám na místě přibývá <b>výrazně širší "
@@ -538,17 +538,17 @@ STRANKY.append({
         karty([
             (I["graf"], "Širší simulace",
              "<p>Oproti B1 se výrazně rozšiřuje rozsah požadavků a práce s modely výrobního modulu. "
-             "U řady požadavků — chování při poruchách v síti, odezva na změny frekvence, napěťová "
-             "stabilita — je simulace jednou z přípustných nebo požadovaných forem doložení. Konkrétní "
+             "U řady požadavků – chování při poruchách v síti, odezva na změny frekvence, napěťová "
+             "stabilita – je simulace jednou z přípustných nebo požadovaných forem doložení. Konkrétní "
              "způsob určuje aktuální metodika a Dokument výrobního modulu.</p>"),
             (I["sipky"], "Předání modelů",
              "<p>Distributor u B2 požaduje modely výrobny ve formě strukturních a blokových diagramů "
              "se vstupními daty a výstupy. Plné simulační modely se předávají na jeho žádost.</p>"),
             (I["blesk"], "Přebírá požadavky kategorie C",
-             "<p>B2 přejímá vybrané požadavky kategorie C — v praxi „malé C“. Některé z nich, "
+             "<p>B2 přejímá vybrané požadavky kategorie C – v praxi „malé C“. Některé z nich, "
              "například umělou setrvačnost, distributoři požadují jen výběrově.</p>"),
             (I["lupa"], "Zkoušky na místě zůstávají",
-             "<p>Zkoušky se nikam neztrácejí — rozsah je obdobný jako u B1. Simulace je nenahrazují, "
+             "<p>Zkoušky se nikam neztrácejí – rozsah je obdobný jako u B1. Simulace je nenahrazují, "
              "doplňují.</p>"),
         ]),
         eyebrow="Rozdíl",
@@ -586,10 +586,10 @@ STRANKY.append({
 
 STRANKY.append({
     "slug": "kategorie-c-d.html", "nav": "kategorie", "reviewed": True,
-    "title": "Kategorie C a D — od 30 MW a připojení na 110 kV",
+    "title": "Kategorie C a D – od 30 MW a připojení na 110 kV",
     "desc": "Kategorie C (30 MW až pod 75 MW) a D (od 75 MW nebo připojení na 110 kV): nejširší rozsah zkoušek "
             "i simulací a vlastní dokumenty. Kdy výrobna spadne do kategorie D.",
-    "eyebrow": "Kategorie výrobního modulu", "h1": "Kategorie C a D — od 30 MW a 110 kV",
+    "eyebrow": "Kategorie výrobního modulu", "h1": "Kategorie C a D – od 30 MW a 110 kV",
     "bc_nazev": "Kategorie C a D", "breadcrumb": BC_KAT,
     "intro": "<p>Nejnáročnější režim ověřování: zkoušky na místě i simulace souladu v nejširším "
              "rozsahu. Rozsah i požadavky distributora se u těchto výkonů řeší individuálně.</p>",
@@ -605,7 +605,7 @@ STRANKY.append({
              "Fotovoltaika 30 MW na hladině 110 kV je tedy kategorie D, ne C.</p>"),
         ], sloupce=2) + callout(
             "Rozhoduje smlouva o připojení",
-            "<p>Než podle výkonu odhadnete rozsah prací, podívejte se do smlouvy o připojení — "
+            "<p>Než podle výkonu odhadnete rozsah prací, podívejte se do smlouvy o připojení – "
             "u projektů na hranici kategorií se rozsah ověření může výrazně lišit.</p>"),
         eyebrow="Zařazení",
     ) + sekce(
@@ -613,27 +613,27 @@ STRANKY.append({
         karty([
             (I["graf"], "Nejširší simulace",
              "<p>Simulace pokrývají chování při poruchách, frekvenční odezvu, napěťovou stabilitu "
-             "i další požadavky. Část testů se dělá jen na vyžádání distributora — rozsah proto "
+             "i další požadavky. Část testů se dělá jen na vyžádání distributora – rozsah proto "
              "potvrzujeme předem.</p>"),
             (I["dok"], "Vlastní dokumenty",
              "<p>Pro typ D existuje samostatný dokument ověřování souladu, pro bateriová úložiště "
              "typu D vlastní verze platná od 1. 9. 2025.</p>"),
             (I["sipky"], "Připojení na pokyn dispečinku",
-             "<p>U kategorie D je automatické opětovné připojení zakázané — výrobna se po výpadku "
+             "<p>U kategorie D je automatické opětovné připojení zakázané – výrobna se po výpadku "
              "připojuje na pokyn dispečinku distributora.</p>"),
         ], sloupce=3),
         eyebrow="Rozsah", alt=True,
     ) + sekce(
         "Máme to rozpracované",
         '<p class="lead">Aktuálně zpracováváme fotovoltaickou elektrárnu o výkonu přibližně 30 MW '
-        'připojenou na hladině 110 kV — kategorie D, distribuční území EG.D.</p>'
+        'připojenou na hladině 110 kV – kategorie D, distribuční území EG.D.</p>'
         + cta("Chystáte projekt kategorie C nebo D? Ozvěte se co nejdříve, ideálně před podpisem "
               "smlouvy o připojení.", "Domluvit konzultaci"),
         eyebrow="Reference",
     ),
     "faq": [
         ("Proč je fotovoltaika 30 MW na 110 kV kategorie D?",
-         "<p>Do kategorie D spadá každý výrobní modul připojený na 110 kV a výše — bez ohledu "
+         "<p>Do kategorie D spadá každý výrobní modul připojený na 110 kV a výše – bez ohledu "
          "na výkon.</p>"),
         ("Kdy s ověřením u projektu C nebo D začít?",
          "<p>Ideálně před podpisem smlouvy o připojení. Rozsah simulací a požadavky distributora se "
@@ -645,14 +645,14 @@ STRANKY.append({
 
 STRANKY.append({
     "slug": "bateriova-uloziste-zue.html", "nav": "kategorie", "reviewed": True,
-    "title": "Bateriová úložiště — připojení a ověření souladu",
+    "title": "Bateriová úložiště – připojení a ověření souladu",
     "desc": "Bateriové úložiště (ZUE): zařazení do kategorií, ověření souladu při nabíjení i vybíjení, "
             "vlastní formuláře distributorů a co je jinak než u fotovoltaiky.",
-    "eyebrow": "Akumulace", "h1": "Bateriová úložiště — ověření souladu",
+    "eyebrow": "Akumulace", "h1": "Bateriová úložiště – ověření souladu",
     "claim": "Zařazení podle podmínek distributora, ověření v obou směrech.",
     "bc_nazev": "Bateriová úložiště", "breadcrumb": BC_KAT,
-    "intro": "<p>Zařízení pro ukládání elektřiny — v předpisech <b>ZUE</b>, v praxi nejčastěji "
-             "bateriové úložiště — má od 1. 9. 2025 vlastní pravidla. Platí pro baterii totéž co pro "
+    "intro": "<p>Zařízení pro ukládání elektřiny – v předpisech <b>ZUE</b>, v praxi nejčastěji "
+             "bateriové úložiště – má od 1. 9. 2025 vlastní pravidla. Platí pro baterii totéž co pro "
              "fotovoltaiku? Z velké části ano, ale ne úplně.</p>",
     "stats": [("1. 9. 2025", "Pravidla pro akumulaci"), ("Oba směry", "Nabíjení i vybíjení")],
     "body": sekce(
@@ -690,7 +690,7 @@ STRANKY.append({
          "má vlastní dokument ověřování souladu a zařazení se řídí podmínkami příslušného "
          "distributora.</p>"),
         ("Můžeme s baterií poskytovat podpůrné služby?",
-         "<p>Podmínky pro podpůrné služby jsou nad rámec ověření souladu a řeší se zvlášť — "
+         "<p>Podmínky pro podpůrné služby jsou nad rámec ověření souladu a řeší se zvlášť – "
          "s distributorem, provozovatelem přenosové soustavy a agregátorem.</p>"),
         ("Jak často se přezkušují ochrany?",
          "<p>Podle PPDS, přílohy 4 (kap. 12.4) se spínače, ochrany a vybavení pro dálkové řízení "
@@ -704,7 +704,7 @@ STRANKY.append({
 
 STRANKY.append({
     "slug": "pridani-baterie-k-fve.html", "nav": "kategorie", "reviewed": True,
-    "title": "Přidání baterie ke stávající FVE — co vás čeká",
+    "title": "Přidání baterie ke stávající FVE – co vás čeká",
     "desc": "Doplnění bateriového úložiště k běžící fotovoltaice: posouzení připojitelnosti, úprava "
             "smlouvy o připojení, ověření souladu úložiště a rozšíření telemetrie.",
     "eyebrow": "Častý dotaz", "h1": "Přidání baterie ke stávající fotovoltaice",
@@ -712,7 +712,7 @@ STRANKY.append({
     "bc_nazev": "Přidání baterie k FVE", "breadcrumb": BC_KAT,
     "intro": "<p>Elektrárna běží, má konečné provozní oznámení a majitel k ní chce doplnit baterii. "
              "Samotná montáž je rychlá. Administrativně jde ale o <b>změnu zařízení, kterou je potřeba "
-             "projednat s distributorem</b> — a právě ta bývá časově náročnější než montáž.</p>",
+             "projednat s distributorem</b> – a právě ta bývá časově náročnější než montáž.</p>",
     "body": sekce(
         "Čtyři věci, které je potřeba vyřešit",
         wp([
@@ -725,7 +725,7 @@ STRANKY.append({
                   "signály úložiště a znovu se ověří přenos dat do dispečinku."),
         ]) + callout(
             "Časté nedorozumění",
-            "<p>„Baterie je za střídačem, distributora to nezajímá.“ Zajímá — úložiště mění chování "
+            "<p>„Baterie je za střídačem, distributora to nezajímá.“ Zajímá – úložiště mění chování "
             "odběrného místa v obou směrech.</p>"),
         eyebrow="Postup",
     ) + sekce(
@@ -739,7 +739,7 @@ STRANKY.append({
              "zkoušky na místě a nový dočasný provoz pro ověření.</p>"),
         ], sloupce=2)
         + cta("<b>Nevíte, do které skupiny patříte?</b> Pošlete smlouvu o připojení, jednopólové "
-              "schéma a typ střídače — obratem řekneme, co doplnění baterie obnáší."),
+              "schéma a typ střídače – obratem řekneme, co doplnění baterie obnáší."),
         eyebrow="Dva scénáře", alt=True,
     ),
     "faq": [
@@ -748,7 +748,7 @@ STRANKY.append({
          "konfigurace mění, proto se uvedení do provozu pro nové zařízení opakuje v rozsahu, který "
          "stanoví distributor.</p>"),
         ("Zvládneme to bez odstávky elektrárny?",
-         "<p>Samotná montáž vyžaduje krátkou odstávku. Delší je fáze ověřování — v dočasném provozu "
+         "<p>Samotná montáž vyžaduje krátkou odstávku. Delší je fáze ověřování – v dočasném provozu "
          "se smí vyrábět za podmínek stanovených distributorem.</p>"),
     ],
     "cross": [("Bateriová úložiště", "bateriova-uloziste-zue.html"),
@@ -760,7 +760,7 @@ BC_PDS = [("Distributoři", "index.html#pds")]
 
 STRANKY.append({
     "slug": "cez-distribuce.html", "nav": "pds", "reviewed": True,
-    "title": "ČEZ Distribuce — připojovací podmínky a ověření souladu",
+    "title": "ČEZ Distribuce – připojovací podmínky a ověření souladu",
     "desc": "Ověření souladu výrobny na území ČEZ Distribuce: připojovací podmínky VN/VVN od 1. 9. 2025, "
             "technické přílohy, telemetrie a test omezování činného výkonu před trvalým provozem.",
     "eyebrow": "Distributor", "h1": "ČEZ Distribuce",
@@ -784,7 +784,7 @@ STRANKY.append({
              "<p>Řídicí a komunikační jednotka podle VP_06 a funkční zkouška přenosu dat do "
              "dispečinku, kterou je potřeba domluvit s předstihem.</p>"),
             (I["baterie"], "Akumulace",
-             "<p>Pro zařízení pro ukládání elektřiny platí dodatky č. 1 a 2 — posouzení "
+             "<p>Pro zařízení pro ukládání elektřiny platí dodatky č. 1 a 2 – posouzení "
              "připojitelnosti a proces uvedení do provozu.</p>"),
         ]),
         eyebrow="Připojovací podmínky",
@@ -793,13 +793,13 @@ STRANKY.append({
         "<p class=\"lead\">Specifikum ČEZ Distribuce, o kterém řada provozovatelů neví: fyzický test "
         "omezování činného výkonu provádí uživatel sám a jeho <b>protokol je povinnou přílohou "
         "žádosti o UTP</b>. Bez něj distributor žádost nepřijme jako úplnou.</p>"
-        + cta("Test si můžete udělat sami — nebo přijedeme, změříme ho a vystavíme protokol "
+        + cta("Test si můžete udělat sami – nebo přijedeme, změříme ho a vystavíme protokol "
               "v podobě, kterou distributor čeká.", "Poptat měření"),
         eyebrow="Před trvalým provozem", alt=True,
     ),
     "faq": [
         ("Ověřuje se u ČEZ Distribuce něco jiného než u EG.D?",
-         "<p>Základ je společný — metodiky ověřování souladu zpracovaly všechny tři distributoři "
+         "<p>Základ je společný – metodiky ověřování souladu zpracovaly všechny tři distributoři "
          "společně. Technické podmínky, přílohy, formuláře a některé volitelné požadavky se ale řídí "
          "dokumenty ČEZ Distribuce.</p>"),
         ("Kdo dělá test omezování činného výkonu?",
@@ -812,7 +812,7 @@ STRANKY.append({
 
 STRANKY.append({
     "slug": "egd.html", "nav": "pds", "reviewed": True,
-    "title": "EG.D — dispečerské řízení a ověření souladu výroben",
+    "title": "EG.D – dispečerské řízení a ověření souladu výroben",
     "desc": "Ověření souladu výrobny na území EG.D: podklady DEČE pro dispečerské řízení a chránění, "
             "zprovoznění komunikace před UPOS a nové připojovací podmínky od 1. 2. 2026.",
     "eyebrow": "Distributor", "h1": "EG.D",
@@ -831,7 +831,7 @@ STRANKY.append({
              "u úložišť a dobíjecích stanic i příkon.</p>"),
             (I["check"], "Komunikace před UPOS",
              "<p>Podle podkladů DEČE se komunikace s dispečinkem musí zprovoznit ještě před žádostí "
-             "o UPOS — bez toho EG.D nepřistoupí ke zkouškám přenosu dat. Z naší projektové praxe patří nefunkční "
+             "o UPOS – bez toho EG.D nepřistoupí ke zkouškám přenosu dat. Z naší projektové praxe patří nefunkční "
              "komunikace s dispečinkem mezi časté důvody zdržení.</p>"),
         ], sloupce=3),
         eyebrow="DEČE",
@@ -858,13 +858,13 @@ STRANKY.append({
 
 STRANKY.append({
     "slug": "predistribuce.html", "nav": "pds", "reviewed": True,
-    "title": "PREdistribuce — ověření souladu na území Prahy",
+    "title": "PREdistribuce – ověření souladu na území Prahy",
     "desc": "Ověření souladu výrobny na území PREdistribuce: společné metodiky s ostatními distributory "
             "a vlastní podnikové normy. Specifika projdeme individuálně.",
     "eyebrow": "Distributor", "h1": "PREdistribuce",
     "bc_nazev": "PREdistribuce", "breadcrumb": BC_PDS,
-    "intro": "<p>Distribuční území Prahy. Nadřazený rámec — RfG, Příloha 4 PPDS a základní metodiky "
-             "ověřování souladu — je <b>společný</b> s ČEZ Distribucí a EG.D. PREdistribuce je "
+    "intro": "<p>Distribuční území Prahy. Nadřazený rámec – RfG, Příloha 4 PPDS a základní metodiky "
+             "ověřování souladu – je <b>společný</b> s ČEZ Distribucí a EG.D. PREdistribuce je "
              "spoluautorem společných metodik.</p>",
     "body": sekce(
         "Co je stejné a co vlastní",
@@ -877,10 +877,10 @@ STRANKY.append({
         ], sloupce=2)
         + callout(
             "Podklady si vyžádáme předem",
-            "<p>Pro některé konfigurace — zejména fotovoltaiku a bateriová úložiště — si aktuální "
+            "<p>Pro některé konfigurace – zejména fotovoltaiku a bateriová úložiště – si aktuální "
             "podklady PREdistribuce vyžádáme přímo u distributora na začátku projektu. Raději "
             "o dva dny dříve zavoláme, než abychom stavěli rozsah na zastaralé normě.</p>")
-        + cta("Máte projekt na území PREdistribuce? Ozvěte se — postup projdeme individuálně."),
+        + cta("Máte projekt na území PREdistribuce? Ozvěte se – postup projdeme individuálně."),
         eyebrow="Rámec",
     ),
     "cross": [("ČEZ Distribuce", "cez-distribuce.html"), ("EG.D", "egd.html"), ("Kontakt", "kontakt.html")],
@@ -896,7 +896,7 @@ STRANKY.append({
     "eyebrow": "Služba", "h1": "Simulace souladu",
     "claim": "Požadavky, které metodika umožňuje nebo vyžaduje ověřit simulací, prokážeme na modelu výrobny.",
     "bc_nazev": "Simulace souladu", "breadcrumb": BC_SLU,
-    "intro": "<p>Metodiky u řady požadavků připouštějí více cest ověření — zkoušku, simulaci, nebo "
+    "intro": "<p>Metodiky u řady požadavků připouštějí více cest ověření – zkoušku, simulaci, nebo "
              "certifikát. <b>Simulací na modelu výrobny</b> se typicky dokládá odezva při změnách "
              "frekvence a napětí, chování při poruchových stavech a další požadavky podle kategorie "
              "výrobního modulu. Počítáme v prostředí DIgSILENT PowerFactory.</p>",
@@ -913,7 +913,7 @@ STRANKY.append({
             "Rozsah určuje kategorie",
             "<p>U kategorie B1 jde o vybrané body, u B2 a vyšších kategorií je rozsah simulací výrazně širší "
             "a distributorovi se předávají i modely výrobny. Přesný seznam vychází ze smlouvy "
-            "o připojení a metodiky distributora — potvrdíme ho předem.</p>"),
+            "o připojení a metodiky distributora – potvrdíme ho předem.</p>"),
         eyebrow="Rozsah",
     ) + sekce(
         "Co model obsahuje",
@@ -933,11 +933,11 @@ STRANKY.append({
         wp([
             ("1", "Kontrolu podkladů a potvrzení rozsahu s distributorem."),
             ("2", "Model výrobny a výpočty podle metodiky distributora."),
-            ("3", "Protokoly s vyhodnocením splněno / nesplněno u každého požadavku — podle jeho "
+            ("3", "Protokoly s vyhodnocením splněno / nesplněno u každého požadavku – podle jeho "
                   "vlastních kritérií v metodice, ne podle jednoho společného limitu."),
             ("4", "Podklady do Dokumentu výrobního modulu a vypořádání připomínek distributora."),
         ])
-        + cta("Pošlete nám smlouvu o připojení, jednopólové schéma a typy střídačů — vrátíme se "
+        + cta("Pošlete nám smlouvu o připojení, jednopólové schéma a typy střídačů – vrátíme se "
               "s rozsahem simulací.", "Poptat simulace"),
         eyebrow="Postup",
     ),
@@ -958,7 +958,7 @@ STRANKY.append({
 
 STRANKY.append({
     "slug": "zkousky-na-miste.html", "nav": "sluzby",
-    "title": "Zkoušky na místě — ověření regulace a ochran výrobny",
+    "title": "Zkoušky na místě – ověření regulace a ochran výrobny",
     "desc": "Zkoušky výrobny na místě: ověření regulace činného a jalového výkonu, ochran, dálkového "
             "řízení a opětovného připojení. Rozsah podle smlouvy o připojení.",
     "eyebrow": "Služba", "h1": "Zkoušky na místě",
@@ -1008,22 +1008,22 @@ STRANKY.append({
         "Jak to probíhá",
         wp([
             ("1", "Program zkoušek a domluva termínu s distributorem, dispečinkem a dodavateli technologie."),
-            ("2", "Výjezd na výrobnu — zkoušky obvykle zvládneme jedním výjezdem. Měříme analyzátorem "
+            ("2", "Výjezd na výrobnu – zkoušky obvykle zvládneme jedním výjezdem. Měříme analyzátorem "
                   "kvality elektřiny třídy A."),
             ("3", "Protokoly o zkouškách a jejich zapracování do Dokumentu výrobního modulu."),
         ]) + callout(
             "Počítejte s počasím",
             "<p>Část zkoušek fotovoltaiky potřebuje dostatek slunce. Když stavba skončí na podzim, "
-            "je dobré zkoušky naplánovat co nejdříve — dočasný provoz mezitím běží.</p>"),
+            "je dobré zkoušky naplánovat co nejdříve – dočasný provoz mezitím běží.</p>"),
         eyebrow="Postup",
     ) + sekce(
         "",
-        cta("Potřebujete zkoušky u elektrárny, kterou stavěl někdo jiný? Běžná věc — stačí nám "
+        cta("Potřebujete zkoušky u elektrárny, kterou stavěl někdo jiný? Běžná věc – stačí nám "
             "podklady.", "Domluvit zkoušky"),
     ),
     "faq": [
         ("Musí být u zkoušek distributor?",
-         "<p>U části ano — například komunikaci s dispečinkem ověřuje distributor. Termín proto "
+         "<p>U části ano – například komunikaci s dispečinkem ověřuje distributor. Termín proto "
          "domlouváme s ním a s dostatečným předstihem.</p>"),
         ("Co když zkouška neprojde?",
          "<p>Upraví se nastavení střídačů nebo ochran a zkouška se zopakuje. Proto doporučujeme "
@@ -1034,7 +1034,7 @@ STRANKY.append({
         ("Zkouší se výrobna i po uvedení do trvalého provozu?",
          "<p>Ano. Spínače, ochrany a vybavení pro dálkové řízení se podle PPDS, přílohy 4 (kap. 12.4) "
          "funkčně přezkušují nejméně jednou za čtyři roky; distributor může přezkoušení požadovat i mimo "
-         "tuto lhůtu. Po změně zařízení — třeba po doplnění baterie — se ověření opakuje v rozsahu, "
+         "tuto lhůtu. Po změně zařízení – třeba po doplnění baterie – se ověření opakuje v rozsahu, "
          "který distributor stanoví.</p>"),
     ],
     "cross": [("Simulace souladu", "simulace-souladu.html"), ("Kategorie B1", "kategorie-b1.html"),
@@ -1044,7 +1044,7 @@ STRANKY.append({
 # ============================================================= POSTUP ======
 STRANKY.append({
     "slug": "proces-pripojeni.html", "nav": "proces", "reviewed": True,
-    "title": "Postup ověření souladu — UPOS, zkoušky, DVM a UTP",
+    "title": "Postup ověření souladu – UPOS, zkoušky, DVM a UTP",
     "desc": "Jak probíhá ověření souladu výrobny: smlouva o připojení, žádost o UPOS, zkoušky "
             "a simulace, Dokument výrobního modulu a žádost o UTP. Lhůty a co od vás potřebujeme.",
     "eyebrow": "Postup", "h1": "Postup a podklady",
@@ -1083,9 +1083,9 @@ STRANKY.append({
              ["f", "Protokol o nastavení ochran", ""],
              ["g", "Protokoly o úředním ověření měřicích transformátorů", "jsou-li osazeny"],
              ["h", "Místní provozní předpisy", "zpracujeme"],
-             ["i", "Harmonogram a rozsah zkoušek a simulací", "zpracujeme — určuje délku dočasného provozu"],
+             ["i", "Harmonogram a rozsah zkoušek a simulací", "zpracujeme – určuje délku dočasného provozu"],
              ["j", "Seznam certifikátů zařízení", "certifikáty střídačů a dalšího zařízení"]],
-            poznamky=["Nekompletní žádost distributor zamítne s uvedením důvodů a podává se nová — "
+            poznamky=["Nekompletní žádost distributor zamítne s uvedením důvodů a podává se nová – "
                       "proto dokumenty kontrolujeme ještě před podáním."],
             min_sirka=680,
         ),
@@ -1100,7 +1100,7 @@ STRANKY.append({
              ["Prodloužení při překážce, kterou výrobce neovlivní", "o nezbytně nutnou dobu"],
              ["Oznámení přerušení zkoušek distributorem", "na místě, nebo písemně do 15 pracovních dnů"],
              ["Rozhodnutí o žádosti o UTP", "do 30 dnů od kompletní žádosti"]],
-            poznamky=["Žádost o UTP je potřeba podat během platnosti dočasného provozu — jinak může "
+            poznamky=["Žádost o UTP je potřeba podat během platnosti dočasného provozu – jinak může "
                       "distributor výrobnu odpojit.",
                       "Lhůty stanoví PPDS, příloha 4 (kap. 4.8 a 12.1 až 12.3), která platí pro všechny "
                       "distributory; lhůtu 15 pracovních dnů metodiky ověřování souladu B1 a B2."],
@@ -1110,7 +1110,7 @@ STRANKY.append({
     ) + sekce(
         "Dokument výrobního modulu",
         "<p class=\"lead\">Formulář distributora se seznamem všech požadavků a u každého s cestou, "
-        "jak ho doložit — zkouškou, simulací, nebo certifikátem. Vyplněný dokument s protokoly "
+        "jak ho doložit – zkouškou, simulací, nebo certifikátem. Vyplněný dokument s protokoly "
         "je jádro žádosti o UTP. U kategorií A1 a A2 ho nahrazuje jednodušší instalační dokument.</p>",
         eyebrow="DVM", alt=True,
     ) + sekce(
@@ -1123,7 +1123,7 @@ STRANKY.append({
         ]) + callout(
             "Co vystavujeme a co ne",
             "<p>Vystavujeme <b>protokoly o zkouškách</b>, <b>simulační zprávu s protokoly</b> a vyplněný "
-            "<b>Dokument výrobního modulu</b>. <b>Certifikát zařízení nevystavujeme</b> — ten vydává "
+            "<b>Dokument výrobního modulu</b>. <b>Certifikát zařízení nevystavujeme</b> – ten vydává "
             "certifikátor pro konkrétní zařízení. Náš protokol dokládá požadavek zkouškou nebo simulací "
             "tam, kde to metodika připouští; certifikátem není.</p>"),
         eyebrow="Naše práce",
@@ -1144,7 +1144,7 @@ STRANKY.append({
         eyebrow="Podklady", alt=True, kotva="podklady",
     ) + sekce(
         "Kdy se do toho pustit",
-        "<p class=\"lead\">Ideálně ve chvíli, kdy máte podepsanou smlouvu o připojení — tedy dříve, "
+        "<p class=\"lead\">Ideálně ve chvíli, kdy máte podepsanou smlouvu o připojení – tedy dříve, "
         "než se začne stavět.</p>"
         + karty([
             (I["graf"], "Simulace ovlivní nastavení",
@@ -1154,7 +1154,7 @@ STRANKY.append({
              "<p>Zkouška s dispečinkem se domlouvá s předstihem a podklady od výrobců technologie "
              "chodí týdny.</p>"),
             (I["blesk"], "Fotovoltaika potřebuje slunce",
-             "<p>Kdo dostaví v listopadu, může na vhodné počasí čekat do jara — a dočasný provoz "
+             "<p>Kdo dostaví v listopadu, může na vhodné počasí čekat do jara – a dočasný provoz "
              "mezitím běží.</p>"),
         ], sloupce=3)
         + cta("Chcete si projít harmonogram na konkrétním projektu? Ozvěte se s termínem dokončení "
@@ -1180,18 +1180,18 @@ STRANKY.append({
     "faq": [
         FAQ_CO_JSOU, FAQ_OD_VYKONU, FAQ_KATEGORIE,
         ("Jaký je rozdíl mezi zkouškami a simulacemi?",
-         "<p>Zkoušky se dělají přímo na hotové výrobně — ověřuje se regulace výkonu, ochrany nebo "
+         "<p>Zkoušky se dělají přímo na hotové výrobně – ověřuje se regulace výkonu, ochrany nebo "
          "dálkové řízení. Simulace dokládají na modelu výrobny požadavky, které metodika umožňuje nebo "
-         "vyžaduje ověřit výpočtem — typicky chování při poruchách v síti.</p>"),
+         "vyžaduje ověřit výpočtem – typicky chování při poruchách v síti.</p>"),
         ("Co znamená UPOS a UTP?",
-         "<p><b>UPOS</b> je umožnění provozu pro ověření souladu — dočasný provoz, během kterého se "
+         "<p><b>UPOS</b> je umožnění provozu pro ověření souladu – dočasný provoz, během kterého se "
          "provedou zkoušky. <b>UTP</b> je umožnění trvalého provozu, které končí konečným provozním "
          "oznámením.</p>"),
         ("Jak dlouho platí dočasný provoz?",
          "<p>Nejdéle <b>12 měsíců</b> podle harmonogramu zkoušek. Při překážce, kterou nemůžete "
          "ovlivnit, lze požádat o prodloužení.</p>"),
         ("Co když zkoušky nestihneme?",
-         "<p>Žádost o UTP je potřeba podat, dokud dočasný provoz platí — jinak může distributor "
+         "<p>Žádost o UTP je potřeba podat, dokud dočasný provoz platí – jinak může distributor "
          "výrobnu odpojit. Ozvěte se co nejdříve, sestavíme reálný plán zbývajících kroků.</p>"),
         ("Co je Dokument výrobního modulu?",
          '<p>Formulář distributora se seznamem požadavků a cestou jejich ověření. Jeho vyplnění je '
@@ -1205,7 +1205,7 @@ STRANKY.append({
          "výrobnu od sítě. Umístění volí provozovatel výrobny, nastavení ochran předepisuje "
          "distributor.</p>"),
         ("Zkouší se výrobna i po uvedení do trvalého provozu?",
-         "<p>Ano — spínače, ochrany a vybavení pro dálkové řízení se podle PPDS, přílohy 4 přezkušují "
+         "<p>Ano – spínače, ochrany a vybavení pro dálkové řízení se podle PPDS, přílohy 4 přezkušují "
          "nejméně jednou za čtyři roky.</p>"),
         ("Platí ještě protokoly laboratoří u malých výroben?",
          '<p>Přechodně ano, pokud byly vydané nejpozději 31. 12. 2025. EG.D a PREdistribuce je uznávají '
@@ -1221,7 +1221,7 @@ STRANKY.append({
          "Pošlete smlouvu o připojení a jednopólové schéma a dostanete konkrétní nabídku.</p>"),
         FAQ_CIZI_STAVBA,
         ("Se kterými distributory pracujete?",
-         '<p>Se všemi třemi velkými — <a href="cez-distribuce.html">ČEZ Distribuce</a>, '
+         '<p>Se všemi třemi velkými – <a href="cez-distribuce.html">ČEZ Distribuce</a>, '
          '<a href="egd.html">EG.D</a> a <a href="predistribuce.html">PREdistribuce</a>.</p>'),
     ],
     "cross": [("Postup a podklady", "proces-pripojeni.html"), ("Kategorie B1", "kategorie-b1.html"),
@@ -1231,13 +1231,13 @@ STRANKY.append({
 # ========================================================== REFERENCE ======
 STRANKY.append({
     "slug": "reference.html", "nav": "reference",
-    "title": "Reference — ověření souladu FVE projektů až do 36 MWp",
+    "title": "Reference – ověření souladu FVE projektů až do 36 MWp",
     "desc": "Vybrané projekty ověření souladu: fotovoltaika ~30 MW na 110 kV kategorie D, FVE 698 kWp "
             "kategorie B1 a fotovoltaika s bateriovým úložištěm.",
     "eyebrow": "Co máme za sebou", "h1": "Reference",
-    "claim": "Projekty uvádíme anonymizovaně — na přání investorů.",
+    "claim": "Projekty uvádíme anonymizovaně – na přání investorů.",
     "bc_nazev": "Reference", "breadcrumb": [],
-    "intro": "<p>Většina investorů si nepřeje být jmenována, proto uvádíme projekty bez názvů — "
+    "intro": "<p>Většina investorů si nepřeje být jmenována, proto uvádíme projekty bez názvů – "
              "s parametry, které o rozsahu práce řeknou více než logo.</p>",
     "body": sekce(
         "Vybrané projekty",
@@ -1247,7 +1247,7 @@ STRANKY.append({
              "<b>Předmět:</b> simulace souladu, model výrobny, dokumentace<br>"
              "<b>Stav:</b> ve fázi ověřování souladu</p>"),
             (I["blesk"], "Fotovoltaika, kategorie B1",
-             "<p><b>Výkon:</b> 698 kWp (Pn 550 kW)<br><b>Distributor:</b> ČEZ Distribuce<br>"
+             "<p><b>Výkon:</b> 698 kWp (P<sub>n</sub> 550 kW)<br><b>Distributor:</b> ČEZ Distribuce<br>"
              "<b>Předmět:</b> zkoušky na místě, protokoly, Dokument výrobního modulu</p>"),
             (I["baterie"], "Fotovoltaika s baterií",
              "<p><b>Výkon:</b> 60 kWp + bateriové úložiště<br><b>Distributor:</b> EG.D<br>"
@@ -1259,9 +1259,9 @@ STRANKY.append({
         '<p class="lead">Ověřování souladu zajišťuje <b>BFK Systems s.r.o.</b> Se sesterskou společností '
         '<a href="https://www.bftechnology.cz/" target="_blank" rel="noopener">BF technology</a> '
         'tvoříme jednu skupinu. BF technology staví fotovoltaické elektrárny, BFK Systems dělá '
-        'inženýrskou část — projekty, simulace, zkoušky a jednání s distributory. Zkušenosti máme '
+        'inženýrskou část – projekty, simulace, zkoušky a jednání s distributory. Zkušenosti máme '
         'z projektů pro energetiku, petrochemii i automobilový průmysl.</p>'
-        + cta("Chcete referenci na konkrétní typ projektu? Řekněte si o ni — po dohodě s investorem "
+        + cta("Chcete referenci na konkrétní typ projektu? Řekněte si o ni – po dohodě s investorem "
               "ji rádi doložíme podrobněji.", "Ozvat se"),
         eyebrow="Skupina", alt=True,
     ),
@@ -1279,7 +1279,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
     <div class="contact-aside">
       <p class="eyebrow">Kontakt</p>
       <h2>Napište nám,<br>co řešíte.</h2>
-      <p>Ozveme se do dvou pracovních dnů. Pokud máte po ruce smlouvu o připojení a jednopólové schéma, přiložte je rovnou — ušetří to jedno kolečko otázek.</p>
+      <p>Ozveme se do dvou pracovních dnů. Pokud máte po ruce smlouvu o připojení a jednopólové schéma, přiložte je rovnou – ušetří to jedno kolečko otázek.</p>
       <div class="quick">
         <a href="tel:+420776111100">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.25a2 2 0 0 1 2.11-.45c.85.33 1.74.56 2.64.68A2 2 0 0 1 22 16.92z"/></svg></span>
@@ -1334,7 +1334,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
           <div class="field">
             <label for="f-pds">Distributor</label>
             <select id="f-pds" name="Distributor">
-              <option value="">— vyberte —</option>
+              <option value="">– vyberte –</option>
               <option>ČEZ Distribuce</option>
               <option>EG.D</option>
               <option>PREdistribuce</option>
@@ -1344,7 +1344,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
           <div class="field">
             <label for="f-kat">Kategorie ze smlouvy o připojení</label>
             <select id="f-kat" name="Kategorie">
-              <option value="">— vyberte —</option>
+              <option value="">– vyberte –</option>
               <option>A1 (0,8 až 11 kW)</option>
               <option>A2 (nad 11 kW, pod 100 kW)</option>
               <option>B1 (100 kW až pod 1 MW)</option>
@@ -1360,7 +1360,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
           <div class="field">
             <label for="f-bess">Bateriové úložiště</label>
             <select id="f-bess" name="Bateriové úložiště">
-              <option value="">— vyberte —</option>
+              <option value="">– vyberte –</option>
               <option>Ne</option>
               <option>Ano, součást projektu</option>
               <option>Doplňujeme ke stávající FVE</option>
@@ -1396,14 +1396,14 @@ FORMULAR = """<section class="contact-section" id="poptavka">
 
 STRANKY.append({
     "slug": "kontakt.html", "nav": "kontakt", "bez_kontaktu": True,
-    "title": "Kontakt — ověření souladu výroben s RfG",
+    "title": "Kontakt – ověření souladu výroben s RfG",
     "desc": "BFK Systems s.r.o., Obchodní 455/12, Děčín. Poptávka na simulace souladu, zkoušky na "
             "místě a vyřízení dokumentace k dočasnému i trvalému provozu.",
     "eyebrow": "Kontakt", "h1": "Ozvěte se",
     "bc_nazev": "Kontakt", "breadcrumb": [],
-    "intro": "<p>Nejrychlejší cesta k odpovědi vede přes smlouvu o připojení — je v ní kategorie "
+    "intro": "<p>Nejrychlejší cesta k odpovědi vede přes smlouvu o připojení – je v ní kategorie "
              "výrobního modulu i rezervovaný výkon, tedy dvě věci, ze kterých se odvíjí celý rozsah "
-             "ověření. Pošlete nám ji s poptávkou — stačí e-mailem na info@bfksystems.cz.</p>",
+             "ověření. Pošlete nám ji s poptávkou – stačí e-mailem na info@bfksystems.cz.</p>",
     "body": sekce(
         "Kontaktní údaje",
         karty([
@@ -1495,7 +1495,7 @@ STRANKY.append({
           <td>po dobu trvání smlouvy a 10 let poté (zákonné archivační lhůty)</td>
         </tr>
         <tr>
-          <td>Plnění zákonných povinností — účetnictví a daně</td>
+          <td>Plnění zákonných povinností – účetnictví a daně</td>
           <td>fakturační údaje</td>
           <td>právní povinnost (čl. 6 odst. 1 písm. c) GDPR)</td>
           <td>podle zákona o účetnictví a daňových předpisů, zpravidla 10 let</td>
@@ -1557,12 +1557,12 @@ STRANKY.append({
     "eyebrow": "Chyba 404", "h1": "Tuhle stránku jsme nenašli",
     "breadcrumb": None,
     "intro": "<p>Odkaz může být zastaralý, nebo v adrese chybí písmeno. Zkuste některý z rozcestníků "
-             "níž — nebo nám rovnou zavolejte.</p>",
+             "níž – nebo nám rovnou zavolejte.</p>",
     "body": sekce(
         "Kam dál",
         karty([
             (I["dok"], "Kategorie výroben",
-             "<p>A1 až D — co se u které kategorie ověřuje.</p>", "index.html#kategorie"),
+             "<p>A1 až D – co se u které kategorie ověřuje.</p>", "index.html#kategorie"),
             (I["graf"], "Služby",
              "<p>Simulace souladu a zkoušky na místě.</p>", "index.html#sluzby"),
             (I["hodiny"], "Postup a podklady",
@@ -1574,7 +1574,7 @@ STRANKY.append({
 })
 
 # ================================================ ZDROJE A DATUM AKTUALIZACE ======
-# (datum, dokumenty) — vypisuje se dole na strance jako „Aktualizováno … Zdroje: …“.
+# (datum, dokumenty) – vypisuje se dole na strance jako „Aktualizováno … Zdroje: …“.
 # Datum menit jen po skutecne kontrole obsahu proti uvedenym dokumentum. kontrola.py
 # hlida, ze ho maji vsechny odborne stranky, a upozorni, kdyz je starsi nez pul roku.
 AKTUALIZACE = "14. 9. 2026"

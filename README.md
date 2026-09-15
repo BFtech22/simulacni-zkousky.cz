@@ -155,3 +155,7 @@ Obsah je v `obsah.ZDROJE` (datum a seznam dokumentů pro každou stránku). Datu
 jen po skutečné kontrole obsahu proti uvedeným dokumentům — proto „aktualizováno“, ne
 „ověřeno“. `kontrola.py` hlásí chybu, když odborné stránce řádek chybí, a upozorní, když
 je datum starší než půl roku.
+
+**Typografie.** Pomlčka se píše „–“ podle české normy, ne anglická „—“; rozsahy výkonu
+slovy („30 MW až pod 75 MW“); jmenovitý výkon s dolním indexem (`P<sub>n</sub>`). Všechno tři
+hlídá `kontrola.py`.

@@ -3,12 +3,12 @@
 
 Web ma pres dvacet stranek se stejnou hlavickou, patickou a menu. Rucne
 udrzovana kopie hlavicky v kazdem souboru (jako na webu BF technology) se pri
-teto velikosti neda uhlidat — proto se stranky generuji.
+teto velikosti neda uhlidat – proto se stranky generuji.
 
     python3 nastroje/build.py
 
 Obsah stranek je v nastroje/obsah.py, sablona a menu tady. Vygenerovane .html
-soubory v korenu se needituji rucne — build je pri dalsim spusteni prepise.
+soubory v korenu se needituji rucne – build je pri dalsim spusteni prepise.
 """
 
 from __future__ import annotations
@@ -31,11 +31,11 @@ FIRMA = "BFK Systems s.r.o."
 # (nazev, klic pro zvyrazneni, polozky | odkaz)
 NAV = [
     ("Kategorie", "kategorie", [
-        ("A1 — 0,8 až 11 kW", "kategorie-a1.html"),
-        ("A2 — nad 11 kW, pod 100 kW", "kategorie-a2.html"),
-        ("B1 — 100 kW až pod 1 MW", "kategorie-b1.html"),
-        ("B2 — 1 MW až pod 30 MW", "kategorie-b2.html"),
-        ("C a D — od 30 MW / 110 kV", "kategorie-c-d.html"),
+        ("A1 – 0,8 až 11 kW", "kategorie-a1.html"),
+        ("A2 – nad 11 kW, pod 100 kW", "kategorie-a2.html"),
+        ("B1 – 100 kW až pod 1 MW", "kategorie-b1.html"),
+        ("B2 – 1 MW až pod 30 MW", "kategorie-b2.html"),
+        ("C a D – od 30 MW / 110 kV", "kategorie-c-d.html"),
         ("Bateriová úložiště", "bateriova-uloziste-zue.html"),
         ("Přidání baterie k FVE", "pridani-baterie-k-fve.html"),
     ]),
@@ -62,14 +62,14 @@ TEL = "+420 776 111 100"
 TEL_HREF = "+420776111100"
 MAIL = "info@bfksystems.cz"
 
-# Logo webu — originál od klienta (assets/logo_SZ.png). Zmenseniny a prusvitne
+# Logo webu – originál od klienta (assets/logo_SZ.png). Zmenseniny a prusvitne
 # pozadi dela nastroje/generuj-obrazky.py, tady uz jen odkazujeme.
 LOGO_IMG = """<picture>
           <source type="image/webp" srcset="assets/logo-sz-300.webp 300w, assets/logo-sz-600.webp 600w" sizes="{sizes}">
           <img src="assets/logo-sz-600.png" alt="simulacni-zkousky.cz" width="1037" height="324" srcset="assets/logo-sz-300.png 300w, assets/logo-sz-600.png 600w" sizes="{sizes}">
         </picture>"""
 
-# Vazba na provozovatele — v hlavicce cele logo BFK vcetne napisu (samotna
+# Vazba na provozovatele – v hlavicce cele logo BFK vcetne napisu (samotna
 # ctvercova znacka bez textu nikomu nerekne, ci web to je). Popisek "provozuje"
 # se vejde az na sirokych displejich.
 BFK_ZNACKA = """<a class="brand-by" href="https://www.bfksystems.cz/" target="_blank" rel="noopener" title="Web provozuje BFK Systems s.r.o.">
@@ -271,7 +271,7 @@ def faq_blok(polozky: list[tuple[str, str]], nadpis: str = "Časté dotazy") -> 
 
 
 def organizace() -> str:
-    """Organization JSON-LD provozovatele — jen na domovske strance."""
+    """Organization JSON-LD provozovatele – jen na domovske strance."""
     return json.dumps({
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -293,13 +293,13 @@ def organizace() -> str:
             "addressCountry": "CZ",
         },
         # sameAs = URL tehoz subjektu. BF technology je jina pravnicka osoba,
-        # do sameAs nepatri — sesterska vazba je popsana textem na strance Reference.
+        # do sameAs nepatri – sesterska vazba je popsana textem na strance Reference.
         "sameAs": ["https://www.bfksystems.cz/"],
     }, ensure_ascii=False, indent=2)
 
 
 def web() -> str:
-    """WebSite JSON-LD — jen na domovske strance."""
+    """WebSite JSON-LD – jen na domovske strance."""
     return json.dumps({
         "@context": "https://schema.org", "@type": "WebSite",
         "@id": f"{DOMENA}/#web", "name": ZNACKA, "url": f"{DOMENA}/", "inLanguage": "cs",
@@ -421,7 +421,7 @@ def stranka(p: dict) -> str:
             + paticka() + "\n</body>\n</html>\n")
 
 
-# Vyzva ke kontaktu nad patickou — na kazde strance krome kontaktu.
+# Vyzva ke kontaktu nad patickou – na kazde strance krome kontaktu.
 KONTAKT_PRUH = f"""<section class="contact-section" id="poptavka">
   <div class="bg"><picture>
     <source type="image/webp" srcset="assets/title-photo-1024.webp 1024w, assets/title-photo.webp 2048w" sizes="(max-width: 980px) 100vw, 33vw">
@@ -461,7 +461,7 @@ KONTAKT_PRUH = f"""<section class="contact-section" id="poptavka">
 def posledni_zmena(slug: str, dnes: str) -> str:
     """Datum posledni skutecne zmeny stranky.
 
-    Google pouziva <lastmod>, jen kdyz je dlouhodobe spolehlivy — datum dnesniho
+    Google pouziva <lastmod>, jen kdyz je dlouhodobe spolehlivy – datum dnesniho
     buildu u vsech 27 stranek spolehlivy neni. Vygenerovany .html se commituje,
     takze staci vzit datum posledniho commitu, ktery na soubor sahl. Kdyz se
     soubor prave ted zmenil (nebo git neni k dispozici), plati dnesek.
