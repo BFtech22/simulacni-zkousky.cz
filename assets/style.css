@@ -777,6 +777,8 @@
   }
   .contact-aside .firm b { color: #fff; }
 
+  /* Tlacitka „Nezávazná poptávka“ miri na kontakt.html#formular — karta nesmi zajet pod lepici hlavicku. */
+  #formular { scroll-margin-top: 100px; }
   .contact-form-card {
     background: var(--white);
     border-radius: 8px;

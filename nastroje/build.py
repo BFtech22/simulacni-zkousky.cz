@@ -114,7 +114,7 @@ def hlavicka(aktivni: str) -> str:
             mobil.append(f'  <p class="m-group">{nazev}</p>')
             mobil.extend(f'  <a class="m-sub" href="{href}">{txt}</a>' for txt, href in cil)
     mobil.append('  <a href="faq.html">Časté dotazy</a>')
-    mobil.append('  <a class="cta-mobile" href="kontakt.html">Nezávazná poptávka</a>')
+    mobil.append('  <a class="cta-mobile" href="kontakt.html#formular">Nezávazná poptávka</a>')
     mobilni = "\n".join(mobil)
 
     return f"""<!-- HLAVICKA (generovano z nastroje/build.py) -->
@@ -128,7 +128,7 @@ def hlavicka(aktivni: str) -> str:
     </div>
     <nav class="primary" aria-label="Hlavní navigace">
 {menu}
-      <a class="header-cta" href="kontakt.html"><span class="dlouhy">Nezávazná poptávka</span><span class="kratky">Poptávka</span></a>
+      <a class="header-cta" href="kontakt.html#formular"><span class="dlouhy">Nezávazná poptávka</span><span class="kratky">Poptávka</span></a>
     </nav>
     <button class="hamburger" id="menu-open" type="button" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mmenu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -451,7 +451,7 @@ KONTAKT_PRUH = f"""<section class="contact-section" id="poptavka">
     <div class="contact-form-card">
       <h3 style="margin:0 0 14px;font-size:20px;color:#222">Co potřebujeme vědět</h3>
       <p style="margin:0 0 18px;font-size:15px">Čím více toho napíšete rovnou, tím přesněji odpovíme. Ideálně: provozovatel distribuční soustavy, kategorie ze smlouvy o připojení, instalovaný výkon, počet a typ střídačů a jestli je součástí bateriové úložiště.</p>
-      <a class="btn btn-primary" href="kontakt.html">Přejít na poptávkový formulář</a>
+      <a class="btn btn-primary" href="kontakt.html#formular">Přejít na poptávkový formulář</a>
     </div>
   </div>
 </section>

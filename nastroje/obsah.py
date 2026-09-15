@@ -104,7 +104,7 @@ def seznam(polozky):
             + "\n".join(f"      <li>{p}</li>" for p in polozky) + "\n    </ul>")
 
 
-def cta(text, tlacitko="Nezávazná poptávka", href="kontakt.html"):
+def cta(text, tlacitko="Nezávazná poptávka", href="kontakt.html#formular"):
     return (f'    <div class="seg-note">\n      <p>{text}</p>\n'
             f'      <a class="btn btn-primary" href="{href}">{tlacitko}</a>\n    </div>')
 
@@ -146,7 +146,7 @@ HERO = """<!-- HERO -->
       Zkušenosti s FVE projekty až do 36 MWp
     </p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="kontakt.html">Nezávazná poptávka</a>
+      <a class="btn btn-primary" href="kontakt.html#formular">Nezávazná poptávka</a>
       <a class="btn btn-light" href="proces-pripojeni.html">Jak to probíhá</a>
     </div>
   </div>
@@ -1301,7 +1301,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
       </div>
     </div>
 
-    <div class="contact-form-card">
+    <div class="contact-form-card" id="formular">
       <div id="contact-status" role="status"></div>
       <!-- Odesila se pres fetch(), pole "redirect" je zalozni cesta bez JavaScriptu. -->
       <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="post" autocomplete="on">
@@ -1309,7 +1309,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
         <input type="hidden" name="subject" value="Nová poptávka z webu simulacni-zkousky.cz">
         <input type="hidden" name="from_name" value="Poptávkový formulář simulacni-zkousky.cz">
         <input type="hidden" name="replyto" value="">
-        <input type="hidden" name="redirect" value="https://www.simulacni-zkousky.cz/kontakt.html?sent=1#poptavka">
+        <input type="hidden" name="redirect" value="https://www.simulacni-zkousky.cz/kontakt.html?sent=1#formular">
         <div class="hp-field" aria-hidden="true">
           <label for="botcheck">Nevyplňujte</label>
           <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
@@ -1425,15 +1425,15 @@ STRANKY.append({
     ) + sekce(
         "Kdo se vám ozve",
         karty([
-            (I["lupa"], "Bc. Petr Fencl",
-             "<p><b>Technický ředitel</b></p><p>Specialista na průmyslovou automatizaci, "
-             "fotovoltaiku a integrace MES/ERP. Zkušenosti z projektů pro ČEZ a ČEPS.</p>"),
             (I["dok"], "PhDr. Jan Böhme",
              "<p><b>Obchodní a finanční ředitel</b></p><p>Nabídky, smlouvy a jednání s investory. "
              "Praxe z managementu, ekonomie a financí.</p>"),
+            (I["lupa"], "Bc. Petr Fencl",
+             "<p><b>Technický ředitel, specialista na simulace a RfG</b></p><p>Průmyslová automatizace, "
+             "fotovoltaika a integrace MES/ERP. Zkušenosti z projektů pro ČEZ a ČEPS.</p>"),
             (I["blesk"], "Michal Kovář",
-             "<p><b>Specialista VN a řízení FVE</b></p><p>Vysoké napětí, průmyslové řízení "
-             "a aplikace SCADA. Desítky projektů v Evropě i zámoří.</p>"),
+             "<p><b>Specialista na simulace a RfG, VN a řízení FVE</b></p><p>Vysoké napětí, průmyslové "
+             "řízení a aplikace SCADA. Desítky projektů v Evropě i zámoří.</p>"),
         ], sloupce=3)
         + '    <p class="spec-note">Tým a kontakty podle <a href="https://www.bfksystems.cz/" '
           'target="_blank" rel="noopener">www.bfksystems.cz</a>.</p>',
