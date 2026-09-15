@@ -73,8 +73,11 @@ značka s monitorem je v 16 px nečitelná.
 
 ## Hlavička a šířky
 
-Do hlavičky se musí vejít logo webu, logo BFK, šest položek menu a tlačítko —
-při 1100 px zbývá mezi logem a menu asi 120 px. Místo se uvolňuje po krocích:
+Do hlavičky se musí vejít logo webu (50 px vysoké), logo BFK (46 px — zhruba stejně výrazné
+jako logo webu), šest položek menu a tlačítko. Nejtěsněji je při 1081 px, kde mezi logy
+a menu zbývá asi 60 px. Na telefonech je logo BFK menší: 401–480 px 40 px, do 400 px 36 px
+(a logo webu 40 px) — jinak by se u běžných 412px telefonů přiblížilo k hamburgeru.
+Místo se uvolňuje po krocích:
 
 | Šířka okna | Hlavička |
 |---|---|
