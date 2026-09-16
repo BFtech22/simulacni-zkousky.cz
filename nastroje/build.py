@@ -60,7 +60,7 @@ IKONA_SIT = {
 
 TEL = "+420 776 111 100"
 TEL_HREF = "+420776111100"
-MAIL = "info@bfksystems.cz"
+MAIL = "simulace@bfksystems.cz"
 
 # Logo webu – originál od klienta (assets/logo_SZ.png). Zmenseniny a prusvitne
 # pozadi dela nastroje/generuj-obrazky.py, tady uz jen odkazujeme.

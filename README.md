@@ -125,7 +125,7 @@ kanonickou URL a Open Graph. Stránky s akordeonem dotazů mají navíc JSON-LD
 1. **Klíč poptávkového formuláře.** V `nastroje/obsah.py` (proměnná `FORMULAR`)
    je `access_key` s hodnotou `PLACEHOLDER-DOPLNIT-KLIC-WEB3FORMS` — formulář
    zatím nic neodešle a `form.js` na to upozorní v konzoli. Doplň klíč
-   z web3forms.com registrovaný na `info@bfksystems.cz` (nebo formulář přepoj
+   z web3forms.com registrovaný na `simulace@bfksystems.cz` (nebo formulář přepoj
    na vlastní Cloudflare Worker jako na webu BF technology) a spusť build.
 2. **robots.txt** — teď zakazuje procházení celého webu. Před spuštěním přepnout
    podle komentáře v souboru.

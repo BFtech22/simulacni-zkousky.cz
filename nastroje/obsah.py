@@ -471,8 +471,9 @@ STRANKY.append({
              "<p>Ověření se dokončuje v rámci dočasného provozu po UPOS. Ten platí nejdéle "
              "<b>12 měsíců</b> podle harmonogramu, který se předkládá se žádostí.</p>"),
             (I["info"], "Závady proces zastaví",
-             "<p>Při špatně nastavených ochranách nebo nefunkčním opětovném připojení distributor "
-             "zkoušky přeruší – na místě, nebo písemně do 15 pracovních dnů.</p>"),
+             "<p>Při špatně nastavených ochranách nebo nefunkčním opětovném připojení může distributor "
+             "UPOS přerušit nebo ukončit a informuje o tom na místě, nebo písemně do 15 pracovních "
+             "dnů od zjištění závady.</p>"),
         ]),
         eyebrow="Fakta",
     ) + sekce(
@@ -1056,21 +1057,29 @@ STRANKY.append({
         "Pět kroků",
         kroky([
             ("Smlouva o připojení",
-             "Určí kategorii výrobny a rozsah ověření. K projektové dokumentaci se distributor "
-             "vyjadřuje do 30 dnů.", "Začátek"),
+             "Z ní vychází kategorie výrobny a rozsah ověření. K projektové dokumentaci se "
+             "distributor vyjadřuje do 30 dnů.", "Začátek"),
             ("Žádost o UPOS",
              "Umožnění provozu pro ověření souladu. Distributor rozhodne do 30 dnů od úplné žádosti "
-             "a vydá souhlas s dočasným provozem.", "30 dnů"),
+             "a při splnění stanovených podmínek vydá souhlas s dočasným provozem (u typu D dočasné "
+             "provozní oznámení).", "30 dnů"),
             ("Zkoušky a simulace",
-             "Provádějí se během dočasného provozu, který trvá nejdéle 12 měsíců.",
+             "Provádějí se během dočasného provozu, který trvá nejdéle 12 měsíců. Prodloužit ho lze "
+             "jen na žádost – viz lhůty níže.",
              "Nejdéle 12 měsíců"),
             ("Dokument výrobního modulu",
              "Shrnuje výsledky zkoušek a simulací a dokládá distributorovi soulad výrobny.",
              "Protokoly"),
             ("Žádost o UTP",
-             "Umožnění trvalého provozu. Distributor vydá konečné provozní oznámení.", "Cíl"),
+             "Umožnění trvalého provozu. Při splnění podmínek distributor vydá konečné provozní "
+             "oznámení.", "Cíl"),
         ]),
         eyebrow="Průběh", kotva="kroky",
+        uvod="<p>Kroky popisují postup pro kategorie <b>B1, B2, C a D</b>. U <b>A1 a A2</b> se žádost "
+             "o UPOS nepodává – nahrazuje ji instalační dokument a po splnění podmínek smlouvy "
+             "o připojení se podává rovnou žádost o UTP. Pro bateriová úložiště mají distributoři "
+             "vlastní dokumenty, u ČEZ Distribuce pro žádosti o UTP od 1. 2. 2026 – viz "
+             "<a href=\"bateriova-uloziste-zue.html\">Bateriová úložiště</a>.</p>",
     ) + sekce(
         "Co se dokládá k žádosti o UPOS",
         tabulka(
@@ -1079,13 +1088,15 @@ STRANKY.append({
              ["b", "Jednopólové schéma výrobny", "pokud není součástí dokumentace"],
              ["c", "Potvrzení odborné firmy o provedení výrobny", "podle smlouvy o připojení a předpisů"],
              ["d", "Výchozí revize přípojky", "jen pokud se přípojka mění"],
-             ["e", "Výchozí revize elektrického zařízení výrobny", ""],
+             ["e", "Výchozí revize elektrického zařízení výrobny", "případně další doklad pro zařízení třídy I"],
              ["f", "Protokol o nastavení ochran", ""],
-             ["g", "Protokoly o úředním ověření měřicích transformátorů", "jsou-li osazeny"],
+             ["g", "Protokoly o úředním ověření měřicích transformátorů proudu a napětí", ""],
              ["h", "Místní provozní předpisy", "zpracujeme"],
              ["i", "Harmonogram a rozsah zkoušek a simulací", "zpracujeme – určuje délku dočasného provozu"],
              ["j", "Seznam certifikátů zařízení", "certifikáty střídačů a dalšího zařízení"]],
-            poznamky=["Nekompletní žádost distributor zamítne s uvedením důvodů a podává se nová – "
+            poznamky=["Základní přehled podle PPDS, přílohy 4, kap. 12.1. Distributor může požadovat "
+                      "doplnění dalších dokladů.",
+                      "Nekompletní žádost distributor zamítne s uvedením důvodů a podává se nová – "
                       "proto dokumenty kontrolujeme ještě před podáním."],
             min_sirka=680,
         ),
@@ -1096,14 +1107,27 @@ STRANKY.append({
             ["Úkon", "Lhůta"],
             [["Vyjádření distributora k projektové dokumentaci", "30 dnů"],
              ["Rozhodnutí o žádosti o UPOS", "do 30 dnů od úplné žádosti"],
-             ["Dočasný provoz pro ověření souladu", "<b>nejdéle 12 měsíců</b> podle harmonogramu zkoušek"],
-             ["Prodloužení při překážce, kterou výrobce neovlivní", "o nezbytně nutnou dobu"],
-             ["Oznámení přerušení zkoušek distributorem", "na místě, nebo písemně do 15 pracovních dnů"],
-             ["Rozhodnutí o žádosti o UTP", "do 30 dnů od kompletní žádosti"]],
+             ["Dočasný provoz pro ověření souladu",
+              "<b>nejdéle 12 měsíců</b> podle harmonogramu zkoušek; prodloužit lze jen za podmínek "
+              "v dalším řádku"],
+             ["Prodloužení při překážce, kterou výrobce neovlivní",
+              "o nezbytně nutnou dobu – pokud výrobce překážku bez zbytečného odkladu oznámí, "
+              "prokáže a o prodloužení požádá"],
+             ["Informování o přerušení nebo ukončení UPOS kvůli závadám, které ovlivňují bezpečný "
+              "a spolehlivý provoz sítě",
+              "na místě, nebo písemně do 15 pracovních dnů od zjištění závad"],
+             ["Rozhodnutí o žádosti o UTP", "do 30 dnů od kompletní žádosti"],
+             ["Informování o přerušení UTP kvůli zjištěným nedostatkům",
+              "na místě, nebo písemně do 5 pracovních dnů od jejich zjištění"],
+             ["Periodické přezkoušení spínačů, ochran a dálkového řízení po uvedení do trvalého provozu",
+              "nejméně jednou za čtyři roky"]],
             poznamky=["Žádost o UTP je potřeba podat během platnosti dočasného provozu – jinak může "
-                      "distributor výrobnu odpojit.",
-                      "Lhůty stanoví PPDS, příloha 4 (kap. 4.8 a 12.1 až 12.3), která platí pro všechny "
-                      "distributory; lhůtu 15 pracovních dnů metodiky ověřování souladu B1 a B2."],
+                      "distributor výrobnu odpojit. To neplatí, pokud jste ještě během platnosti požádali "
+                      "o prodloužení kvůli překážce, kterou nemůžete ovlivnit: do vyřízení žádosti výrobnu "
+                      "odpojit nelze.",
+                      "Lhůty stanoví PPDS, příloha 4 (kap. 4.8 a 12.1 až 12.4), která platí pro všechny "
+                      "distributory. Lhůtu 15 pracovních dnů uvádějí shodně i metodiky ověřování "
+                      "souladu B1 a B2."],
             min_sirka=600,
         ),
         eyebrow="Lhůty",
@@ -1130,26 +1154,30 @@ STRANKY.append({
     ) + sekce(
         "Co od vás potřebujeme",
         seznam([
+            "Informaci, zda jde o novou výrobnu, změnu stávající, nebo doplnění baterie",
             "Smlouvu o připojení",
             "Projektovou dokumentaci a jednopólové schéma",
             "Typy a počet střídačů, u baterie i typ úložiště",
+            "U kategorie B2 a vyšších i parametry a modely střídačů a regulátoru výrobny",
             "Technické listy a certifikáty použitého zařízení",
-            "Revizní zprávy a protokol o nastavení ochran, pokud už jsou",
+            "Revizní zprávy, protokol o nastavení ochran a potvrzení zhotovitele, pokud už jsou",
             "Termín dokončení stavby",
             "Kontakty na dodavatele technologie a servis",
         ]) + callout(
-            "U žádosti o UTP se nic nedokládá dvakrát",
-            "<p>Dokumenty podané už k žádosti o UPOS se k žádosti o UTP nepřikládají znovu, pokud se "
-            "zařízení mezitím nezměnilo.</p>"),
+            "Co se k žádosti o UTP nemusí dokládat znovu",
+            "<p>Doklady a) až h) z žádosti o UPOS se k žádosti o UTP nepřikládají znovu, pokud v ní "
+            "potvrdíte, že se zařízení během dočasného provozu nezměnilo a dokumenty budou platné "
+            "k předpokládanému dni vydání konečného provozního oznámení. Nově se přikládá Dokument "
+            "výrobního modulu, u A1 a A2 instalační dokument.</p>"),
         eyebrow="Podklady", alt=True, kotva="podklady",
     ) + sekce(
         "Kdy se do toho pustit",
         "<p class=\"lead\">Ideálně ve chvíli, kdy máte podepsanou smlouvu o připojení – tedy dříve, "
         "než se začne stavět.</p>"
         + karty([
-            (I["graf"], "Simulace ovlivní nastavení",
-             "<p>Ze simulací vyjde, jak nastavit střídače a ochrany. Je lepší to vědět před "
-             "uvedením do provozu než až po neúspěšné zkoušce.</p>"),
+            (I["graf"], "Simulace ověří nastavení",
+             "<p>Simulace ověří navržené nastavení střídačů a ochran, případně ukážou, co je potřeba "
+             "upravit. Je lepší to vědět před uvedením do provozu než až po neúspěšné zkoušce.</p>"),
             (I["hodiny"], "Termíny se nedají zrychlit",
              "<p>Zkouška s dispečinkem se domlouvá s předstihem a podklady od výrobců technologie "
              "chodí týdny.</p>"),
@@ -1189,10 +1217,13 @@ STRANKY.append({
          "oznámením.</p>"),
         ("Jak dlouho platí dočasný provoz?",
          "<p>Nejdéle <b>12 měsíců</b> podle harmonogramu zkoušek. Při překážce, kterou nemůžete "
-         "ovlivnit, lze požádat o prodloužení.</p>"),
+         "ovlivnit, ho distributor prodlouží o nezbytně nutnou dobu – překážku je ale potřeba bez "
+         "zbytečného odkladu oznámit, doložit a o prodloužení požádat.</p>"),
         ("Co když zkoušky nestihneme?",
          "<p>Žádost o UTP je potřeba podat, dokud dočasný provoz platí – jinak může distributor "
-         "výrobnu odpojit. Ozvěte se co nejdříve, sestavíme reálný plán zbývajících kroků.</p>"),
+         "výrobnu odpojit. Brání-li vám v dokončení překážka, kterou nemůžete ovlivnit, požádejte ještě "
+         "během platnosti o prodloužení – do vyřízení žádosti výrobnu odpojit nelze. Ozvěte se co "
+         "nejdříve, sestavíme reálný plán zbývajících kroků.</p>"),
         ("Co je Dokument výrobního modulu?",
          '<p>Formulář distributora se seznamem požadavků a cestou jejich ověření. Jeho vyplnění je '
          'jádro celé agendy. <a href="proces-pripojeni.html">Více v postupu →</a></p>'),
@@ -1285,9 +1316,9 @@ FORMULAR = """<section class="contact-section" id="poptavka">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.25a2 2 0 0 1 2.11-.45c.85.33 1.74.56 2.64.68A2 2 0 0 1 22 16.92z"/></svg></span>
           +420 776 111 100
         </a>
-        <a href="mailto:info@bfksystems.cz">
+        <a href="mailto:simulace@bfksystems.cz">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
-          info@bfksystems.cz
+          simulace@bfksystems.cz
         </a>
         <a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></span>
@@ -1403,7 +1434,7 @@ STRANKY.append({
     "bc_nazev": "Kontakt", "breadcrumb": [],
     "intro": "<p>Nejrychlejší cesta k odpovědi vede přes smlouvu o připojení – je v ní kategorie "
              "výrobního modulu i rezervovaný výkon, tedy dvě věci, ze kterých se odvíjí celý rozsah "
-             "ověření. Pošlete nám ji s poptávkou – stačí e-mailem na info@bfksystems.cz.</p>",
+             "ověření. Pošlete nám ji s poptávkou – stačí e-mailem na simulace@bfksystems.cz.</p>",
     "body": sekce(
         "Kontaktní údaje",
         karty([
@@ -1412,7 +1443,7 @@ STRANKY.append({
              "<p>IČO 23571853<br>DIČ CZ23571853</p>"),
             (I["sit"], "Spojení",
              '<p><a href="tel:+420776111100">+420 776 111 100</a><br>'
-             '<a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a><br>'
+             '<a href="mailto:simulace@bfksystems.cz">simulace@bfksystems.cz</a><br>'
              '<a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">www.bfksystems.cz</a></p>'),
         ], sloupce=2)
         + callout(
@@ -1448,7 +1479,7 @@ STRANKY.append({
              ["DIČ", "CZ23571853"],
              ["Zápis v OR", "Krajský soud v Ústí nad Labem, oddíl C, vložka 54375"],
              ["Telefon", '<a href="tel:+420776111100">+420 776 111 100</a>'],
-             ["E-mail", '<a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a>'],
+             ["E-mail", '<a href="mailto:simulace@bfksystems.cz">simulace@bfksystems.cz</a>'],
              ["Web", '<a href="https://www.bfksystems.cz/" target="_blank" rel="noopener">www.bfksystems.cz</a>']],
             min_sirka=520,
         ),
@@ -1475,7 +1506,7 @@ STRANKY.append({
       <p>Správcem osobních údajů je <b>BFK Systems s.r.o.</b>, IČO 23571853, se sídlem Obchodní 455/12,
       Děčín V-Rozbělesy, 405 02 Děčín, zapsaná v obchodním rejstříku vedeném Krajským soudem v Ústí nad
       Labem, oddíl C, vložka 54375.</p>
-      <p>Kontakt ve věcech ochrany osobních údajů: <a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a>,
+      <p>Kontakt ve věcech ochrany osobních údajů: <a href="mailto:simulace@bfksystems.cz">simulace@bfksystems.cz</a>,
       telefon <a href="tel:+420776111100">+420 776 111 100</a>. Pověřence pro ochranu osobních údajů
       jsme nejmenovali, protože nám tato povinnost ze zákona nevyplývá.</p>
 
@@ -1536,7 +1567,7 @@ STRANKY.append({
         <li>právo podat stížnost u Úřadu pro ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7,
         <a href="https://www.uoou.cz" target="_blank" rel="noopener">www.uoou.cz</a>.</li>
       </ul>
-      <p>Svá práva uplatníte na adrese <a href="mailto:info@bfksystems.cz">info@bfksystems.cz</a>.
+      <p>Svá práva uplatníte na adrese <a href="mailto:simulace@bfksystems.cz">simulace@bfksystems.cz</a>.
       Odpovíme nejpozději do jednoho měsíce.</p>
 
       <h2>7. Zabezpečení</h2>
@@ -1618,9 +1649,9 @@ ZDROJE = {
     "zkousky-na-miste.html": (AKTUALIZACE,
         P4 + ", kap. 9.5 a 12.4 · metodiky ověřování souladu B1 a B2 " + METODIKY + ", platné od "
         "1. 2. 2025"),
-    "proces-pripojeni.html": (AKTUALIZACE,
-        P4 + ", kap. 4.8 a 12.1 až 12.4 · metodiky ověřování souladu B1 a B2 " + METODIKY + ", platné "
-        "od 1. 2. 2025"),
+    "proces-pripojeni.html": ("16. 9. 2026",
+        P4 + ", kap. 4.8 a 12 až 12.4 · metodiky ověřování souladu B1 a B2 " + METODIKY + ", platné "
+        "od 1. 2. 2025 · ČEZ Distribuce, ověření souladu akumulace pro žádosti o UTP od 1. 2. 2026"),
 }
 
 # Stranky sluzeb dostanou JSON-LD Service.

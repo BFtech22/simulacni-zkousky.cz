@@ -130,6 +130,10 @@ def zkontroluj_stranku(cesta, jmena):
                 r'rel="(?:stylesheet|preconnect|preload|modulepreload|dns-prefetch|icon)"', znacka):
             chyba(jmeno, f"načítá externí zdroj {cil.group(1)} — fonty, styly a skripty hostujeme sami")
 
+    # kontaktni e-mail webu je simulace@ (info@ patri firemnimu webu BFK)
+    if "info@bfksystems.cz" in obsah:
+        chyba(jmeno, "kontaktní e-mail webu je simulace@bfksystems.cz, ne info@bfksystems.cz")
+
     # JSON-LD: validni JSON, FAQ shodne s viditelnym textem
     for blok in re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', obsah, re.S):
         try:
