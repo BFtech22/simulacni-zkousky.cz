@@ -1026,12 +1026,6 @@ STRANKY.append({
         ("Musí být u zkoušek distributor?",
          "<p>U části ano – například komunikaci s dispečinkem ověřuje distributor. Termín proto "
          "domlouváme s ním a s dostatečným předstihem.</p>"),
-        ("Co když zkouška neprojde?",
-         "<p>Upraví se nastavení střídačů nebo ochran a zkouška se zopakuje. Proto doporučujeme "
-         "udělat simulace dříve než zkoušky na místě.</p>"),
-        ("Kdo vystaví protokol o nastavení ochran?",
-         "<p>Můžeme ho vystavit po zkoušce ochran. Je to jeden z dokladů, které se přikládají "
-         "k žádosti o UPOS.</p>"),
         ("Zkouší se výrobna i po uvedení do trvalého provozu?",
          "<p>Ano. Spínače, ochrany a vybavení pro dálkové řízení se podle PPDS, přílohy 4 (kap. 12.4) "
          "funkčně přezkušují nejméně jednou za čtyři roky; distributor může přezkoušení požadovat i mimo "
