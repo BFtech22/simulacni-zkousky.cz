@@ -1,8 +1,4 @@
-# STAGING — web zatim nema byt v indexu vyhledavacu.
-# PRED SPUSTENIM: smaz nasledujici dva radky a odkomentuj sekci pod nimi.
 User-agent: *
-Disallow: /
+Allow: /
 
-# User-agent: *
-# Allow: /
-# Sitemap: https://www.simulacni-zkousky.cz/sitemap.xml
+Sitemap: https://www.simulacni-zkousky.cz/sitemap.xml

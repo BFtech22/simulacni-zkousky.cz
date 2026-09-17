@@ -23,7 +23,7 @@ v každém souboru (jako na webu BF technology) se neuhlídá, takže:
 python3 nastroje/build.py      # vygeneruje všechny .html + sitemap.xml
 python3 nastroje/kontrola.py   # odkazy, meta, JSON-LD, sitemap, zastaralé formulace, data aktualizace
 python3 nastroje/kontrola.py --externi    # navíc ověří externí odkazy (chodí na síť)
-python3 nastroje/kontrola.py --produkce   # před spuštěním: bez PLACEHOLDER, robots bez Disallow, CNAME
+python3 nastroje/kontrola.py --produkce   # před každým pushem: bez PLACEHOLDER, robots bez Disallow, CNAME
 ```
 
 `kontrola.py` má seznam `ZAKAZANE` — formulace, které se v minulých kolech oprav na web
@@ -53,8 +53,8 @@ Když upravíš vygenerovaný `.html` v kořeni, další build to přepíše.
 ├── podklady/               # interní rešerše (v .gitignore, nepublikuje se)
 ├── index.html … 404.html   # GENEROVANÉ, needitovat
 ├── sitemap.xml             # GENEROVANÁ buildem
-├── robots.txt              # ZATÍM ZAKAZUJE indexaci (staging), viz níže
-└── CNAME.disabled          # doména — záměrně neaktivní, viz níže
+├── robots.txt              # povoluje indexaci, odkazuje na sitemap
+└── CNAME                   # vlastní doména pro GitHub Pages, viz Provoz
 ```
 
 ## Loga
@@ -120,24 +120,31 @@ Každá stránka má drobečkovou navigaci (i jako JSON-LD `BreadcrumbList`),
 kanonickou URL a Open Graph. Stránky s akordeonem dotazů mají navíc JSON-LD
 `FAQPage`.
 
-## Před spuštěním je potřeba dořešit
+## Provoz (spuštěno 17. 9. 2026)
 
-1. **Klíč poptávkového formuláře.** V `nastroje/obsah.py` (proměnná `FORMULAR`)
-   je `access_key` s hodnotou `PLACEHOLDER-DOPLNIT-KLIC-WEB3FORMS` — formulář
-   zatím nic neodešle a `form.js` na to upozorní v konzoli. Doplň klíč
-   z web3forms.com registrovaný na `simulace@bfksystems.cz` (nebo formulář přepoj
-   na vlastní Cloudflare Worker jako na webu BF technology) a spusť build.
-2. **robots.txt** — teď zakazuje procházení celého webu. Před spuštěním přepnout
-   podle komentáře v souboru.
-3. **CNAME** — přejmenovat `CNAME.disabled` na `CNAME` až ve chvíli, kdy doména
-   `simulacni-zkousky.cz` míří na hosting. Dřív ne, jinak si GitHub Pages doménu
-   zabere a nepůjde použít jinde.
-4. **Zásady zpracování osobních údajů** — text v `obsah.py` popisuje zpracovatele
-   obecně („poskytovatel služby pro odeslání formuláře“). Až bude jasné, jaká
-   služba to je, doplnit jméno.
-5. **Věcné otevřené body** (co ještě nesmí na web, co je potřeba ověřit
+- **Hosting:** GitHub Pages z větve `main`, vlastní doména `www.simulacni-zkousky.cz`
+  (soubor `CNAME`), HTTPS vynucené. Holou doménu `simulacni-zkousky.cz` přesměrovává
+  GitHub na `www`, stejně jako starou adresu `bftech22.github.io/simulacni-zkousky.cz/`.
+  Doména je v účtu GitHubu ověřená (TXT záznam `_github-pages-challenge-BFtech22`),
+  takže ji nikdo jiný nemůže použít pro své stránky.
+- **DNS spravuje Webglobe:** čtyři záznamy `A` (185.199.108.153 až 185.199.111.153),
+  čtyři `AAAA` (2606:50c0:8000::153 až 2606:50c0:8003::153) a `CNAME www` → `bftech22.github.io`.
+  MX záznamy a zástupný záznam `*` zůstaly od Webglobe beze změny.
+- **Doména bez pomlčky `simulacnizkousky.cz`** jen přesměrovává na tenhle web — má
+  vlastní repozitář `BFtech22/simulacnizkousky.cz` a stejné DNS. Přesměrování přímo
+  od Webglobe se nepoužilo, protože bez hostingu funguje jen přes http.
+- **Formulář** odesílá přes Web3Forms (klíč v `FORMULAR` v `nastroje/obsah.py`)
+  na `simulace@bfksystems.cz`. Bezplatný tarif má 250 odeslání měsíčně a odeslané
+  poptávky maže po 3 letech, stejně jak to uvádějí zásady zpracování.
+- **`python3 nastroje/kontrola.py --produkce` musí projít před každým pushem.**
+  Změny jsou na webu zhruba do 10 minut (GitHub Pages posílá `max-age=600`).
+
+Otevřené zůstává:
+
+1. **Zásady zpracování osobních údajů** popisují zpracovatele formuláře obecně
+   („poskytovatel služby pro odeslání a doručení formuláře“), bez jména služby.
+2. **Věcné otevřené body** (co ještě nesmí na web, co je potřeba ověřit
    u distributorů, ceny) jsou v `POZNAMKY-INTERNI.md` — ten se do gitu nedává.
-6. **`python3 nastroje/kontrola.py --produkce` musí projít** — hlídá body 1–3.
 
 ## Poznámky k obsahu
 
