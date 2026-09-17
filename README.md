@@ -86,6 +86,12 @@ Místo se uvolňuje po krocích:
 | 1241–1400 px | k tomu dlouhé „Nezávazná poptávka" |
 | od 1400 px | navíc popisek „provozuje" před logem BFK |
 
+**Rozbalovací položky menu** (Kategorie, Distributoři, Služby) otevírá bez JavaScriptu CSS
+(`:hover`, `:focus-within`). Jakmile naběhne `assets/nav.js`, přidá na `<nav>` třídu `.js-menu`
+a viditelnost řídí už jen třída `.open`, kterou skript mění vždy spolu s `aria-expanded`.
+Dřív platilo obojí najednou a Escape menu nezavřel (17. 9. 2026 opraveno a ověřeno v Chromu
+klávesnicí, myší i dotykem).
+
 Pozor při ladění: `body` má `overflow-x: hidden`, takže **příliš široká hlavička
 nezpůsobí vodorovný posuvník** — jen se menu překryje s logem a pravá položka se
 ořízne. Kontroluje se to porovnáním šířky loga a menu proti šířce hlavičky, ne

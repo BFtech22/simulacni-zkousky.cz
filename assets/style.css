@@ -98,10 +98,11 @@
   nav.primary a.active::after { width: 100%; }
   .mobile-menu a.active { color: var(--orange-t); }
 
-  /* ----- Rozbalovaci polozka menu (Fotovoltaika) -----
-     Zamerne bez JS: otevira se na :hover a na :focus-within, takze to funguje
-     i pri prochazeni klavesnici. Na mobilu se cely blok rozpadne do plocheho
-     seznamu v .mobile-menu, kde zadny dropdown neni. */
+  /* ----- Rozbalovaci polozky menu (Kategorie, Distributori, Sluzby) -----
+     Bez JS se otviraji na :hover a :focus-within. Jakmile nabehne assets/nav.js,
+     prida na <nav> tridu .js-menu a viditelnost ridi uz jen trida .open, kterou
+     meni spolu s aria-expanded – jinak by Escape podmenu nezavrel. Na mobilu se
+     cely blok rozpadne do plocheho seznamu v .mobile-menu, kde zadny dropdown neni. */
   nav.primary .has-sub { position: relative; }
   nav.primary .sub-toggle {
     display: inline-flex; align-items: center; gap: 6px;
@@ -130,9 +131,8 @@
     transition: opacity .16s ease, transform .16s ease, visibility .16s;
     z-index: 60;
   }
-  /* .open nastavuje assets/nav.js — kvuli dotykovym zarizenim, kde hover neni. */
-  nav.primary .has-sub:hover .sub,
-  nav.primary .has-sub:focus-within .sub,
+  nav.primary:not(.js-menu) .has-sub:hover .sub,
+  nav.primary:not(.js-menu) .has-sub:focus-within .sub,
   nav.primary .has-sub.open .sub {
     opacity: 1; visibility: visible; transform: translateY(0);
   }

@@ -1,21 +1,37 @@
-// Rozbalovaci polozka v hlavnim menu ("Fotovoltaika").
+// Rozbalovaci polozky v hlavnim menu (Kategorie, Distributori, Sluzby).
 //
-// CSS uz otevira na :hover a :focus-within, takze bez JS je menu pouzitelne.
-// Tenhle skript resi to, co CSS neumi:
-//   - dotykova zarizeni, kde zadny hover neexistuje (klik otevre)
-//   - pravdivy stav aria-expanded pro odecitace obrazovky
-//   - zavreni Escapem a klikem mimo
+// Bez JS otevira podmenu CSS na :hover a :focus-within. Skript prida na <nav>
+// tridu .js-menu a od te chvile ridi viditelnost jen trida .open, kterou meni
+// vzdy spolu s aria-expanded. Driv menu otevirala trojice :hover, :focus-within
+// a .open najednou, takze Escape sice sundal .open a aria-expanded, ale podmenu
+// zustalo videt.
+//   - mys: najeti otevre, odjeti zavre; klik na tlacitko menu pripne
+//   - dotyk: klepnuti otevre a zavre (hover tam neni)
+//   - klavesnice: focus dovnitr otevre, odchod zavre; Escape zavre a vrati
+//     focus na tlacitko – menu pak zustane zavrene, dokud focus blok neopusti
+//     nebo se tlacitko nestiskne
+//   - klik mimo menu zavre vse
 (function dropdownMenu() {
-  const wraps = document.querySelectorAll('nav.primary .has-sub');
+  const nav = document.querySelector('nav.primary');
+  const wraps = nav ? [...nav.querySelectorAll('.has-sub')] : [];
   if (!wraps.length) return;
+  nav.classList.add('js-menu');
 
-  const zavriVse = (krome) => {
-    wraps.forEach((w) => {
-      if (w === krome) return;
-      w.classList.remove('open');
-      const b = w.querySelector('.sub-toggle');
-      if (b) b.setAttribute('aria-expanded', 'false');
-    });
+  // data-mys = otevreno najetim mysi (odjeti zavre)
+  // data-escape = zavreno Escapem (focus uvnitr menu znovu neotevre)
+  const nastav = (wrap, otevrit) => {
+    wrap.classList.toggle('open', otevrit);
+    const b = wrap.querySelector('.sub-toggle');
+    if (b) b.setAttribute('aria-expanded', otevrit ? 'true' : 'false');
+    if (!otevrit) delete wrap.dataset.mys;
+  };
+  const otevri = (wrap) => {
+    wraps.forEach((w) => { if (w !== wrap) nastav(w, false); });
+    nastav(wrap, true);
+  };
+  // Focus po kliknuti nebo klepnuti menu neotevira – to resi klik.
+  const zKlavesnice = (el) => {
+    try { return el.matches(':focus-visible'); } catch (e) { return true; }
   };
 
   wraps.forEach((wrap) => {
@@ -24,36 +40,50 @@
 
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
-      const otevreno = wrap.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', otevreno ? 'true' : 'false');
-      zavriVse(wrap);
+      delete wrap.dataset.escape;
+      if (wrap.dataset.mys) { delete wrap.dataset.mys; return; }
+      if (wrap.classList.contains('open')) nastav(wrap, false);
+      else otevri(wrap);
     });
 
-    // Prochazeni klavesnici — jakykoli focus dovnitr blok otevre, odchod zavre.
-    wrap.addEventListener('focusin', () => {
-      wrap.classList.add('open');
-      toggle.setAttribute('aria-expanded', 'true');
-      zavriVse(wrap);
+    wrap.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'mouse' || wrap.classList.contains('open')) return;
+      otevri(wrap);
+      wrap.dataset.mys = '1';
+    });
+    wrap.addEventListener('pointerleave', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      delete wrap.dataset.escape;
+      if (wrap.dataset.mys) nastav(wrap, false);
+    });
+
+    wrap.addEventListener('focusin', (e) => {
+      if (wrap.dataset.escape || !zKlavesnice(e.target)) return;
+      if (!wrap.classList.contains('open')) otevri(wrap);
+      delete wrap.dataset.mys;
     });
     wrap.addEventListener('focusout', (e) => {
       if (wrap.contains(e.relatedTarget)) return;
-      wrap.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
+      delete wrap.dataset.escape;
+      if (!wrap.dataset.mys) nastav(wrap, false);
     });
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
-    const otevreny = document.querySelector('nav.primary .has-sub.open');
+    const otevreny = wraps.find((w) => w.classList.contains('open'));
     if (!otevreny) return;
-    otevreny.classList.remove('open');
+    e.preventDefault();
     const b = otevreny.querySelector('.sub-toggle');
-    if (b) { b.setAttribute('aria-expanded', 'false'); b.focus(); }
+    const vratitFocus = otevreny.contains(document.activeElement);
+    otevreny.dataset.escape = '1';
+    nastav(otevreny, false);
+    if (b && vratitFocus) b.focus();
   });
 
   document.addEventListener('click', (e) => {
     if (e.target.closest('nav.primary .has-sub')) return;
-    zavriVse(null);
+    wraps.forEach((w) => nastav(w, false));
   });
 })();
 

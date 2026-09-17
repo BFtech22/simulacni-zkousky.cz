@@ -154,7 +154,7 @@ HERO = """<!-- HERO -->
 """
 
 STATISTIKY = ('<div class="stats-band">\n  <div class="container grid">\n'
-              '      <div><div class="num">až 36 MWp</div><div class="label">Rozsah zpracovaných FVE projektů</div></div>\n'
+              '      <div><div class="num">36 MWp</div><div class="label">Zpracovaný projekt FVE</div></div>\n'
               '      <div><div class="num">Desítky</div><div class="label">Protokolů ověření souladu</div></div>\n'
               '      <div><div class="num">3 distributoři</div><div class="label">ČEZ Distribuce · EG.D · PREdistribuce</div></div>\n'
               '  </div>\n</div>\n')
@@ -266,7 +266,8 @@ STRANKY.append({
              "Připravíme a podáme žádost o umožnění provozu pro ověření souladu. Distributor "
              "rozhodne do 30 dnů od doložení kompletních podkladů.", "Vyřídíme za vás"),
             ("Zkoušky a simulace",
-             "Provedeme je během dočasného provozu, který trvá nejdéle 12 měsíců.", "Naše práce"),
+             "Provedeme je během dočasného provozu. Ten trvá standardně nejdéle 12 měsíců, "
+             "<a href=\"proces-pripojeni.html#lhuty\">prodloužit ho lze jen za stanovených podmínek</a>.", "Naše práce"),
             ("Dokument výrobního modulu",
              "Výsledky shrneme do protokolů a Dokumentu výrobního modulu pro distributora.",
              "Naše práce"),
@@ -274,8 +275,8 @@ STRANKY.append({
              "Podáme žádost o umožnění trvalého provozu. Cílem je konečné provozní oznámení.",
              "Cíl"),
         ])
-        + cta("<b>Načasování rozhoduje.</b> Dočasný provoz je omezený na 12 měsíců a zkoušky "
-              "fotovoltaiky potřebují slunce. Čím dříve s ověřením souladu v harmonogramu počítáte, "
+        + cta("<b>Načasování rozhoduje.</b> Dočasný provoz je standardně omezený na 12 měsíců "
+              "a zkoušky fotovoltaiky potřebují slunce. Čím dříve s ověřením souladu v harmonogramu počítáte, "
               "tím menší je riziko zdržení uvedení výrobny do trvalého provozu.",
               "Probrat termín"),
         eyebrow="Postup", alt=True, kotva="postup",
@@ -457,7 +458,7 @@ STRANKY.append({
              "i simulací nebo certifikátem</b>.</p>",
     "stats": [("16 / 18", "Bodů (synchronní / nesynchronní)"),
               ("6", "Bodů jen zkouškou na místě"),
-              ("12 měsíců", "Nejdelší dočasný provoz")],
+              ("12 měsíců", "Standardní lhůta dočasného provozu")],
     "body": sekce(
         "Jedna metodika pro tři distributory",
         karty([
@@ -468,8 +469,9 @@ STRANKY.append({
              "<p>Nesynchronní moduly – fotovoltaika a bateriová úložiště – dokládají navíc "
              "<b>rychlý poruchový proud</b> a <b>přednost jalového výkonu před činným</b>.</p>"),
             (I["hodiny"], "Rok na dokončení",
-             "<p>Ověření se dokončuje v rámci dočasného provozu po UPOS. Ten platí nejdéle "
-             "<b>12 měsíců</b> podle harmonogramu, který se předkládá se žádostí.</p>"),
+             "<p>Ověření se dokončuje v rámci dočasného provozu po UPOS. Ten platí standardně nejdéle "
+             "<b>12 měsíců</b> podle harmonogramu, který se předkládá se žádostí. Prodloužit ho lze "
+             "jen při překážce, kterou nemůžete ovlivnit – podmínky popisuje <a href=\"proces-pripojeni.html#lhuty\">postup ověření</a>.</p>"),
             (I["info"], "Závady proces zastaví",
              "<p>Při špatně nastavených ochranách nebo nefunkčním opětovném připojení může distributor "
              "UPOS přerušit nebo ukončit a informuje o tom na místě, nebo písemně do 15 pracovních "
@@ -512,7 +514,9 @@ STRANKY.append({
          "<p>Ano – na šest zkoušek na místě. Zbytek se dokládá simulacemi, certifikáty a vyplněným "
          "Dokumentem výrobního modulu.</p>"),
         ("Jak dlouho ověření B1 trvá?",
-         "<p>Dočasný provoz platí nejdéle 12 měsíců podle předloženého harmonogramu. Reálný termín "
+         "<p>Dočasný provoz platí standardně nejdéle 12 měsíců podle předloženého harmonogramu. "
+         "Prodloužit ho lze jen při překážce, kterou nemůžete ovlivnit – podmínky popisuje "
+         "<a href=\"proces-pripojeni.html#lhuty\">postup ověření</a>. Reálný termín "
          "závisí hlavně na podkladech, koordinaci s dispečinkem a u fotovoltaiky na počasí.</p>"),
         ("Co když zkouška napoprvé neprojde?",
          "<p>Není to konec projektu. Typicky se upraví nastavení střídačů nebo ochran a domluví se nový "
@@ -533,7 +537,7 @@ STRANKY.append({
              "rozsah simulací</b> a předání modelů výrobny distributorovi.</p>",
     "stats": [("24 / 27", "Bodů (synchronní / nesynchronní)"),
               ("Modely", "Předávají se distributorovi"),
-              ("12 měsíců", "Nejdelší dočasný provoz")],
+              ("12 měsíců", "Standardní lhůta dočasného provozu")],
     "body": sekce(
         "Co se mění proti kategorii B1",
         karty([
@@ -555,9 +559,10 @@ STRANKY.append({
         eyebrow="Rozdíl",
     ) + sekce(
         "Riziko není technika, ale kalendář",
-        "<p class=\"lead\">Dočasný provoz trvá nejdéle 12 měsíců a v té době musí být hotové simulace, "
-        "zkoušky, protokoly i Dokument výrobního modulu. Když se model vrátí k přepracování, čas "
-        "ubývá rychle.</p>"
+        "<p class=\"lead\">Dočasný provoz trvá standardně nejdéle 12 měsíců a v té době musí být hotové "
+        "simulace, zkoušky, protokoly i Dokument výrobního modulu. Prodloužit ho lze jen při překážce, "
+        "kterou nemůžete ovlivnit – podmínky popisuje <a href=\"proces-pripojeni.html#lhuty\">postup ověření</a>. Když se model vrátí "
+        "k přepracování, čas ubývá rychle.</p>"
         + karty([
             (I["info"], "Proč distributor vrací simulace",
              "<p>Častým důvodem bývá nesoulad modelu se skutečnou konfigurací výrobny nebo neúplné "
@@ -625,8 +630,8 @@ STRANKY.append({
         ], sloupce=3),
         eyebrow="Rozsah", alt=True,
     ) + sekce(
-        "Máme to rozpracované",
-        '<p class="lead">Aktuálně zpracováváme fotovoltaickou elektrárnu o výkonu přibližně 30 MW '
+        "Zkušenost s kategorií D",
+        '<p class="lead">Zpracovali jsme fotovoltaickou elektrárnu 36 MWp (do sítě přibližně 30 MW) '
         'připojenou na hladině 110 kV – kategorie D, distribuční území EG.D.</p>'
         + cta("Chystáte projekt kategorie C nebo D? Ozvěte se co nejdříve, ideálně před podpisem "
               "smlouvy o připojení.", "Domluvit konzultaci"),
@@ -668,7 +673,7 @@ STRANKY.append({
              "dokumenty obdobně jako u kategorií A1 a A2, od 100 kW proces ověření souladu. Přesné "
              "zařazení vždy ověřujeme podle smlouvy o připojení a dokumentace distributora.</p>"),
             (I["hodiny"], "Obdobný postup",
-             "<p>Od 100 kW obdobně jako u výrobny: UPOS, dočasný provoz nejdéle 12 měsíců, zkoušky "
+             "<p>Od 100 kW obdobně jako u výrobny: UPOS, dočasný provoz standardně nejdéle 12 měsíců, zkoušky "
              "a simulace a žádost o UTP.</p>"),
             (I["sit"], "Rozšířená telemetrie a řízení",
              "<p>U úložišť s požadavkem na dispečerské řízení se přenáší také stav nabití a distributor "
@@ -901,7 +906,7 @@ STRANKY.append({
              "certifikát. <b>Simulací na modelu výrobny</b> se typicky dokládá odezva při změnách "
              "frekvence a napětí, chování při poruchových stavech a další požadavky podle kategorie "
              "výrobního modulu. Počítáme v prostředí DIgSILENT PowerFactory.</p>",
-    "stats": [("až 36 MWp", "Rozsah zpracovaných FVE projektů"),
+    "stats": [("36 MWp", "Zpracovaný projekt FVE"),
               ("Splněno / nesplněno", "Vyhodnocení u každého požadavku")],
     "body": sekce(
         "Co simulace ověřují",
@@ -1059,7 +1064,7 @@ STRANKY.append({
              "provozní oznámení).", "30 dnů"),
             ("Zkoušky a simulace",
              "Provádějí se během dočasného provozu, který trvá nejdéle 12 měsíců. Prodloužit ho lze "
-             "jen na žádost – viz lhůty níže.",
+             "jen na žádost – viz <a href=\"#lhuty\">lhůty níže</a>.",
              "Nejdéle 12 měsíců"),
             ("Dokument výrobního modulu",
              "Shrnuje výsledky zkoušek a simulací a dokládá distributorovi soulad výrobny.",
@@ -1124,7 +1129,7 @@ STRANKY.append({
                       "souladu B1 a B2."],
             min_sirka=600,
         ),
-        eyebrow="Lhůty",
+        eyebrow="Lhůty", kotva="lhuty",
     ) + sekce(
         "Dokument výrobního modulu",
         "<p class=\"lead\">Formulář distributora se seznamem všech požadavků a u každého s cestou, "
@@ -1257,7 +1262,7 @@ STRANKY.append({
 STRANKY.append({
     "slug": "reference.html", "nav": "reference",
     "title": "Reference – ověření souladu FVE projektů až do 36 MWp",
-    "desc": "Vybrané projekty ověření souladu: fotovoltaika ~30 MW na 110 kV kategorie D, FVE 698 kWp "
+    "desc": "Vybrané projekty ověření souladu: fotovoltaika 36 MWp na 110 kV kategorie D, FVE 698 kWp "
             "kategorie B1 a fotovoltaika s bateriovým úložištěm.",
     "eyebrow": "Co máme za sebou", "h1": "Reference",
     "claim": "Projekty uvádíme anonymizovaně – na přání investorů.",
@@ -1268,9 +1273,10 @@ STRANKY.append({
         "Vybrané projekty",
         karty([
             (I["tovarna"], "Fotovoltaika, kategorie D",
-             "<p><b>Výkon:</b> ~30 MW, připojení na 110 kV<br><b>Distributor:</b> EG.D<br>"
+             "<p><b>Výkon:</b> 36 MWp panelů, do sítě přibližně 30 MW, připojení na 110 kV<br>"
+             "<b>Distributor:</b> EG.D<br>"
              "<b>Předmět:</b> simulace souladu, model výrobny, dokumentace<br>"
-             "<b>Stav:</b> ve fázi ověřování souladu</p>"),
+             "<b>Stav:</b> zpracováno</p>"),
             (I["blesk"], "Fotovoltaika, kategorie B1",
              "<p><b>Výkon:</b> 698 kWp (P<sub>n</sub> 550 kW)<br><b>Distributor:</b> ČEZ Distribuce<br>"
              "<b>Předmět:</b> zkoušky na místě, protokoly, Dokument výrobního modulu</p>"),
@@ -1304,7 +1310,7 @@ FORMULAR = """<section class="contact-section" id="poptavka">
     <div class="contact-aside">
       <p class="eyebrow">Kontakt</p>
       <h2>Napište nám,<br>co řešíte.</h2>
-      <p>Ozveme se do dvou pracovních dnů. Pokud máte po ruce smlouvu o připojení a jednopólové schéma, přiložte je rovnou – ušetří to jedno kolečko otázek.</p>
+      <p>Ozveme se do dvou pracovních dnů. Smlouvu o připojení a jednopólové schéma nám zašlete e-mailem na simulace@bfksystems.cz – ušetří to jedno kolečko otázek.</p>
       <div class="quick">
         <a href="tel:+420776111100">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.35 1.79.68 2.64a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.44-1.25a2 2 0 0 1 2.11-.45c.85.33 1.74.56 2.64.68A2 2 0 0 1 22 16.92z"/></svg></span>
