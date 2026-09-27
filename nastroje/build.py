@@ -346,7 +346,8 @@ def stranka(p: dict) -> str:
 <title>{titulek}</title>
 <meta name="description" content="{html.escape(p["desc"], quote=True)}">
 <link rel="canonical" href="{url}">
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{ZNACKA} – {FIRMA}">

@@ -250,7 +250,10 @@ def main() -> int:
     produkce = "--produkce" in sys.argv
     externi = "--externi" in sys.argv
 
-    stranky = sorted(KOREN.glob("*.html"))
+    # ověřovací soubory Google Search Console nejsou stránky webu — musí zůstat
+    # přesně tak, jak je konzole vydala (holý řádek s kódem, bez hlavičky)
+    stranky = [p for p in sorted(KOREN.glob("*.html"))
+               if not p.name.startswith("google")]
     jmena = {p.name for p in stranky}
     obsahy = {p.name: zkontroluj_stranku(p, jmena) for p in stranky}
     zkontroluj_css()

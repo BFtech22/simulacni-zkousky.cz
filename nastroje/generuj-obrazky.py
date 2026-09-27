@@ -18,7 +18,8 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
-ASSETS = Path(__file__).resolve().parent.parent / "assets"
+KOREN = Path(__file__).resolve().parent.parent
+ASSETS = KOREN / "assets"
 
 ORANZOVA = (240, 138, 0, 255)
 
@@ -137,8 +138,20 @@ def favicon() -> None:
         r = n * 0.0575
         kresli.ellipse([n * x - r, n * y - r, n * x + r, n * y + r], fill=(255, 255, 255, 255))
 
-    for velikost, jmeno in ((180, "favicon.png"), (32, "favicon-32.png")):
+    # Google chce ctverec v nasobku 48 px (48, 96, 144, 192...) — 180 px,
+    # ktere si rika Apple, mu nestaci a ikonu ve vysledcich vyhledavani
+    # pak nezobrazi. Proto 192 px pro web a 180 px zvlast pro Apple.
+    for velikost, jmeno in (
+        (192, "favicon.png"),
+        (180, "apple-touch-icon.png"),
+        (32, "favicon-32.png"),
+    ):
         uloz(zmens(img, velikost), ASSETS / jmeno)
+
+    # zaloha pro Google i starsi prohlizece: /favicon.ico v korenu webu
+    cesta = KOREN / "favicon.ico"
+    zmens(img, 48).save(cesta, "ICO", sizes=[(16, 16), (32, 32), (48, 48)])
+    print(f"  {cesta.name}  ({cesta.stat().st_size // 1024} kB)")
 
 
 def fotky() -> None:
